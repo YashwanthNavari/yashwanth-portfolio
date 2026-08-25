@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Certifications", shortcut: "C", path: "certifications.html", icon: "workspace_premium", type: "Page" },
         { title: "Contact Me", shortcut: "M", path: "contact.html", icon: "mail", type: "Page" },
         { title: "View Resume", shortcut: "R", path: "resume.html", icon: "description", type: "Page" },
-        { title: "Download Resume PDF", shortcut: "", action: () => window.open('resume.pdf', '_blank'), icon: "download", type: "Action" }
+        { title: "Download Resume PDF", shortcut: "", action: () => window.open('/resumes/Navari-Yashwanth-Reddy-Resume-01.pdf', '_blank'), icon: "download", type: "Action" }
     ];
     
     let filteredCommands = [...commands];

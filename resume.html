@@ -1,351 +1,764 @@
 <!DOCTYPE html>
 <html class="light" lang="en">
+
 <head>
-    <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico?v=2" />
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=2" />
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=2" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=2" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Navari Yashwanth Reddy</title>
+    <meta name="google-site-verification" content="izvEmswiqnw8pYEeTfb3ymYcghIXFaeE9C5mf0ZobGM" />
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Resume | Navari Yashwanth Reddy</title>
+    <meta name="description" content="Explore the official resume of Navari Yashwanth Reddy. Full-Stack Developer, AI Enthusiast, and Data Science undergraduate with Government of India design patent innovations.">
+    <meta name="author" content="Navari Yashwanth Reddy">
+    <meta name="keywords" content="Navari Yashwanth Reddy, Resume, CV, Full Stack Developer, Data Science, AI Engineer, Portfolio">
+    <link rel="canonical" href="https://navariyashwanthreddy.vercel.app/resume.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://navariyashwanthreddy.vercel.app/resume.html" />
+    <meta property="og:title" content="Resume | Navari Yashwanth Reddy" />
+    <meta property="og:description" content="Explore the official resume of Navari Yashwanth Reddy. Full-Stack Developer, AI Enthusiast, and Data Science undergraduate." />
+    <meta property="og:image" content="https://navariyashwanthreddy.vercel.app/images/profile.jpeg" />
+    <meta property="og:site_name" content="Navari Yashwanth Reddy Portfolio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://navariyashwanthreddy.vercel.app/resume.html" />
+    <meta name="twitter:title" content="Resume | Navari Yashwanth Reddy" />
+    <meta name="twitter:description" content="Explore the official resume of Navari Yashwanth Reddy. Full-Stack Developer, AI Enthusiast, and Data Science undergraduate." />
+    <meta name="twitter:image" content="https://navariyashwanthreddy.vercel.app/images/profile.jpeg" />
+
     <!-- Professional Typography -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
     <!-- Global Framework -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link rel="stylesheet" href="css/premium-effects.css">
     <link rel="stylesheet" href="css/animations.css">
-    <script>
+    <script src="js/theme.js"></script>
+
+    <script id="tailwind-config">
         tailwind.config = {
-            darkMode: 'class',
+            darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        primary: '#2563eb',
-                        gold: '#b45309',
-                        navy: '#0f172a'
+                        "primary": "#2563eb",
+                        "secondary": "#10b981",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0b1120",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#131e36",
+                        "card-dark": "rgba(19, 30, 54, 0.75)",
+                        "card-light": "rgba(255, 255, 255, 0.85)"
                     },
                     fontFamily: {
                         "display": ["'Outfit'", "sans-serif"],
-                        "body": ["'Plus Jakarta Sans'", "sans-serif"],
-                        "sans": ["'Plus Jakarta Sans'", "sans-serif"]
-                    }
+                        "body": ["'Inter'", "sans-serif"],
+                        "sans": ["'Inter'", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "md": "0.75rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" }
                 }
             }
         }
     </script>
+
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
-        .resume-shadow { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
-        .page-header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
-        .dark .page-header { background: rgba(15, 23, 42, 0.8); border-color: #1e293b; }
-        
-        /* Precision Visual Elements */
-        .section-bar { width: 3px; height: 20px; border-radius: 4px; background: #b45309; }
-        .project-circle { width: 11px; height: 11px; border-radius: 50%; border: 3px solid #b45309; background: white; margin-left: -7px; margin-top: 5px; z-index: 10; }
-        .dark .project-circle { background: #1c2333; }
-        .project-tag { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 2px 10px; border-radius: 40px; background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
-        .dark .project-tag { background: #1e293b; color: #94a3b8; border-color: #334155; }
-        
-        .sidebar-title { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.35em; color: #b45309; border-bottom: 1.5px solid rgba(180, 83, 9, 0.15); padding-bottom: 8px; margin-bottom: 24px; }
-        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-display {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Ambient Glow Layer */
+        .bg-mesh-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .mesh-circle-1 {
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        .mesh-circle-2 {
+            position: absolute;
+            top: 40%;
+            right: 15%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+        }
+
+        /* Studio Viewer Styles */
+        .studio-viewer {
+            background: #090d16;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.04) 0px, transparent 50%);
+            box-shadow: 
+                0 0 0 1px rgba(255, 255, 255, 0.08),
+                0 25px 60px -15px rgba(0, 0, 0, 0.4),
+                0 10px 30px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Fullscreen Mode */
+        #resume-viewer-container.fullscreen-mode,
+        #resume-viewer-container:fullscreen {
+            position: fixed !important;
+            inset: 0 !important;
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: 100% !important;
+            margin: 0 !important;
+            border-radius: 0 !important;
+            z-index: 99999 !important;
+            border: none !important;
+        }
+
+        #resume-viewer-container.fullscreen-mode #resume-viewport,
+        #resume-viewer-container:fullscreen #resume-viewport {
+            height: calc(100vh - 64px) !important;
+            max-height: calc(100vh - 64px) !important;
+        }
+
+        /* Custom Viewer Scrollbars */
+        #resume-viewport::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        #resume-viewport::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.6);
+        }
+        #resume-viewport::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.25);
+            border-radius: 4px;
+        }
+        #resume-viewport::-webkit-scrollbar-thumb:hover {
+            background: rgba(148, 163, 184, 0.45);
+        }
+
+        /* Document Paper Elevation */
+        .paper-shadow {
+            box-shadow: 
+                0 0 0 1px rgba(0, 0, 0, 0.08),
+                0 20px 45px -10px rgba(0, 0, 0, 0.6),
+                0 10px 20px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Tooltip Utility */
+        .tooltip-wrap {
+            position: relative;
+        }
+        .tooltip-wrap::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: -32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(4px);
+            background: #0f172a;
+            color: #f1f5f9;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            padding: 4px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.15s ease, transform 0.15s ease;
+            pointer-events: none;
+            z-index: 60;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+        @media (hover: hover) {
+            .tooltip-wrap:hover::after {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+
+        /* Shimmer Animation */
+        @keyframes skeletonShimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .shimmer-pulse {
+            background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+            background-size: 200% 100%;
+            animation: skeletonShimmer 2s infinite ease-in-out;
+        }
+
         @media print {
             .no-print { display: none !important; }
-            body { background: white !important; }
-            .resume-container { box-shadow: none !important; border: none !important; width: 100% !important; margin: 0 !important; border-radius: 0 !important; height: auto !important; }
-            .resume-sidebar { background: #0f172a !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .page-header, footer { display: none !important; }
-            main { padding: 0 !important; margin: 0 !important; max-width: 100% !important; width: 100% !important; }
-        }
-        @media (max-width: 768px) {
-            .resume-container { flex-direction: column; }
-            .resume-sidebar { width: 100% !important; }
+            body { background: white !important; padding: 0 !important; }
+            #resume-viewer-container { box-shadow: none !important; border: none !important; background: white !important; }
+            #resume-viewport { overflow: visible !important; height: auto !important; }
         }
     </style>
+
+    <!-- Navigation & Common Engine Scripts -->
     <script src="js/nav.js"></script>
 </head>
-<body class="text-slate-900 bg-[#f1f5f9] dark:bg-slate-950 dark:text-slate-100 transition-colors duration-300">
 
-    <!-- Navigation Bar -->
-    <header class="page-header sticky top-0 z-50 border-b border-slate-200 px-6 py-4 flex justify-between items-center no-print">
-        <div class="flex items-center gap-3 text-slate-900 dark:text-white">
-            <div class="size-8 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm">
-                <img src="https://github.com/YashwanthNavari.png" alt="Yashwanth Navari" class="w-full h-full object-cover">
-            </div>
-            <span class="font-black text-lg tracking-tight">Yashwanth Navari</span>
-        </div>
-        <nav class="hidden md:flex gap-8 text-sm font-semibold text-slate-600 dark:text-slate-400">
-            <a href="index.html" class="hover:text-primary transition-colors">Home</a>
-            <a href="about.html" class="hover:text-primary transition-colors">About</a>
-            <a href="experience.html" class="hover:text-primary transition-colors">Experience</a>
-            <a href="projects.html" class="hover:text-primary transition-colors">Projects</a>
-            <a href="resume.html" class="text-primary font-black">Resume</a>
-        </nav>
-        <div class="flex items-center gap-4">
-            <button onclick="window.toggleTheme()" class="theme-toggle p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300">
-                <span class="material-symbols-outlined">dark_mode</span>
-            </button>
-            <button onclick="window.print()" class="bg-navy dark:bg-primary text-white px-5 py-2.5 rounded-xl font-bold flex items-center gap-2 hover:opacity-90 transition-all shadow-xl text-xs">
-                <span class="material-symbols-outlined text-[18px]">print</span>
-                Download PDF
-            </button>
-        </div>
-    </header>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-sans text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
 
-    <main class="max-w-6xl mx-auto py-12 px-6">
-        <!-- Professional Resume Document -->
-        <div id="resume-document" class="resume-container flex flex-col md:flex-row bg-white dark:bg-slate-900 rounded-2xl overflow-hidden resume-shadow border border-slate-200 dark:border-slate-800 transition-all duration-500">
-            <!-- SIDEBAR: Navy -->
-            <aside class="resume-sidebar w-full md:w-[32%] bg-[#0f172a] text-white p-10 space-y-12 shrink-0 transition-all duration-500 border-r border-[#1e293b]">
-                <div class="flex flex-col md:flex-row items-center md:items-end justify-between mb-8">
-                    <div>
-                        <h2 class="text-[34px] font-black leading-tight tracking-tighter mb-1 uppercase">Navari</h2>
-                        <h2 class="text-[34px] font-black leading-[0.8] tracking-tighter mb-5 uppercase">Yashwanth Reddy</h2>
-                    </div>
-                    <div class="mb-4 md:mb-5">
-                        <span class="bg-amber-500/10 border border-amber-500/30 text-amber-500 text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-[0_0_15px_rgba(245,158,11,0.1)]">
-                            <span class="material-symbols-outlined text-[14px]">workspace_premium</span>
-                            Design Patent Holder
+    <!-- Ambient Mesh Glow Background -->
+    <div class="bg-mesh-glow">
+        <div class="mesh-circle-1"></div>
+        <div class="mesh-circle-2"></div>
+    </div>
+
+    <!-- Main Page Container -->
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-10 flex flex-col gap-6 relative z-10">
+
+        <!-- 1. CAREER SNAPSHOT (Above PDF Viewer) -->
+        <section class="flex flex-col gap-6 pt-2 pb-4">
+            <!-- Header Title & Professional Positioning -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-4 border-b border-slate-200/60 dark:border-slate-800/80">
+                <div class="space-y-2">
+                    <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+                        <h1 class="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-slate-900 dark:text-white">
+                            Career Snapshot
+                        </h1>
+                        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/10 text-primary border border-primary/20">
+                            Resume Hub
+                        </span>
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-bold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-300/60 dark:border-slate-700/60">
+                            Updated 2026
                         </span>
                     </div>
+                    <!-- Positioning line -->
+                    <p class="text-sm sm:text-base font-bold text-primary dark:text-blue-400 font-display">
+                        Data Science Student • AI & ML Enthusiast • Full-Stack Developer
+                    </p>
+                    <!-- Supporting Summary -->
+                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-3xl">
+                        Data Science undergraduate focused on building intelligent, data-driven software systems. I combine Python, machine learning, AI, full-stack development, and modern software engineering to turn ideas into practical applications.
+                    </p>
                 </div>
-                <p class="text-[10px] font-black tracking-[0.45em] text-amber-500 uppercase opacity-90 text-center md:text-left">Technology · Data · Design</p>
 
-                <div class="space-y-12">
-                    <!-- Contact -->
-                    <section>
-                        <h3 class="sidebar-title">Contact</h3>
-                        <ul class="space-y-4 text-[12px] font-medium opacity-90">
-                            <li class="flex items-center gap-4"><span class="material-symbols-outlined text-amber-500 text-[18px]">call</span> +91 6303 236 366</li>
-                            <li class="flex items-center gap-4 underline underline-offset-4"><span class="material-symbols-outlined text-amber-500 text-[18px]">alternate_email</span> navariyashwanthreddy@gmail.com</li>
-                            <li class="flex items-center gap-4"><span class="material-symbols-outlined text-amber-500 text-[18px]">location_on</span> Hyderabad, India</li>
-                            <li class="flex items-center gap-4"><span class="material-symbols-outlined text-amber-500 text-[18px]">link</span> linkedin.com/in/navari-yashwanth-r</li>
-                            <li class="flex items-center gap-4"><span class="material-symbols-outlined text-amber-500 text-[18px]">terminal</span> github.com/YashwanthNavari</li>
-                            <li class="flex items-center gap-4 italic opacity-70"><span class="material-symbols-outlined text-amber-500 text-[18px]">open_in_new</span> Portfolio Website ↗</li>
-                        </ul>
-                    </section>
+                <!-- Future Multi-Version Selector (Dormant when 1 resume exists) -->
+                <div id="resume-version-selector-container" class="hidden shrink-0"></div>
+            </div>
 
-                    <!-- Skills -->
-                    <section>
-                        <h3 class="sidebar-title">Skills</h3>
-                        <div class="space-y-8">
-                            <div>
-                                <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-3">Technical</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Python</span>
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">SQL</span>
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">HTML</span>
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">CSS</span>
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Git</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-3">Data & Analysis</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Pandas</span>
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">NumPy</span>
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Matplotlib</span>
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Seaborn</span>
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Excel</span>
-                                </div>
-                            </div>
-                            <div>
-                                <p class="text-[9px] font-black text-slate-500 uppercase tracking-widest mb-3">BI & Design</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Power BI</span>
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Tableau</span>
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Figma</span>
-                                    <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded text-[10px] font-bold">Wireframing</span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Education -->
-                    <section>
-                        <h3 class="sidebar-title">Education</h3>
-                        <p class="font-black text-sm">B.Tech — Data Science</p>
-                        <p class="text-[11px] text-amber-500 font-bold opacity-90 leading-relaxed uppercase tracking-tighter">Woxsen University</p>
-                        <p class="text-[10px] text-slate-500 mt-1 font-medium">Hyderabad, India</p>
-                    </section>
-
-                    <!-- Certifications -->
-                    <section>
-                        <h3 class="sidebar-title">Certifications</h3>
-                        <div class="space-y-6">
-                            <div class="group">
-                                <p class="font-bold text-[11px] leading-tight mb-1">Java Programming: Solving Problems</p>
-                                <p class="text-[9px] text-slate-400 font-medium italic">Duke University · Apr 2025</p>
-                                <a href="#" class="text-[8px] text-amber-500 underline font-black uppercase tracking-tighter opacity-70 group-hover:opacity-100 transition-opacity">Verify ↗</a>
-                            </div>
-                            <div class="group">
-                                <p class="font-bold text-[11px] leading-tight mb-1">Data Structures Using Python</p>
-                                <p class="text-[9px] text-slate-400 font-medium italic">Packt · Mar 2025</p>
-                                <a href="#" class="text-[8px] text-amber-500 underline font-black uppercase tracking-tighter opacity-70 group-hover:opacity-100 transition-opacity">Verify ↗</a>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Strengths -->
-                    <section>
-                        <h3 class="sidebar-title">Strengths</h3>
-                        <ul class="space-y-2 text-[10px] font-medium opacity-90 pl-1 leading-relaxed">
-                            <li class="flex items-start gap-2">✔ <span>Structured analytical thinking</span></li>
-                            <li class="flex items-start gap-2">✔ <span>Fast learner across domains</span></li>
-                            <li class="flex items-start gap-2">✔ <span>Detail-oriented & thorough</span></li>
-                            <li class="flex items-start gap-2">✔ <span>Clear cross-team communicator</span></li>
-                        </ul>
-                    </section>
-                </div>
-            </aside>
-
-            <!-- MAIN BODY: White -->
-            <div class="main-content flex-1 p-10 md:p-14 space-y-12 bg-white dark:bg-slate-900 transition-colors">
-                
-                <!-- Intellectual Property (ELEVATED) -->
-                <section>
-                    <div class="flex items-center justify-between gap-4 mb-8">
-                        <div class="flex items-center gap-4">
-                            <div class="section-bar"></div>
-                            <h3 class="text-[11px] font-black uppercase tracking-[0.45em] text-slate-900 dark:text-white">Intellectual Property</h3>
-                        </div>
-                        <span class="bg-amber-600 dark:bg-amber-500/20 text-white dark:text-amber-500 text-[8px] font-black px-3 py-1 rounded shadow-lg uppercase tracking-widest">Priority Highlight</span>
+            <!-- Career Snapshot Metrics Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+                <!-- Metric 1: Projects Built -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/90 shadow-sm hover:border-primary/40 dark:hover:border-primary/40 transition-all group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="size-8 rounded-lg bg-blue-500/10 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[18px]">terminal</span>
+                        </span>
+                        <span class="text-2xl sm:text-3xl font-black font-display text-slate-900 dark:text-white group-hover:text-primary transition-colors">10+</span>
                     </div>
-                    <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
-                        <div class="project-circle absolute"></div>
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="font-black text-navy dark:text-white text-[20px]">IoT Connectivity Device Design Patent</h4>
+                    <p class="text-xs font-bold text-slate-700 dark:text-slate-200">Projects Built</p>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">AI, ML & Full-Stack</p>
+                </div>
+
+                <!-- Metric 2: AI / ML Focus -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/90 shadow-sm hover:border-emerald-500/40 dark:hover:border-emerald-500/40 transition-all group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="size-8 rounded-lg bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[18px]">psychology</span>
+                        </span>
+                        <span class="text-2xl sm:text-3xl font-black font-display text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">AI / ML</span>
+                    </div>
+                    <p class="text-xs font-bold text-slate-700 dark:text-slate-200">Core Specialization</p>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Vision, NLP & Models</p>
+                </div>
+
+                <!-- Metric 3: Design Patent -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/90 shadow-sm hover:border-amber-500/40 dark:hover:border-amber-500/40 transition-all group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="size-8 rounded-lg bg-amber-500/10 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[18px]">verified</span>
+                        </span>
+                        <span class="text-2xl sm:text-3xl font-black font-display text-slate-900 dark:text-white group-hover:text-amber-500 transition-colors">1</span>
+                    </div>
+                    <p class="text-xs font-bold text-slate-700 dark:text-slate-200">Govt. Design Patent</p>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">IoT Architecture</p>
+                </div>
+
+                <!-- Metric 4: Primary Language -->
+                <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200/80 dark:border-slate-800/90 shadow-sm hover:border-purple-500/40 dark:hover:border-purple-500/40 transition-all group">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="size-8 rounded-lg bg-purple-500/10 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-[18px]">code</span>
+                        </span>
+                        <span class="text-2xl sm:text-3xl font-black font-display text-slate-900 dark:text-white group-hover:text-purple-500 transition-colors">Python</span>
+                    </div>
+                    <p class="text-xs font-bold text-slate-700 dark:text-slate-200">Primary Language</p>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400">Data, ML & Backend</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. EXISTING PREMIUM PDF VIEWER COMPONENT (Preserved Exactly) -->
+        <section class="w-full flex-grow flex flex-col">
+            <div id="resume-viewer-container" class="studio-viewer relative w-full h-[720px] sm:h-[800px] md:h-[860px] lg:h-[900px] flex flex-col rounded-2xl md:rounded-3xl border border-slate-800/90 overflow-hidden shadow-2xl bg-[#080D18] transition-all duration-300">
+                
+                <!-- Refined Viewer Control Toolbar -->
+                <div id="viewer-toolbar" class="w-full bg-[#0B1220]/95 backdrop-blur-md border-b border-white/10 px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-2 sm:gap-4 shrink-0 select-none z-30">
+                    
+                    <!-- Left Section: Document Icon & Title -->
+                    <div class="flex items-center gap-2.5 min-w-0 shrink-0">
+                        <div class="size-8 sm:size-9 rounded-lg bg-blue-500/15 border border-blue-500/30 flex items-center justify-center text-blue-400 shrink-0 shadow-sm">
+                            <span class="material-symbols-outlined text-[19px] sm:text-[20px]">picture_as_pdf</span>
                         </div>
-                        <p class="text-[11.5px] font-black text-amber-700 dark:text-amber-500 mb-3 italic tracking-tight uppercase">Design No: 470097-001 · Issued Aug 19, 2025 (India)</p>
-                        <p class="text-[12.5px] text-slate-600 dark:text-slate-400 font-medium leading-[1.7] text-justify opacity-90">
-                            Successfully registered a design patent officially recognized under the Designs Act, 2000. Innovations focused on scalable architecture for machine-to-machine communication and energy-efficient data transmission. This is a globally verified and official intellectual property filing.
+                        <div class="flex items-center gap-2 min-w-0">
+                            <span id="viewer-doc-title" class="text-xs sm:text-sm font-bold text-slate-100 truncate max-w-[120px] sm:max-w-[200px] md:max-w-[280px]">
+                                Resume
+                            </span>
+                            <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-md bg-blue-500/20 text-blue-300 border border-blue-500/30 uppercase tracking-wider hidden xs:inline-block">
+                                PDF
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Center Section: Prominent Page Navigation (‹ 1 / 3 ›) -->
+                    <div class="flex items-center gap-1 bg-slate-900/90 border border-white/15 rounded-xl p-1 shadow-inner shrink-0">
+                        <button id="prev-page-btn" class="tooltip-wrap size-8 rounded-lg text-slate-200 hover:text-white hover:bg-slate-800 disabled:opacity-25 disabled:hover:bg-transparent transition-all flex items-center justify-center" data-tooltip="Previous Page (←)" aria-label="Previous Page">
+                            <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                        </button>
+                        <div class="px-3 py-0.5 text-xs sm:text-sm font-mono font-bold text-slate-100 flex items-center gap-1.5 whitespace-nowrap select-none">
+                            <span id="current-page-num" class="text-white text-sm">1</span>
+                            <span class="text-slate-500 font-normal text-xs">/</span>
+                            <span id="total-pages-num" class="text-slate-400 text-sm">3</span>
+                        </div>
+                        <button id="next-page-btn" class="tooltip-wrap size-8 rounded-lg text-slate-200 hover:text-white hover:bg-slate-800 disabled:opacity-25 disabled:hover:bg-transparent transition-all flex items-center justify-center" data-tooltip="Next Page (→)" aria-label="Next Page">
+                            <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                        </button>
+                    </div>
+
+                    <!-- Right Section: Zoom, Fit, Fullscreen, Download, Open -->
+                    <div class="flex items-center gap-1 sm:gap-1.5 shrink-0">
+                        
+                        <!-- Zoom Controls -->
+                        <div class="hidden sm:flex items-center bg-slate-900/90 border border-white/15 rounded-xl p-1">
+                            <button id="zoom-out-btn" class="tooltip-wrap size-8 rounded-lg text-slate-200 hover:text-white hover:bg-slate-800 transition-colors flex items-center justify-center" data-tooltip="Zoom Out (Ctrl -)" aria-label="Zoom Out">
+                                <span class="material-symbols-outlined text-[18px]">remove</span>
+                            </button>
+                            <span id="zoom-level-text" class="px-2 text-xs font-mono font-bold text-slate-200 min-w-[48px] text-center">
+                                100%
+                            </span>
+                            <button id="zoom-in-btn" class="tooltip-wrap size-8 rounded-lg text-slate-200 hover:text-white hover:bg-slate-800 transition-colors flex items-center justify-center" data-tooltip="Zoom In (Ctrl +)" aria-label="Zoom In">
+                                <span class="material-symbols-outlined text-[18px]">add</span>
+                            </button>
+                        </div>
+
+                        <!-- Fit to Viewer -->
+                        <button id="fit-width-btn" class="tooltip-wrap size-8 sm:size-9 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-white/15 text-slate-200 hover:text-white transition-colors flex items-center justify-center" data-tooltip="Fit to Viewer (Ctrl 0)" aria-label="Fit to Viewer">
+                            <span class="material-symbols-outlined text-[18px]">fit_screen</span>
+                        </button>
+
+                        <!-- Fullscreen Toggle -->
+                        <button id="fullscreen-btn" class="tooltip-wrap size-8 sm:size-9 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-white/15 text-slate-200 hover:text-white transition-colors flex items-center justify-center" data-tooltip="Fullscreen (F)" aria-label="Toggle Fullscreen">
+                            <span class="material-symbols-outlined text-[18px]">fullscreen</span>
+                        </button>
+
+                        <div class="h-5 w-px bg-white/10 mx-0.5 hidden sm:block"></div>
+
+                        <!-- Download Direct PDF -->
+                        <a id="download-pdf-btn" href="/resumes/Navari-Yashwanth-Reddy-Resume-01.pdf" download="Navari-Yashwanth-Reddy-Resume-01.pdf" class="tooltip-wrap size-8 sm:size-9 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-white/15 text-slate-200 hover:text-white transition-colors flex items-center justify-center" data-tooltip="Download PDF" aria-label="Download Resume PDF">
+                            <span class="material-symbols-outlined text-[18px]">download</span>
+                        </a>
+
+                        <!-- Open in New Tab -->
+                        <a id="open-tab-btn" href="/resumes/Navari-Yashwanth-Reddy-Resume-01.pdf" target="_blank" rel="noopener noreferrer" class="tooltip-wrap size-8 sm:size-9 rounded-xl bg-primary/25 hover:bg-primary/40 border border-primary/40 text-blue-300 hover:text-white transition-colors flex items-center justify-center" data-tooltip="Open in New Tab" aria-label="Open PDF in New Browser Tab">
+                            <span class="material-symbols-outlined text-[18px]">open_in_new</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Document Viewport Area (Fixed Height, Natural Continuous Scrolling) -->
+                <div id="resume-viewport" class="relative w-full flex-1 overflow-y-auto overflow-x-hidden p-3 sm:p-6 md:p-8 select-none bg-[#080D18]/90">
+                    
+                    <!-- Loading State Skeleton -->
+                    <div id="viewer-loading-state" class="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#080D18]/95 backdrop-blur-sm p-6">
+                        <div class="w-full max-w-[620px] aspect-[1/1.414] rounded-xl border border-white/10 shimmer-pulse flex flex-col items-center justify-center p-8 space-y-6 shadow-2xl">
+                            <div class="size-12 rounded-full border-2 border-primary/30 border-t-primary animate-spin"></div>
+                            <div class="text-center space-y-2">
+                                <p class="text-base font-bold text-white font-display">Loading resume...</p>
+                                <p class="text-xs text-slate-400 font-mono">Preparing high-definition document</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error State Fallback -->
+                    <div id="viewer-error-state" class="hidden absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#080D18]/95 backdrop-blur-md p-6">
+                        <div class="max-w-md w-full bg-slate-900 border border-slate-700/80 rounded-2xl p-8 text-center space-y-5 shadow-2xl">
+                            <div class="size-14 mx-auto rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
+                                <span class="material-symbols-outlined text-3xl">info</span>
+                            </div>
+                            <div class="space-y-2">
+                                <h3 class="text-lg font-bold text-white font-display">Unable to load resume</h3>
+                                <p class="text-xs text-slate-400 leading-relaxed">
+                                    Please try opening the document directly in a new browser tab or downloading the PDF.
+                                </p>
+                            </div>
+                            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                                <button id="error-retry-btn" class="w-full sm:w-auto px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-all border border-slate-700">
+                                    Retry
+                                </button>
+                                <button id="error-open-btn" class="w-full sm:w-auto px-5 py-2 rounded-xl bg-primary hover:bg-blue-600 text-white text-xs font-bold transition-all shadow-lg shadow-blue-500/25 flex items-center justify-center gap-1.5">
+                                    <span>Open PDF</span>
+                                    <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Continuous PDF Document Container -->
+                    <div id="pdf-pages-container" class="flex flex-col items-center w-full max-w-full m-auto transition-opacity duration-300 opacity-0 space-y-6 sm:space-y-8 pb-8">
+                        <!-- Dynamic page wrappers & canvases will be injected here -->
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. PROFESSIONAL HIGHLIGHTS -->
+        <section class="mt-8">
+            <div class="flex items-center gap-2 mb-6">
+                <span class="h-6 w-1.5 rounded-full bg-primary"></span>
+                <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Professional Highlights</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+                <!-- Card 1: Data Science -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:border-primary/50 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="size-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-2xl">analytics</span>
+                        </div>
+                        <h3 class="text-base font-bold font-display text-slate-900 dark:text-white mb-2">Data Science</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Data-driven problem solving, exploratory analysis, machine learning, and practical software applications.
                         </p>
                     </div>
-                </section>
+                </div>
 
-                <!-- Professional Summary -->
-                <section>
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="section-bar"></div>
-                        <h3 class="text-[11px] font-black uppercase tracking-[0.45em] text-slate-900 dark:text-white">Professional Summary</h3>
+                <!-- Card 2: Artificial Intelligence -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:border-emerald-500/50 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="size-10 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-2xl">psychology</span>
+                        </div>
+                        <h3 class="text-base font-bold font-display text-slate-900 dark:text-white mb-2">Artificial Intelligence</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Experience building AI-powered applications using machine learning, deep learning, computer vision, Python, TensorFlow, and OpenCV.
+                        </p>
                     </div>
-                    <p class="text-[13.5px] leading-[1.8] text-slate-600 dark:text-slate-400 text-justify font-medium">
-                        Motivated and versatile Data Science undergraduate with practical experience across software development, data analysis, UI/UX design, and operational system building. Comfortable contributing in any role — from writing clean code and analysing datasets to designing intuitive interfaces and coordinating workflows. Brings structured thinking, a fast learning curve, and genuine enthusiasm for delivering quality outcomes in any team or project environment.
-                    </p>
-                </section>
+                </div>
 
-                <!-- Projects & Work -->
-                <section>
-                    <div class="flex items-center gap-4 mb-12">
-                        <div class="section-bar"></div>
-                        <h3 class="text-[11px] font-black uppercase tracking-[0.45em] text-slate-900 dark:text-white">Projects & Work</h3>
+                <!-- Card 3: Full-Stack Engineering -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:border-purple-500/50 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="size-10 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-2xl">layers</span>
+                        </div>
+                        <h3 class="text-base font-bold font-display text-slate-900 dark:text-white mb-2">Full-Stack Engineering</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Building responsive applications and backend systems using React, TypeScript, Node.js, Python, Flask, REST APIs, and databases.
+                        </p>
                     </div>
+                </div>
 
-                    <div class="space-y-16">
-                        <!-- Project 1 -->
-                        <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
-                            <div class="project-circle absolute"></div>
-                            <div class="flex justify-between items-center mb-2">
-                                <h4 class="font-black text-navy dark:text-white text-[19px]">ML Object Detection System</h4>
-                                <span class="project-tag shrink-0">Python · ML · Visualisation</span>
-                            </div>
-                            <div class="flex items-center gap-2 mb-4">
-                                <p class="text-[11.5px] font-black text-amber-700 dark:text-amber-500 italic tracking-tight uppercase">End-to-end data pipeline · model output analysis</p>
-                                <span class="text-[9px] bg-emerald-500/10 text-emerald-600 px-2 py-0.5 rounded font-black border border-emerald-500/20 uppercase tracking-tighter">98.2% Accuracy Reached</span>
-                            </div>
-                            <ul class="list-disc list-outside ml-4 text-[13px] text-slate-600 dark:text-slate-400 space-y-3 font-medium opacity-90 leading-[1.6]">
-                                <li>Preprocessed and cleaned large image & label datasets to ensure training accuracy and data integrity.</li>
-                                <li>Conducted exploratory analysis on confidence scores to surface patterns, outliers, and model gaps.</li>
-                                <li>Built visual dashboards communicating accuracy trends to both technical and non-technical stakeholders.</li>
-                            </ul>
+                <!-- Card 4: Innovation -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:-translate-y-1 hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="size-10 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
+                            <span class="material-symbols-outlined text-2xl">lightbulb</span>
                         </div>
-
-                        <!-- Project 2 -->
-                        <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
-                            <div class="project-circle absolute"></div>
-                            <div class="flex justify-between items-center mb-2">
-                                <h4 class="font-black text-navy dark:text-white text-[19px]">Student Attendance Dashboard</h4>
-                                <span class="project-tag shrink-0">Excel · Power BI · Reporting</span>
-                            </div>
-                            <div class="flex items-center gap-2 mb-4">
-                                <p class="text-[11.5px] font-black text-amber-700 dark:text-amber-500 italic tracking-tight uppercase">Interactive reporting system · decision-making</p>
-                                <span class="text-[9px] bg-primary/10 text-primary px-2 py-0.5 rounded font-black border border-primary/20 uppercase tracking-tighter">Automated 1,000+ Daily Records</span>
-                            </div>
-                            <ul class="list-disc list-outside ml-4 text-[13px] text-slate-600 dark:text-slate-400 space-y-3 font-medium opacity-90 leading-[1.6]">
-                                <li>Collected and structured multi-source attendance data, resolving inconsistencies and null entries.</li>
-                                <li>Applied statistical analysis to identify absenteeism trends and peak absence windows.</li>
-                                <li>Designed daily, weekly, and cumulative dashboard views actively adopted by administration.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Project 3 -->
-                        <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
-                            <div class="project-circle absolute"></div>
-                            <div class="flex justify-between items-center mb-2">
-                                <h4 class="font-black text-navy dark:text-white text-[19px]">Smart Parking Booking System</h4>
-                                <span class="project-tag shrink-0">Python · SQL · UX Design</span>
-                            </div>
-                            <div class="flex items-center gap-2 mb-4">
-                                <p class="text-[11.5px] font-black text-amber-700 dark:text-amber-500 italic tracking-tight uppercase">Full-stack platform · real-time slot tracking</p>
-                                <span class="text-[9px] bg-secondary/10 text-secondary px-2 py-0.5 rounded font-black border border-secondary/20 uppercase tracking-tighter">Real-time DB Sync</span>
-                            </div>
-                            <ul class="list-disc list-outside ml-4 text-[13px] text-slate-600 dark:text-slate-400 space-y-3 font-medium opacity-90 leading-[1.6]">
-                                <li>Designed a normalised database schema to track bookings, slot usage, and peak-hour occupancy.</li>
-                                <li>Wrote optimised SQL queries to extract usage trends and generate concise operational reports.</li>
-                                <li>Built a user-facing interface applying UX principles to minimise friction and cognitive load.</li>
-                            </ul>
-                        </div>
-
-                        <!-- All other projects in continuous timeline -->
-                        <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
-                            <div class="project-circle absolute"></div>
-                            <div class="flex justify-between items-center mb-2">
-                                <h4 class="font-black text-navy dark:text-white text-[19px]">AgriSathi: Smart Farmer Assistant</h4>
-                                <span class="project-tag">IoT · Data Science</span>
-                            </div>
-                            <p class="text-[12.5px] text-slate-600 dark:text-slate-400 font-medium italic mb-2">Preprocessed soil, weather, and crop-yield datasets and translated findings into actionable insights for non-technical users.</p>
-                        </div>
-
-                        <div class="group relative pl-10 border-l-2 border-slate-100 dark:border-slate-800">
-                            <div class="project-circle absolute"></div>
-                            <div class="flex justify-between items-center mb-2">
-                                <h4 class="font-black text-navy dark:text-white text-[19px]">Shuttle Routing Optimisation</h4>
-                                <span class="project-tag">Modelling · Ops</span>
-                            </div>
-                            <p class="text-[12.5px] text-slate-600 dark:text-slate-400 font-medium italic">Modelled and compared route performance across multiple operational parameters to improve transit efficiency.</p>
-                        </div>
+                        <h3 class="text-base font-bold font-display text-slate-900 dark:text-white mb-2">Innovation</h3>
+                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Government of India Design Patent holder with experience developing technology-driven solutions across software and IoT.
+                        </p>
                     </div>
-                </section>
-
-                <!-- Additional Info -->
-                <section class="opacity-80 pt-10 border-t-2 border-slate-100 dark:border-slate-800">
-                    <div class="flex items-center gap-4 mb-6">
-                        <div class="section-bar"></div>
-                        <h3 class="text-[11px] font-black uppercase tracking-[0.45em] text-slate-900 dark:text-white">Additional Information</h3>
-                    </div>
-                    <p class="text-[13px] leading-[1.8] text-slate-600 dark:text-slate-400 font-medium italic text-justify bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
-                        Comfortable working independently or within cross-functional teams, in structured or fast-paced environments. Committed to delivering professional outcomes across <span class="text-amber-700 font-black">technology, data, design, and operations</span>. Continuously developing through hands-on experimentation.
-                    </p>
-                </section>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- 4. CORE EXPERTISE -->
+        <section class="mt-8">
+            <div class="flex items-center gap-2 mb-6">
+                <span class="h-6 w-1.5 rounded-full bg-primary"></span>
+                <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Core Expertise</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <!-- Group 1: Data Science & Analytics -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-primary/40 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="size-8 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-lg">database</span>
+                        </span>
+                        <h3 class="text-base font-bold font-display text-slate-900 dark:text-white">Data Science & Analytics</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Python</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Pandas</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">NumPy</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">EDA</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Data Analysis</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Machine Learning</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Data Visualization</span>
+                    </div>
+                </div>
+
+                <!-- Group 2: AI & Machine Learning -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-emerald-500/40 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="size-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-lg">smart_toy</span>
+                        </span>
+                        <h3 class="text-base font-bold font-display text-slate-900 dark:text-white">AI & Machine Learning</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Machine Learning</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Deep Learning</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">TensorFlow</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">OpenCV</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Computer Vision</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">CNN</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">AI Applications</span>
+                    </div>
+                </div>
+
+                <!-- Group 3: Full-Stack Development -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-purple-500/40 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="size-8 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-lg">web</span>
+                        </span>
+                        <h3 class="text-base font-bold font-display text-slate-900 dark:text-white">Full-Stack Development</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">React.js</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">TypeScript</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">JavaScript</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Node.js</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Express.js</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Flask</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">REST APIs</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">HTML & CSS</span>
+                    </div>
+                </div>
+
+                <!-- Group 4: Data & Software Engineering -->
+                <div class="p-6 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-amber-500/40 transition-colors">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="size-8 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-lg">settings_suggest</span>
+                        </span>
+                        <h3 class="text-base font-bold font-display text-slate-900 dark:text-white">Data & Software Engineering</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">PostgreSQL</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">MySQL</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">SQLite</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Git & GitHub</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Docker</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Software Engineering</span>
+                        <span class="px-3 py-1 text-xs font-semibold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60">Data Structures & Algorithms</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. DATA SCIENCE & ENGINEERING FOCUS -->
+        <section class="mt-8 p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-slate-900 to-[#0c1527] border border-slate-800 shadow-xl relative overflow-hidden text-white">
+            <div class="relative z-10 space-y-6">
+                <div class="flex items-center gap-2">
+                    <span class="h-6 w-1.5 rounded-full bg-blue-500"></span>
+                    <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Data Science & Engineering Focus</h2>
+                </div>
+                
+                <!-- Visual Pipeline Flow -->
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3 text-center">
+                    <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 flex flex-col items-center justify-center gap-1.5 shadow-inner">
+                        <span class="material-symbols-outlined text-blue-400 text-xl">dataset</span>
+                        <span class="text-xs font-bold text-slate-200">Data</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 flex flex-col items-center justify-center gap-1.5 shadow-inner">
+                        <span class="material-symbols-outlined text-emerald-400 text-xl">query_stats</span>
+                        <span class="text-xs font-bold text-slate-200">Analysis</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 flex flex-col items-center justify-center gap-1.5 shadow-inner">
+                        <span class="material-symbols-outlined text-purple-400 text-xl">memory</span>
+                        <span class="text-xs font-bold text-slate-200">Machine Learning</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 flex flex-col items-center justify-center gap-1.5 shadow-inner">
+                        <span class="material-symbols-outlined text-amber-400 text-xl">smart_toy</span>
+                        <span class="text-xs font-bold text-slate-200">Intelligent App</span>
+                    </div>
+                    <div class="col-span-2 sm:col-span-1 p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 flex flex-col items-center justify-center gap-1.5 shadow-inner">
+                        <span class="material-symbols-outlined text-cyan-400 text-xl">rocket_launch</span>
+                        <span class="text-xs font-bold text-slate-200">Production Software</span>
+                    </div>
+                </div>
+
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium max-w-3xl">
+                    My focus is on combining data science and software engineering to build practical intelligent applications — from data analysis and machine learning models to usable full-stack products.
+                </p>
+            </div>
+        </section>
+
+        <!-- 6. RECRUITER QUICK VIEW -->
+        <section class="mt-8">
+            <div class="flex items-center gap-2 mb-6">
+                <span class="h-6 w-1.5 rounded-full bg-primary"></span>
+                <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Recruiter Quick View</h2>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                <!-- Row 1: Primary Focus -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <span class="text-[11px] font-bold text-primary uppercase tracking-wider block mb-1">Primary Focus</span>
+                    <p class="text-sm font-bold text-slate-900 dark:text-white font-display">Data Science & Artificial Intelligence</p>
+                </div>
+
+                <!-- Row 2: Secondary Focus -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <span class="text-[11px] font-bold text-primary uppercase tracking-wider block mb-1">Secondary Focus</span>
+                    <p class="text-sm font-bold text-slate-900 dark:text-white font-display">Full-Stack Development & Software Engineering</p>
+                </div>
+
+                <!-- Row 3: Technical Foundation -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <span class="text-[11px] font-bold text-primary uppercase tracking-wider block mb-1">Technical Foundation</span>
+                    <p class="text-sm font-bold text-slate-900 dark:text-white font-display">Python • TypeScript • JavaScript • SQL</p>
+                </div>
+
+                <!-- Row 4: AI Stack -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider block mb-1">AI Stack</span>
+                    <p class="text-sm font-bold text-slate-900 dark:text-white font-display">Machine Learning • Deep Learning • TensorFlow • OpenCV</p>
+                </div>
+
+                <!-- Row 5: Development Stack -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <span class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider block mb-1">Development Stack</span>
+                    <p class="text-sm font-bold text-slate-900 dark:text-white font-display">React • Node.js • Flask • PostgreSQL • Docker</p>
+                </div>
+
+                <!-- Row 6: Education & University -->
+                <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <span class="text-[11px] font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider block mb-1">Education & University</span>
+                    <p class="text-sm font-bold text-slate-900 dark:text-white font-display">B.Tech. in Data Science • Woxsen University</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. SELECTED ACHIEVEMENT (Patent Highlight) -->
+        <section class="mt-8">
+            <div class="flex items-center gap-2 mb-6">
+                <span class="h-6 w-1.5 rounded-full bg-amber-500"></span>
+                <h2 class="text-2xl font-bold font-display text-slate-900 dark:text-white">Selected Achievement</h2>
+            </div>
+
+            <div class="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-white to-amber-500/5 dark:from-slate-900 dark:to-amber-950/20 border border-amber-500/30 shadow-md">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="space-y-2.5 max-w-3xl">
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
+                                Official Patent Granted
+                            </span>
+                            <span class="text-xs text-slate-500 dark:text-slate-400 font-mono font-medium">Intellectual Property Office, Govt. of India</span>
+                        </div>
+                        <h3 class="text-xl sm:text-2xl font-black font-display text-slate-900 dark:text-white">
+                            Government of India Design Patent
+                        </h3>
+                        <p class="text-xs sm:text-sm font-mono font-bold text-amber-700 dark:text-amber-400">
+                            IoT Connectivity Device • Patent No. 470097-001
+                        </p>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+                            Recognized with a Government of India Design Patent for an innovative IoT connectivity device designed to improve communication reliability between smart devices.
+                        </p>
+                    </div>
+
+                    <div class="shrink-0 flex items-center">
+                        <a href="images/certs/patent.jpg" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold shadow-lg shadow-amber-500/20 hover:-translate-y-0.5 transition-all">
+                            <span class="material-symbols-outlined text-base">workspace_premium</span>
+                            <span>View Patent Certificate</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. EXPLORE MY WORK -->
+        <section class="mt-8 mb-6 p-8 sm:p-10 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-xl text-center space-y-6">
+            <div class="max-w-2xl mx-auto space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-black font-display text-white">Explore My Work</h2>
+                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed font-medium">
+                    Explore the projects and software I have built across data science, artificial intelligence, and full-stack development.
+                </p>
+            </div>
+            
+            <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+                <a href="projects.html" class="px-6 py-3 rounded-xl bg-primary hover:bg-blue-600 text-white text-xs font-bold transition-all shadow-lg shadow-blue-500/25 flex items-center gap-2 hover:-translate-y-0.5">
+                    <span class="material-symbols-outlined text-base">folder_open</span>
+                    <span>View Projects</span>
+                </a>
+                <a href="https://github.com/YashwanthNavari" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 text-xs font-bold transition-all border border-slate-700 flex items-center gap-2 hover:-translate-y-0.5">
+                    <svg class="size-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <span>GitHub ↗</span>
+                </a>
+            </div>
+        </section>
+
     </main>
 
-    <footer class="py-12 text-center no-print text-slate-400 dark:text-slate-600 text-xs font-bold tracking-widest uppercase flex flex-col items-center gap-4">
+    <!-- Global Footer -->
+    <footer class="py-10 text-center no-print text-slate-500 dark:text-slate-500 text-xs font-semibold tracking-wider flex flex-col items-center gap-3 mt-auto">
         <div class="flex items-center gap-2 opacity-40">
-            <span class="w-12 h-px bg-slate-300"></span>
-            <span class="material-symbols-outlined text-[14px]">verified_user</span>
-            <span class="tracking-tighter">Digital Integrity Verified</span>
-            <span class="w-12 h-px bg-slate-300"></span>
+            <span class="w-12 h-px bg-slate-300 dark:bg-slate-700"></span>
+            <span class="material-symbols-outlined text-[14px]">description</span>
+            <span class="tracking-widest uppercase">Document Viewer</span>
+            <span class="w-12 h-px bg-slate-300 dark:bg-slate-700"></span>
         </div>
-        <span>© 2026 Navari Yashwanth Reddy · Precision Build v8.0-Pro</span>
+        <span>© 2026 Navari Yashwanth Reddy · All Rights Reserved</span>
     </footer>
 
-    <script src="js/premium-animations.js"></script>
-    <script src="js/theme.js"></script>
+    <!-- Mozilla PDF.js CDN (High performance vector rendering) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+    <!-- Embedded Resume Data Fallback -->
+    <script src="js/resume-data.js"></script>
+
+    <!-- Resume Document Viewer Engine -->
+    <script src="js/resume-viewer.js"></script>
+
+    <!-- Portfolio Global Engines -->
     <script src="js/palette.js"></script>
+    <script src="js/premium-animations.js"></script>
 </body>
+
 </html>

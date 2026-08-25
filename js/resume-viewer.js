@@ -1,0 +1,588 @@
+/**
+ * resume-viewer.js
+ * Premium Natural Continuous Scroll PDF Document Viewer Engine for Portfolio
+ * Powered by Mozilla PDF.js
+ */
+
+// ── Resume Collection Architecture ──────────────────────────────
+// Future resumes can simply be added to this array.
+// If length === 1, the version selector remains dormant.
+const resumeCollection = [
+    {
+        id: "resume-01",
+        title: "Resume",
+        fileName: "Navari-Yashwanth-Reddy-Resume-01.pdf",
+        file: "/resumes/Navari-Yashwanth-Reddy-Resume-01.pdf",
+        fallbackFile: "resumes/Navari-Yashwanth-Reddy-Resume-01.pdf",
+        version: "2026",
+        badge: "Latest",
+        description: "Full Stack Developer • AI Enthusiast • Data Science"
+    }
+];
+
+class ResumeViewer {
+    constructor() {
+        this.activeResumeIndex = 0;
+        this.pdfDoc = null;
+        this.currentPage = 1;
+        this.totalPages = 1;
+        this.zoomLevel = 1.0; // 1.0 = 100% (Fit to viewer width)
+        this.zoomSteps = [0.5, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0];
+        this.fitMode = 'viewer';
+        this.isFullscreen = false;
+        this.resizeDebounceTimer = null;
+        this.pdfBlobUrl = null;
+        this.pageObserver = null;
+        this.pageRatios = new Map();
+
+        // DOM Element references
+        this.container = document.getElementById('resume-viewer-container');
+        this.viewport = document.getElementById('resume-viewport');
+        this.pagesContainer = document.getElementById('pdf-pages-container');
+        
+        this.loadingOverlay = document.getElementById('viewer-loading-state');
+        this.errorOverlay = document.getElementById('viewer-error-state');
+        
+        // Toolbar DOM references
+        this.prevBtn = document.getElementById('prev-page-btn');
+        this.nextBtn = document.getElementById('next-page-btn');
+        this.pageCurrentEl = document.getElementById('current-page-num');
+        this.pageTotalEl = document.getElementById('total-pages-num');
+        this.zoomInBtn = document.getElementById('zoom-in-btn');
+        this.zoomOutBtn = document.getElementById('zoom-out-btn');
+        this.zoomLevelEl = document.getElementById('zoom-level-text');
+        this.fitBtn = document.getElementById('fit-width-btn');
+        this.fullscreenBtn = document.getElementById('fullscreen-btn');
+        this.downloadBtn = document.getElementById('download-pdf-btn');
+        this.openTabBtn = document.getElementById('open-tab-btn');
+        this.versionSelectorContainer = document.getElementById('resume-version-selector-container');
+        this.docTitleEl = document.getElementById('viewer-doc-title');
+
+        this.init();
+    }
+
+    async init() {
+        if (!this.container || !this.pagesContainer) {
+            console.error('Resume viewer elements missing in DOM.');
+            return;
+        }
+
+        // Configure PDF.js Worker if available
+        if (window.pdfjsLib) {
+            try {
+                window.pdfjsLib.GlobalWorkerOptions.workerSrc = 
+                    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+            } catch (e) {
+                console.warn('PDF.js worker setup fallback:', e);
+            }
+        } else {
+            console.error('PDF.js library not loaded.');
+            this.showError();
+            return;
+        }
+
+        // Setup UI event listeners & shortcuts
+        this.bindEvents();
+        this.setupKeyboardShortcuts();
+        this.renderVersionSelector();
+
+        // Load the initial active resume
+        await this.loadResume(this.activeResumeIndex);
+    }
+
+    getCurrentResume() {
+        return resumeCollection[this.activeResumeIndex] || resumeCollection[0];
+    }
+
+    renderVersionSelector() {
+        if (!this.versionSelectorContainer) return;
+
+        // If only 1 resume exists, keep selector completely dormant/hidden
+        if (resumeCollection.length <= 1) {
+            this.versionSelectorContainer.classList.add('hidden');
+            this.versionSelectorContainer.innerHTML = '';
+            return;
+        }
+
+        // If multiple versions exist, expose an elegant segmented selector
+        this.versionSelectorContainer.classList.remove('hidden');
+        this.versionSelectorContainer.innerHTML = `
+            <div class="flex items-center gap-1.5 bg-slate-800/80 p-1 rounded-xl border border-slate-700/60 shadow-inner">
+                ${resumeCollection.map((res, idx) => `
+                    <button 
+                        data-index="${idx}"
+                        class="version-select-btn px-3 py-1 text-xs font-bold rounded-lg transition-all ${
+                            idx === this.activeResumeIndex 
+                                ? 'bg-primary text-white shadow-md' 
+                                : 'text-slate-400 hover:text-white hover:bg-slate-700/50'
+                        }">
+                        ${res.version} Resume ${res.badge ? `<span class="ml-1 text-[9px] px-1 py-0.2 bg-emerald-500/20 text-emerald-400 rounded">${res.badge}</span>` : ''}
+                    </button>
+                `).join('')}
+            </div>
+        `;
+
+        this.versionSelectorContainer.querySelectorAll('.version-select-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const targetIdx = parseInt(e.currentTarget.getAttribute('data-index'), 10);
+                if (targetIdx !== this.activeResumeIndex) {
+                    this.loadResume(targetIdx);
+                }
+            });
+        });
+    }
+
+    base64ToUint8Array(base64) {
+        const raw = window.atob(base64);
+        const uint8Array = new Uint8Array(raw.length);
+        for (let i = 0; i < raw.length; i++) {
+            uint8Array[i] = raw.charCodeAt(i);
+        }
+        return uint8Array;
+    }
+
+    createBlobUrlFromBase64(base64) {
+        try {
+            const bytes = this.base64ToUint8Array(base64);
+            const blob = new Blob([bytes], { type: 'application/pdf' });
+            return URL.createObjectURL(blob);
+        } catch (e) {
+            console.warn('Blob creation failed:', e);
+            return null;
+        }
+    }
+
+    async loadResume(index) {
+        this.activeResumeIndex = index;
+        const currentResume = this.getCurrentResume();
+
+        if (this.docTitleEl) {
+            this.docTitleEl.textContent = currentResume.title || 'Resume';
+            this.docTitleEl.setAttribute('title', currentResume.title);
+        }
+
+        // Set target download & open links
+        let targetDownloadHref = currentResume.file;
+        let targetOpenHref = currentResume.file;
+
+        if (window.location.protocol === 'file:') {
+            targetDownloadHref = currentResume.fallbackFile || 'resumes/Navari-Yashwanth-Reddy-Resume-01.pdf';
+            targetOpenHref = targetDownloadHref;
+        }
+
+        if (this.downloadBtn) {
+            this.downloadBtn.setAttribute('href', targetDownloadHref);
+            this.downloadBtn.setAttribute('download', currentResume.fileName || 'Navari-Yashwanth-Reddy-Resume-01.pdf');
+        }
+
+        if (this.openTabBtn) {
+            this.openTabBtn.setAttribute('href', targetOpenHref);
+        }
+
+        this.showLoading();
+
+        try {
+            let loaded = false;
+
+            // Strategy 1: Embedded base64 data
+            if (window.RESUME_PDF_BASE64 && typeof window.RESUME_PDF_BASE64 === 'string') {
+                try {
+                    const pdfData = this.base64ToUint8Array(window.RESUME_PDF_BASE64);
+                    const loadingTask = window.pdfjsLib.getDocument({
+                        data: pdfData,
+                        cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+                        cMapPacked: true
+                    });
+                    this.pdfDoc = await loadingTask.promise;
+                    loaded = true;
+
+                    if (!this.pdfBlobUrl) {
+                        this.pdfBlobUrl = this.createBlobUrlFromBase64(window.RESUME_PDF_BASE64);
+                        if (this.pdfBlobUrl && window.location.protocol === 'file:') {
+                            if (this.downloadBtn) this.downloadBtn.setAttribute('href', this.pdfBlobUrl);
+                            if (this.openTabBtn) this.openTabBtn.setAttribute('href', this.pdfBlobUrl);
+                        }
+                    }
+                } catch (dataErr) {
+                    console.warn('Base64 loading fallback encountered issue, trying network paths...', dataErr);
+                }
+            }
+
+            // Strategy 2: Multi-URL cascading fetch
+            if (!loaded) {
+                const candidateUrls = [
+                    currentResume.file,
+                    currentResume.fallbackFile || 'resumes/' + (currentResume.fileName || 'Navari-Yashwanth-Reddy-Resume-01.pdf'),
+                    'public/resumes/' + (currentResume.fileName || 'Navari-Yashwanth-Reddy-Resume-01.pdf'),
+                    '/resumes/' + (currentResume.fileName || 'Navari-Yashwanth-Reddy-Resume-01.pdf'),
+                    'resumes/Navari-Yashwanth-Reddy-Resume-01.pdf',
+                    'resumes/Navariyashwanthreddy_resume.pdf'
+                ];
+
+                for (const url of candidateUrls) {
+                    if (!url) continue;
+                    try {
+                        const loadingTask = window.pdfjsLib.getDocument({
+                            url: url,
+                            cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
+                            cMapPacked: true
+                        });
+                        this.pdfDoc = await loadingTask.promise;
+                        loaded = true;
+                        break;
+                    } catch (err) {
+                        // Continue to next candidate
+                    }
+                }
+            }
+
+            if (!loaded || !this.pdfDoc) {
+                throw new Error('Unable to resolve PDF document from any source.');
+            }
+
+            this.totalPages = this.pdfDoc.numPages;
+            this.currentPage = 1;
+            this.fitMode = 'viewer';
+            this.zoomLevel = 1.0;
+
+            if (this.pageTotalEl) {
+                this.pageTotalEl.textContent = this.totalPages;
+            }
+
+            this.renderVersionSelector();
+            this.hideLoading();
+            await this.renderAllPages();
+
+        } catch (error) {
+            console.error('Error loading PDF document:', error);
+            this.showError();
+        }
+    }
+
+    async renderAllPages() {
+        if (!this.pdfDoc || !this.pagesContainer) return;
+
+        // Clear existing pages
+        this.pagesContainer.innerHTML = '';
+        this.pagesContainer.classList.add('opacity-0');
+        this.pageRatios.clear();
+
+        // Disconnect previous observer if existing
+        if (this.pageObserver) {
+            this.pageObserver.disconnect();
+        }
+
+        // Setup Intersection Observer to track which page is currently dominant during natural scrolling
+        this.pageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const pageNum = parseInt(entry.target.getAttribute('data-page-num'), 10);
+                if (entry.isIntersecting) {
+                    this.pageRatios.set(pageNum, entry.intersectionRatio);
+                } else {
+                    this.pageRatios.delete(pageNum);
+                }
+            });
+
+            // Find page with the highest visibility ratio
+            let maxRatio = 0;
+            let dominantPage = this.currentPage;
+
+            this.pageRatios.forEach((ratio, pageNum) => {
+                if (ratio > maxRatio) {
+                    maxRatio = ratio;
+                    dominantPage = pageNum;
+                }
+            });
+
+            if (dominantPage !== this.currentPage && maxRatio > 0.15) {
+                this.currentPage = dominantPage;
+                this.updateToolbarState();
+            }
+        }, {
+            root: this.viewport,
+            threshold: [0.1, 0.25, 0.5, 0.75, 0.9]
+        });
+
+        // Compute base scale using Page 1 as reference for Fit to Viewer width
+        const firstPage = await this.pdfDoc.getPage(1);
+        const unscaledViewport = firstPage.getViewport({ scale: 1.0 });
+        const containerWidth = this.viewport ? this.viewport.clientWidth : 900;
+        
+        const paddingX = window.innerWidth < 640 ? 12 : 28;
+        const availableWidth = Math.max(containerWidth - (paddingX * 2), 280);
+
+        const scaleByWidth = availableWidth / unscaledViewport.width;
+        
+        let baseScale;
+        if (this.fitMode === 'viewer') {
+            baseScale = Math.min(scaleByWidth, 1.85);
+        } else {
+            baseScale = (availableWidth / unscaledViewport.width) * this.zoomLevel;
+        }
+
+        const computedScale = baseScale * (this.fitMode === 'viewer' ? this.zoomLevel : 1.0);
+        const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+
+        // Render all PDF pages stacked continuously with natural gaps
+        for (let i = 1; i <= this.totalPages; i++) {
+            const page = await this.pdfDoc.getPage(i);
+            const viewport = page.getViewport({ scale: computedScale });
+
+            // Create wrapper for the page
+            const wrapper = document.createElement('div');
+            wrapper.className = 'pdf-page-wrapper paper-shadow rounded-sm overflow-hidden bg-white border border-slate-700/40 relative select-none';
+            wrapper.setAttribute('data-page-num', i);
+
+            // Create canvas
+            const canvas = document.createElement('canvas');
+            canvas.className = 'block max-w-full h-auto select-none';
+            canvas.width = Math.floor(viewport.width * dpr);
+            canvas.height = Math.floor(viewport.height * dpr);
+            canvas.style.width = `${Math.floor(viewport.width)}px`;
+            canvas.style.height = `${Math.floor(viewport.height)}px`;
+
+            wrapper.appendChild(canvas);
+            this.pagesContainer.appendChild(wrapper);
+
+            // Render content to canvas with high quality
+            const ctx = canvas.getContext('2d');
+            ctx.imageSmoothingEnabled = true;
+            ctx.imageSmoothingQuality = 'high';
+
+            const transform = dpr !== 1 ? [dpr, 0, 0, dpr, 0, 0] : null;
+
+            page.render({
+                canvasContext: ctx,
+                transform: transform,
+                viewport: viewport
+            });
+
+            // Observe the wrapper for scroll tracking
+            this.pageObserver.observe(wrapper);
+        }
+
+        this.updateToolbarState();
+
+        requestAnimationFrame(() => {
+            this.pagesContainer.classList.remove('opacity-0');
+        });
+    }
+
+    updateToolbarState() {
+        if (this.pageCurrentEl) this.pageCurrentEl.textContent = this.currentPage;
+        if (this.pageTotalEl) this.pageTotalEl.textContent = this.totalPages;
+
+        if (this.prevBtn) {
+            this.prevBtn.disabled = this.currentPage <= 1;
+            this.prevBtn.classList.toggle('opacity-25', this.currentPage <= 1);
+            this.prevBtn.classList.toggle('cursor-not-allowed', this.currentPage <= 1);
+        }
+
+        if (this.nextBtn) {
+            this.nextBtn.disabled = this.currentPage >= this.totalPages;
+            this.nextBtn.classList.toggle('opacity-25', this.currentPage >= this.totalPages);
+            this.nextBtn.classList.toggle('cursor-not-allowed', this.currentPage >= this.totalPages);
+        }
+
+        if (this.zoomLevelEl) {
+            this.zoomLevelEl.textContent = `${Math.round(this.zoomLevel * 100)}%`;
+        }
+
+        if (this.fitBtn) {
+            if (this.zoomLevel === 1.0 && this.fitMode === 'viewer') {
+                this.fitBtn.classList.add('text-primary', 'bg-slate-700/60');
+            } else {
+                this.fitBtn.classList.remove('text-primary', 'bg-slate-700/60');
+            }
+        }
+    }
+
+    goToPage(pageNum) {
+        if (pageNum < 1 || pageNum > this.totalPages) return;
+        
+        const targetWrapper = this.pagesContainer.querySelector(`[data-page-num="${pageNum}"]`);
+        if (targetWrapper && this.viewport) {
+            // Smoothly scroll the internal viewport to the target page
+            this.viewport.scrollTo({
+                top: targetWrapper.offsetTop - 20,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    prevPage() {
+        if (this.currentPage > 1) {
+            this.goToPage(this.currentPage - 1);
+        }
+    }
+
+    nextPage() {
+        if (this.currentPage < this.totalPages) {
+            this.goToPage(this.currentPage + 1);
+        }
+    }
+
+    zoomIn() {
+        const nextZoom = this.zoomSteps.find(step => step > this.zoomLevel + 0.05);
+        if (nextZoom) {
+            this.setZoom(nextZoom);
+        } else if (this.zoomLevel < 2.0) {
+            this.setZoom(2.0);
+        }
+    }
+
+    zoomOut() {
+        const prevZoom = [...this.zoomSteps].reverse().find(step => step < this.zoomLevel - 0.05);
+        if (prevZoom) {
+            this.setZoom(prevZoom);
+        } else if (this.zoomLevel > 0.5) {
+            this.setZoom(0.5);
+        }
+    }
+
+    resetZoom() {
+        this.fitMode = 'viewer';
+        this.zoomLevel = 1.0;
+        this.renderAllPages();
+    }
+
+    setZoom(level) {
+        this.zoomLevel = Math.max(0.5, Math.min(2.0, level));
+        this.fitMode = 'custom';
+        this.renderAllPages();
+    }
+
+    toggleFullscreen() {
+        if (!this.container) return;
+
+        if (!document.fullscreenElement) {
+            if (this.container.requestFullscreen) {
+                this.container.requestFullscreen().catch(err => {
+                    console.warn('Fullscreen request failed:', err);
+                });
+            } else if (this.container.webkitRequestFullscreen) {
+                this.container.webkitRequestFullscreen();
+            }
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            }
+        }
+    }
+
+    updateFullscreenState() {
+        this.isFullscreen = !!document.fullscreenElement;
+        
+        if (this.fullscreenBtn) {
+            const icon = this.fullscreenBtn.querySelector('.material-symbols-outlined');
+            if (icon) {
+                icon.textContent = this.isFullscreen ? 'fullscreen_exit' : 'fullscreen';
+            }
+            this.fullscreenBtn.setAttribute('title', this.isFullscreen ? 'Exit Fullscreen (Esc)' : 'Fullscreen (F)');
+        }
+
+        if (this.container) {
+            if (this.isFullscreen) {
+                this.container.classList.add('fullscreen-mode');
+            } else {
+                this.container.classList.remove('fullscreen-mode');
+            }
+        }
+
+        setTimeout(() => this.renderAllPages(), 120);
+    }
+
+    showLoading() {
+        if (this.loadingOverlay) this.loadingOverlay.classList.remove('hidden');
+        if (this.errorOverlay) this.errorOverlay.classList.add('hidden');
+        if (this.pagesContainer) {
+            this.pagesContainer.classList.add('opacity-0');
+        }
+    }
+
+    hideLoading() {
+        if (this.loadingOverlay) this.loadingOverlay.classList.add('hidden');
+    }
+
+    showError() {
+        if (this.loadingOverlay) this.loadingOverlay.classList.add('hidden');
+        if (this.errorOverlay) this.errorOverlay.classList.remove('hidden');
+        if (this.pagesContainer) this.pagesContainer.classList.add('opacity-0');
+        
+        const currentResume = this.getCurrentResume();
+        const fallbackBtn = document.getElementById('error-open-btn');
+        if (fallbackBtn) {
+            const targetUrl = window.location.protocol === 'file:' 
+                ? (currentResume.fallbackFile || 'resumes/Navari-Yashwanth-Reddy-Resume-01.pdf')
+                : currentResume.file;
+            fallbackBtn.onclick = () => window.open(targetUrl, '_blank');
+        }
+    }
+
+    bindEvents() {
+        // Explicit Previous / Next Page Navigation (Click only)
+        if (this.prevBtn) this.prevBtn.addEventListener('click', () => this.prevPage());
+        if (this.nextBtn) this.nextBtn.addEventListener('click', () => this.nextPage());
+
+        // Zoom Controls
+        if (this.zoomInBtn) this.zoomInBtn.addEventListener('click', () => this.zoomIn());
+        if (this.zoomOutBtn) this.zoomOutBtn.addEventListener('click', () => this.zoomOut());
+        if (this.fitBtn) this.fitBtn.addEventListener('click', () => this.resetZoom());
+
+        // Fullscreen
+        if (this.fullscreenBtn) this.fullscreenBtn.addEventListener('click', () => this.toggleFullscreen());
+        document.addEventListener('fullscreenchange', () => this.updateFullscreenState());
+        document.addEventListener('webkitfullscreenchange', () => this.updateFullscreenState());
+
+        // Responsive Resize Handler with Debounce
+        window.addEventListener('resize', () => {
+            clearTimeout(this.resizeDebounceTimer);
+            this.resizeDebounceTimer = setTimeout(() => {
+                this.renderAllPages();
+            }, 120);
+        });
+
+        // Error retry button
+        const retryBtn = document.getElementById('error-retry-btn');
+        if (retryBtn) {
+            retryBtn.addEventListener('click', () => {
+                this.loadResume(this.activeResumeIndex);
+            });
+        }
+    }
+
+    setupKeyboardShortcuts() {
+        document.addEventListener('keydown', (e) => {
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+
+            if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                e.preventDefault();
+                this.prevPage();
+            } else if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+                e.preventDefault();
+                this.nextPage();
+            } else if ((e.key === '+' || e.key === '=') && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                this.zoomIn();
+            } else if ((e.key === '-' || e.key === '_') && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                this.zoomOut();
+            } else if (e.key === '0' && (e.ctrlKey || e.metaKey)) {
+                e.preventDefault();
+                this.resetZoom();
+            } else if (e.key.toLowerCase() === 'f' && !e.ctrlKey && !e.metaKey) {
+                if (!window.getSelection().toString()) {
+                    e.preventDefault();
+                    this.toggleFullscreen();
+                }
+            }
+        });
+    }
+}
+
+// Instantiate viewer when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    window.resumeViewerInstance = new ResumeViewer();
+});
