@@ -1,14 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/resume", "destination": "/resume.html" },
-    { "source": "/projects", "destination": "/projects.html" },
-    { "source": "/skills", "destination": "/skills.html" },
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/experience", "destination": "/experience.html" },
-    { "source": "/certifications", "destination": "/certifications.html" },
-    { "source": "/contact", "destination": "/contact.html" },
-    { "source": "/blog", "destination": "/blog.html" }
-  ]
+  "trailingSlash": false
 }
