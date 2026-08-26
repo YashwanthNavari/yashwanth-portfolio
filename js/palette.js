@@ -44,9 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Experience & Timeline", shortcut: "E", path: "experience.html", icon: "work", type: "Page" },
         { title: "Skills & Tech Stack", shortcut: "S", path: "skills.html", icon: "psychology", type: "Page" },
         { title: "Certifications", shortcut: "C", path: "certifications.html", icon: "workspace_premium", type: "Page" },
-        { title: "Contact Me", shortcut: "M", path: "contact.html", icon: "mail", type: "Page" },
-        { title: "View Resume", shortcut: "R", path: "resume.html", icon: "description", type: "Page" },
-        { title: "Download Resume PDF", shortcut: "", action: () => window.open('/resumes/Navari-Yashwanth-Reddy-Resume-01.pdf', '_blank'), icon: "download", type: "Action" }
+        { title: "View Resume (Data Scientist)", shortcut: "R", path: "resume.html#datascience", icon: "analytics", type: "Page" },
+        { title: "View Resume (Full-Stack & AI)", shortcut: "", path: "resume.html#fullstack", icon: "terminal", type: "Page" },
+        { title: "Download Data Science Resume PDF", shortcut: "", action: () => window.open('resumes/data_science_resume.pdf', '_blank'), icon: "download", type: "Action" },
+        { title: "Download Full-Stack Resume PDF", shortcut: "", action: () => window.open('resumes/Navari-Yashwanth-Reddy-Resume-01.pdf', '_blank'), icon: "download", type: "Action" }
     ];
     
     let filteredCommands = [...commands];

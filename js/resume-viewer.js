@@ -5,18 +5,34 @@
  */
 
 // ── Resume Collection Architecture ──────────────────────────────
-// Future resumes can simply be added to this array.
-// If length === 1, the version selector remains dormant.
 const resumeCollection = [
     {
-        id: "resume-01",
-        title: "Resume",
+        id: "datascience",
+        title: "Data Scientist Resume",
+        fileName: "data_science_resume.pdf",
+        file: "/resumes/data_science_resume.pdf",
+        fallbackFile: "resumes/data_science_resume.pdf",
+        version: "Data Scientist",
+        shortLabel: "Data Scientist",
+        icon: "analytics",
+        badge: "Specialized",
+        role: "Data Scientist • AI & ML Engineer • Analytics",
+        description: "Specialized Data Science resume focusing on Machine Learning, Deep Learning, Statistical Analysis, Computer Vision, and AI-driven solutions.",
+        base64Key: "DATA_SCIENCE_RESUME_PDF_BASE64"
+    },
+    {
+        id: "fullstack",
+        title: "Full-Stack & Software Resume",
         fileName: "Navari-Yashwanth-Reddy-Resume-01.pdf",
         file: "/resumes/Navari-Yashwanth-Reddy-Resume-01.pdf",
         fallbackFile: "resumes/Navari-Yashwanth-Reddy-Resume-01.pdf",
-        version: "2026",
-        badge: "Latest",
-        description: "Full Stack Developer • AI Enthusiast • Data Science"
+        version: "Full-Stack & AI",
+        shortLabel: "Full-Stack & AI",
+        icon: "terminal",
+        badge: "Full-Stack",
+        role: "Full-Stack Developer • AI Enthusiast • Data Science",
+        description: "Comprehensive software engineering resume covering Full-Stack Development, React, Node.js, Python, Government of India Design Patent, and end-to-end engineering.",
+        base64Key: "RESUME_PDF_BASE64"
     }
 ];
 
@@ -81,6 +97,17 @@ class ResumeViewer {
             return;
         }
 
+        // Check hash or query param to pick initial resume
+        const hash = (window.location.hash || '').toLowerCase();
+        const urlParams = new URLSearchParams(window.location.search);
+        const typeParam = (urlParams.get('type') || urlParams.get('resume') || '').toLowerCase();
+
+        if (hash.includes('full') || hash.includes('general') || hash.includes('software') || typeParam.includes('full') || typeParam.includes('software')) {
+            this.activeResumeIndex = 1;
+        } else {
+            this.activeResumeIndex = 0;
+        }
+
         // Setup UI event listeners & shortcuts
         this.bindEvents();
         this.setupKeyboardShortcuts();
@@ -104,23 +131,62 @@ class ResumeViewer {
             return;
         }
 
-        // If multiple versions exist, expose an elegant segmented selector
+        // Elegant dedicated profile cards supporting dark and light themes
         this.versionSelectorContainer.classList.remove('hidden');
-        this.versionSelectorContainer.innerHTML = `
-            <div class="flex items-center gap-1.5 bg-slate-800/80 p-1 rounded-xl border border-slate-700/60 shadow-inner">
-                ${resumeCollection.map((res, idx) => `
-                    <button 
-                        data-index="${idx}"
-                        class="version-select-btn px-3 py-1 text-xs font-bold rounded-lg transition-all ${
-                            idx === this.activeResumeIndex 
-                                ? 'bg-primary text-white shadow-md' 
-                                : 'text-slate-400 hover:text-white hover:bg-slate-700/50'
-                        }">
-                        ${res.version} Resume ${res.badge ? `<span class="ml-1 text-[9px] px-1 py-0.2 bg-emerald-500/20 text-emerald-400 rounded">${res.badge}</span>` : ''}
-                    </button>
-                `).join('')}
-            </div>
-        `;
+        this.versionSelectorContainer.innerHTML = resumeCollection.map((res, idx) => {
+            const isActive = idx === this.activeResumeIndex;
+            const icon = res.icon || 'description';
+            const subtitle = idx === 0 
+                ? 'Machine Learning • Deep Learning • AI' 
+                : 'React • Node.js • Python • Patent';
+
+            return `
+                <button 
+                    data-index="${idx}"
+                    type="button"
+                    class="version-select-btn w-full text-left p-3.5 sm:p-4 rounded-2xl transition-all duration-200 flex items-center justify-between gap-3 border group cursor-pointer ${
+                        isActive 
+                            ? 'bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-blue-500/5 dark:from-blue-600/20 dark:via-indigo-600/20 dark:to-blue-500/10 border-primary dark:border-blue-500 shadow-md shadow-primary/10 ring-1 ring-primary/40 scale-[1.01]' 
+                            : 'bg-white dark:bg-slate-800/60 border-slate-200/80 dark:border-slate-700/60 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-600'
+                    }"
+                    aria-pressed="${isActive}"
+                    aria-label="Switch to ${res.version} Resume">
+                    <div class="flex items-center gap-3 min-w-0">
+                        <span class="size-10 rounded-xl ${
+                            isActive 
+                                ? 'bg-primary text-white shadow-md shadow-blue-500/25 ring-2 ring-primary/30' 
+                                : 'bg-slate-100 dark:bg-slate-700/80 text-slate-600 dark:text-slate-400 group-hover:bg-primary/10 group-hover:text-primary'
+                        } flex items-center justify-center shrink-0 transition-colors">
+                            <span class="material-symbols-outlined text-[20px]">${icon}</span>
+                        </span>
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="text-sm font-extrabold ${
+                                    isActive ? 'text-slate-900 dark:text-white font-display' : 'text-slate-700 dark:text-slate-300 group-hover:text-slate-950 dark:group-hover:text-white'
+                                }">
+                                    ${res.version}
+                                </span>
+                                ${res.badge ? `
+                                    <span class="text-[9px] font-black uppercase px-2 py-0.5 rounded-md tracking-wider ${
+                                        isActive 
+                                            ? 'bg-primary/15 text-primary dark:text-blue-300 border border-primary/30' 
+                                            : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'
+                                    }">${res.badge}</span>
+                                ` : ''}
+                            </div>
+                            <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight truncate">
+                                ${subtitle}
+                            </p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-[20px] shrink-0 transition-transform ${
+                        isActive ? 'text-primary dark:text-blue-400 scale-110' : 'text-slate-300 dark:text-slate-600 group-hover:text-slate-400'
+                    }">
+                        ${isActive ? 'check_circle' : 'radio_button_unchecked'}
+                    </span>
+                </button>
+            `;
+        }).join('');
 
         this.versionSelectorContainer.querySelectorAll('.version-select-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -161,33 +227,64 @@ class ResumeViewer {
             this.docTitleEl.setAttribute('title', currentResume.title);
         }
 
+        const docBadge = document.getElementById('viewer-doc-badge');
+        if (docBadge) {
+            docBadge.textContent = currentResume.version || 'PDF';
+        }
+
         // Set target download & open links
         let targetDownloadHref = currentResume.file;
         let targetOpenHref = currentResume.file;
 
         if (window.location.protocol === 'file:') {
-            targetDownloadHref = currentResume.fallbackFile || 'resumes/Navari-Yashwanth-Reddy-Resume-01.pdf';
+            targetDownloadHref = currentResume.fallbackFile || ('resumes/' + currentResume.fileName);
             targetOpenHref = targetDownloadHref;
         }
 
         if (this.downloadBtn) {
             this.downloadBtn.setAttribute('href', targetDownloadHref);
-            this.downloadBtn.setAttribute('download', currentResume.fileName || 'Navari-Yashwanth-Reddy-Resume-01.pdf');
+            this.downloadBtn.setAttribute('download', currentResume.fileName || 'resume.pdf');
+            this.downloadBtn.setAttribute('data-tooltip', `Download ${currentResume.version} PDF`);
         }
 
         if (this.openTabBtn) {
             this.openTabBtn.setAttribute('href', targetOpenHref);
+            this.openTabBtn.setAttribute('data-tooltip', `Open ${currentResume.version} in New Tab`);
         }
 
+        // Update Side Panel metadata & buttons
+        const sideDownloadBtn = document.getElementById('side-download-pdf-btn');
+        const sideOpenTabBtn = document.getElementById('side-open-tab-btn');
+        const sideDomainLabel = document.getElementById('active-profile-domain-label');
+
+        if (sideDownloadBtn) {
+            sideDownloadBtn.setAttribute('href', targetDownloadHref);
+            sideDownloadBtn.setAttribute('download', currentResume.fileName || 'resume.pdf');
+        }
+        if (sideOpenTabBtn) {
+            sideOpenTabBtn.setAttribute('href', targetOpenHref);
+        }
+        if (sideDomainLabel) {
+            sideDomainLabel.textContent = currentResume.version || 'Data Science';
+        }
+
+        // Update URL hash without reload
+        if (window.history && window.history.replaceState) {
+            const newHash = '#' + (currentResume.id || 'datascience');
+            window.history.replaceState(null, '', newHash);
+        }
+
+        this.renderVersionSelector();
         this.showLoading();
 
         try {
             let loaded = false;
 
-            // Strategy 1: Embedded base64 data
-            if (window.RESUME_PDF_BASE64 && typeof window.RESUME_PDF_BASE64 === 'string') {
+            // Strategy 1: Embedded base64 data if available for this resume
+            const resumeBase64 = currentResume.base64 || (currentResume.base64Key ? window[currentResume.base64Key] : null);
+            if (resumeBase64 && typeof resumeBase64 === 'string') {
                 try {
-                    const pdfData = this.base64ToUint8Array(window.RESUME_PDF_BASE64);
+                    const pdfData = this.base64ToUint8Array(resumeBase64);
                     const loadingTask = window.pdfjsLib.getDocument({
                         data: pdfData,
                         cMapUrl: 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/',
@@ -196,31 +293,30 @@ class ResumeViewer {
                     this.pdfDoc = await loadingTask.promise;
                     loaded = true;
 
-                    if (!this.pdfBlobUrl) {
-                        this.pdfBlobUrl = this.createBlobUrlFromBase64(window.RESUME_PDF_BASE64);
-                        if (this.pdfBlobUrl && window.location.protocol === 'file:') {
-                            if (this.downloadBtn) this.downloadBtn.setAttribute('href', this.pdfBlobUrl);
-                            if (this.openTabBtn) this.openTabBtn.setAttribute('href', this.pdfBlobUrl);
-                        }
+                    this.pdfBlobUrl = this.createBlobUrlFromBase64(resumeBase64);
+                    if (this.pdfBlobUrl && window.location.protocol === 'file:') {
+                        if (this.downloadBtn) this.downloadBtn.setAttribute('href', this.pdfBlobUrl);
+                        if (this.openTabBtn) this.openTabBtn.setAttribute('href', this.pdfBlobUrl);
+                        if (sideDownloadBtn) sideDownloadBtn.setAttribute('href', this.pdfBlobUrl);
+                        if (sideOpenTabBtn) sideOpenTabBtn.setAttribute('href', this.pdfBlobUrl);
                     }
                 } catch (dataErr) {
                     console.warn('Base64 loading fallback encountered issue, trying network paths...', dataErr);
                 }
             }
 
-            // Strategy 2: Multi-URL cascading fetch
+            // Strategy 2: Multi-URL cascading fetch for the active resume
             if (!loaded) {
                 const candidateUrls = [
                     currentResume.file,
-                    currentResume.fallbackFile || 'resumes/' + (currentResume.fileName || 'Navari-Yashwanth-Reddy-Resume-01.pdf'),
-                    'public/resumes/' + (currentResume.fileName || 'Navari-Yashwanth-Reddy-Resume-01.pdf'),
-                    '/resumes/' + (currentResume.fileName || 'Navari-Yashwanth-Reddy-Resume-01.pdf'),
-                    'resumes/Navari-Yashwanth-Reddy-Resume-01.pdf',
-                    'resumes/Navariyashwanthreddy_resume.pdf'
-                ];
+                    currentResume.fallbackFile,
+                    'resumes/' + currentResume.fileName,
+                    '/resumes/' + currentResume.fileName,
+                    './resumes/' + currentResume.fileName,
+                    'public/resumes/' + currentResume.fileName
+                ].filter(Boolean);
 
                 for (const url of candidateUrls) {
-                    if (!url) continue;
                     try {
                         const loadingTask = window.pdfjsLib.getDocument({
                             url: url,
@@ -515,7 +611,7 @@ class ResumeViewer {
         const fallbackBtn = document.getElementById('error-open-btn');
         if (fallbackBtn) {
             const targetUrl = window.location.protocol === 'file:' 
-                ? (currentResume.fallbackFile || 'resumes/Navari-Yashwanth-Reddy-Resume-01.pdf')
+                ? (this.pdfBlobUrl || currentResume.fallbackFile || ('resumes/' + currentResume.fileName))
                 : currentResume.file;
             fallbackBtn.onclick = () => window.open(targetUrl, '_blank');
         }
@@ -551,6 +647,18 @@ class ResumeViewer {
                 this.loadResume(this.activeResumeIndex);
             });
         }
+
+        // Hashchange listener for URL navigation
+        window.addEventListener('hashchange', () => {
+            const hash = (window.location.hash || '').toLowerCase();
+            let targetIdx = 0;
+            if (hash.includes('full') || hash.includes('general') || hash.includes('software')) {
+                targetIdx = 1;
+            }
+            if (targetIdx !== this.activeResumeIndex) {
+                this.loadResume(targetIdx);
+            }
+        });
     }
 
     setupKeyboardShortcuts() {
