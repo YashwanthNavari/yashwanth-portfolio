@@ -7,6 +7,21 @@
 // ── Resume Collection Architecture ──────────────────────────────
 const resumeCollection = [
     {
+        id: "aiml",
+        title: "AI / ML Engineer Resume",
+        fileName: "AI_ML_engineer.pdf",
+        file: "/resumes/AI_ML_engineer.pdf",
+        fallbackFile: "resumes/AI_ML_engineer.pdf",
+        version: "AI / ML Engineer",
+        shortLabel: "AI & ML",
+        icon: "psychology",
+        badge: "Specialized",
+        subtitle: "Machine Learning • Deep Learning • Neural Systems",
+        role: "AI & ML Engineer • Deep Learning • Computer Vision",
+        description: "Specialized AI & ML Engineer resume covering Machine Learning, Deep Learning, Generative AI, LLMs, Computer Vision, and Neural Systems.",
+        base64Key: "AI_ML_RESUME_PDF_BASE64"
+    },
+    {
         id: "datascience",
         title: "Data Scientist Resume",
         fileName: "data_science_resume.pdf",
@@ -15,7 +30,8 @@ const resumeCollection = [
         version: "Data Scientist",
         shortLabel: "Data Scientist",
         icon: "analytics",
-        badge: "Specialized",
+        badge: "Data Science",
+        subtitle: "Data Analytics • Statistical Modeling • Machine Learning",
         role: "Data Scientist • AI & ML Engineer • Analytics",
         description: "Specialized Data Science resume focusing on Machine Learning, Deep Learning, Statistical Analysis, Computer Vision, and AI-driven solutions.",
         base64Key: "DATA_SCIENCE_RESUME_PDF_BASE64"
@@ -27,9 +43,10 @@ const resumeCollection = [
         file: "/resumes/Navari-Yashwanth-Reddy-Resume-01.pdf",
         fallbackFile: "resumes/Navari-Yashwanth-Reddy-Resume-01.pdf",
         version: "Full-Stack & AI",
-        shortLabel: "Full-Stack & AI",
+        shortLabel: "Full-Stack",
         icon: "terminal",
         badge: "Full-Stack",
+        subtitle: "React • Node.js • Python • Design Patent",
         role: "Full-Stack Developer • AI Enthusiast • Data Science",
         description: "Comprehensive software engineering resume covering Full-Stack Development, React, Node.js, Python, Government of India Design Patent, and end-to-end engineering.",
         base64Key: "RESUME_PDF_BASE64"
@@ -103,9 +120,11 @@ class ResumeViewer {
         const typeParam = (urlParams.get('type') || urlParams.get('resume') || '').toLowerCase();
 
         if (hash.includes('full') || hash.includes('general') || hash.includes('software') || typeParam.includes('full') || typeParam.includes('software')) {
+            this.activeResumeIndex = 2;
+        } else if (hash.includes('data') || hash.includes('science') || typeParam.includes('data') || typeParam.includes('science')) {
             this.activeResumeIndex = 1;
         } else {
-            this.activeResumeIndex = 0;
+            this.activeResumeIndex = 0; // default to AI / ML Engineer
         }
 
         // Setup UI event listeners & shortcuts
@@ -136,9 +155,7 @@ class ResumeViewer {
         this.versionSelectorContainer.innerHTML = resumeCollection.map((res, idx) => {
             const isActive = idx === this.activeResumeIndex;
             const icon = res.icon || 'description';
-            const subtitle = idx === 0 
-                ? 'Machine Learning • Deep Learning • AI' 
-                : 'React • Node.js • Python • Patent';
+            const subtitle = res.subtitle || res.role || 'Software & AI Systems';
 
             return `
                 <button 
