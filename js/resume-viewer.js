@@ -37,6 +37,21 @@ const resumeCollection = [
         base64Key: "DATA_SCIENCE_RESUME_PDF_BASE64"
     },
     {
+        id: "software",
+        title: "Software Engineer Resume",
+        fileName: "Software_Engineer_resume.pdf",
+        file: "/resumes/Software_Engineer_resume.pdf",
+        fallbackFile: "resumes/Software_Engineer_resume.pdf",
+        version: "Software Engineer",
+        shortLabel: "Software Eng",
+        icon: "code",
+        badge: "Core SWE",
+        subtitle: "Backend Systems • Python • Algorithms • Architecture",
+        role: "Software Engineer • Backend Systems • Python",
+        description: "Core Software Engineering resume focusing on backend development, scalable architecture, algorithmic problem solving, and software design.",
+        base64Key: "SWE_RESUME_PDF_BASE64"
+    },
+    {
         id: "fullstack",
         title: "Full-Stack & Software Resume",
         fileName: "Navari-Yashwanth-Reddy-Resume-01.pdf",
@@ -119,7 +134,9 @@ class ResumeViewer {
         const urlParams = new URLSearchParams(window.location.search);
         const typeParam = (urlParams.get('type') || urlParams.get('resume') || '').toLowerCase();
 
-        if (hash.includes('full') || hash.includes('general') || hash.includes('software') || typeParam.includes('full') || typeParam.includes('software')) {
+        if (hash.includes('full') || typeParam.includes('full')) {
+            this.activeResumeIndex = 3;
+        } else if (hash.includes('swe') || hash.includes('software') || typeParam.includes('swe') || typeParam.includes('software')) {
             this.activeResumeIndex = 2;
         } else if (hash.includes('data') || hash.includes('science') || typeParam.includes('data') || typeParam.includes('science')) {
             this.activeResumeIndex = 1;
