@@ -472,6 +472,78 @@ class ResumeViewer {
             canvas.style.height = `${Math.floor(viewport.height)}px`;
 
             wrapper.appendChild(canvas);
+
+            // Construct and attach an ultra-premium executive professional footer to every resume page
+            const currentResume = this.getCurrentResume();
+            const pageFooter = document.createElement('div');
+            pageFooter.className = 'resume-page-footer w-full bg-gradient-to-r from-[#0a101f] via-[#0d162a] to-[#0a101f] text-slate-200 border-t border-slate-700/80 px-4 sm:px-6 py-3.5 select-text font-sans';
+            pageFooter.setAttribute('data-no-pdf-export', 'true');
+            pageFooter.innerHTML = `
+                <div class="flex flex-col gap-2.5 w-full">
+                    <!-- Top Section: Identity & Verification & Page Tag -->
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pb-2 border-b border-slate-700/60">
+                        <div class="flex items-center gap-3">
+                            <div class="size-7 sm:size-8 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white font-black font-display text-xs shadow-md shadow-blue-500/25 shrink-0">
+                                YR
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2 flex-wrap">
+                                    <span class="font-bold text-white text-xs sm:text-sm font-display tracking-tight">Navari Yashwanth Reddy</span>
+                                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                                        <span class="size-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Verified Profile
+                                    </span>
+                                </div>
+                                <p class="text-[10px] sm:text-[11px] text-slate-400 font-mono leading-none mt-0.5">
+                                    Data Scientist • AI/ML Engineer • Full Stack Developer
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-2 shrink-0 self-end sm:self-auto">
+                            <span class="px-2.5 py-1 rounded-lg bg-slate-800/90 border border-slate-700 text-slate-300 text-[10px] font-mono font-bold">
+                                Page ${i} of ${this.totalPages}
+                            </span>
+                            <span class="px-2 py-1 rounded-lg bg-blue-500/15 border border-blue-500/30 text-blue-300 text-[10px] font-bold uppercase tracking-wider hidden xs:inline-block">
+                                ${currentResume.version || 'Resume'}
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Section: Professional Links & Direct Contact -->
+                    <div class="flex flex-wrap items-center justify-between gap-y-2 gap-x-4 text-[11px]">
+                        <!-- Contact links with clear icons -->
+                        <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-slate-300">
+                            <a href="mailto:ekomotsu@gmail.com" class="inline-flex items-center gap-1.5 hover:text-blue-400 transition-colors group">
+                                <span class="material-symbols-outlined text-[15px] text-blue-400 group-hover:scale-110 transition-transform">mail</span>
+                                <span class="font-mono">ekomotsu@gmail.com</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/navari-yashwanth-reddy-4a7065357/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 hover:text-blue-400 transition-colors group">
+                                <svg class="size-3.5 fill-current text-blue-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.738-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://github.com/YashwanthNavari" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 hover:text-blue-400 transition-colors group">
+                                <svg class="size-3.5 fill-current text-slate-300 group-hover:text-blue-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://navariyashwanthreddy.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 hover:text-blue-400 transition-colors group">
+                                <span class="material-symbols-outlined text-[15px] text-cyan-400 group-hover:scale-110 transition-transform">language</span>
+                                <span>Portfolio</span>
+                            </a>
+                        </div>
+
+                        <!-- Credentials Pill -->
+                        <div class="flex items-center gap-2 text-slate-400 text-[10px] shrink-0">
+                            <span class="inline-flex items-center gap-1 text-amber-400 font-semibold" title="Government of India Design Patent">
+                                <span class="material-symbols-outlined text-[13px]">verified</span> Patent No. 470097-001
+                            </span>
+                            <span class="opacity-40">•</span>
+                            <span>📍 Hyderabad, India</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            wrapper.appendChild(pageFooter);
+
             this.pagesContainer.appendChild(wrapper);
 
             // Render content to canvas with high quality
