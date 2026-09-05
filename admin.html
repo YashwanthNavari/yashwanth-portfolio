@@ -54,52 +54,16 @@
 <body
     class="bg-background-light dark:bg-background-dark text-[#172554] dark:text-[#f1f5f9] font-display overflow-x-hidden transition-colors duration-300">
     <div class="max-w-3xl mx-auto px-6 py-10">
-        <header class="mb-10 flex justify-between items-center border-b border-gray-200 dark:border-gray-700 pb-6">
+        <div class="mb-10 flex justify-between items-center border-b border-gray-200 dark:border-gray-700 pb-6">
             <div>
                 <h1 class="text-3xl font-black text-[#172554] dark:text-white">Admin Dashboard</h1>
                 <p class="text-gray-500 dark:text-gray-400 mt-2">Upload new content to your portfolio.</p>
             </div>
             <div class="flex items-center gap-4">
-                <a href="index.html"
-                    class="hidden md:block text-sm font-medium text-primary hover:underline">Back to Home</a>
-                <div class="md:hidden text-[#172554] dark:text-white">
-                    <button id="mobile-menu-btn" class="p-2">
-                        <span class="material-symbols-outlined">menu</span>
-                    </button>
-                </div>
-            </div>
-        </header>
-
-        <!-- Mobile Navigation Menu (Hidden by default) -->
-        <div id="mobile-menu"
-            class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
-            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
-            <div
-                class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#0f172a] shadow-xl p-6 flex flex-col gap-6">
-                <div class="flex justify-end">
-                    <button onclick="toggleMobileMenu()" class="p-2 text-[#172554] dark:text-white">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </div>
-                <nav class="flex flex-col gap-4">
-                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
-                        href="index.html">Home</a>
-                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
-                        href="about.html">About</a>
-                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
-                        href="experience.html">Experience</a>
-                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
-                        href="projects.html">Projects</a>
-                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
-                        href="skills.html">Skills</a>
-                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
-                        href="certifications.html">Certifications</a>
-                    
-                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
-                        href="resume.html">Resume</a>
-                    <a class="text-lg font-medium text-[#172554] dark:text-white hover:text-primary transition-colors"
-                        href="contact.html">Contact</a>
-                </nav>
+                <a href="index.html" class="text-sm font-semibold text-primary hover:underline flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                    <span>Back to Site</span>
+                </a>
             </div>
         </div>
 

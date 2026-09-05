@@ -433,26 +433,38 @@ function initCountUp() {
 
 /**
  * Mobile Menu Toggle System
+ * Harmonized with universal executive navigation controller in nav.js
  */
 function initMobileMenu() {
+    // If universal nav is handling the menu, link into its toggle controller
+    if (typeof window.__navToggleMobileMenu === 'function') {
+        window.toggleMobileMenu = window.__navToggleMobileMenu;
+        return;
+    }
+
     const menuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    // Global function to be called from HTML onclicks
+    // Global fallback function
     window.toggleMobileMenu = function () {
+        if (typeof window.__navToggleMobileMenu === 'function') {
+            window.__navToggleMobileMenu();
+            return;
+        }
         if (!mobileMenu) return;
 
         const isClosed = mobileMenu.classList.contains('translate-x-full');
         if (isClosed) {
             mobileMenu.classList.remove('translate-x-full');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            document.body.style.overflow = 'hidden';
         } else {
             mobileMenu.classList.add('translate-x-full');
             document.body.style.overflow = '';
         }
     };
 
-    if (menuBtn) {
+    // Only attach listener if universal nav container is not present
+    if (!document.getElementById('main-nav-container') && menuBtn) {
         menuBtn.addEventListener('click', window.toggleMobileMenu);
     }
 }

@@ -63,87 +63,8 @@
 </head>
 
 <body
-    class="bg-background-light dark:bg-background-dark font-display text-[#111318] dark:text-white transition-colors duration-200">
+    class="bg-background-light dark:bg-background-dark font-display text-[#111318] dark:text-white transition-colors duration-200 overflow-x-hidden">
     <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
-        <header
-            class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#e5e7eb] dark:border-b-[#282e39] bg-white/80 dark:bg-[#111318]/90 backdrop-blur-md px-4 md:px-10 py-3">
-            <div class="flex items-center gap-4 text-[#111318] dark:text-white">
-                <div class="size-8 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm">
-                    <img src="https://github.com/YashwanthNavari.png" alt="Yashwanth Navari" class="w-full h-full object-cover">
-                </div>
-                <h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">Yashwanth Navari</h2>
-            </div>
-            <div class="hidden md:flex flex-1 justify-end gap-8">
-                <nav class="flex items-center gap-6">
-                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                        href="index.html">Home</a>
-                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                        href="about.html">About</a>
-                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                        href="experience.html">Experience</a>
-                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                        href="projects.html">Projects</a>
-                    <a class="text-sm font-medium leading-normal text-primary"
-                        href="skills.html">Skills</a>
-                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                        href="certifications.html">Certifications</a>
-                    
-                    
-                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                        href="resume.html">Resume</a>
-                    <a class="text-sm font-medium leading-normal hover:text-primary transition-colors"
-                        href="contact.html">Contact</a>
-                </nav>
-                <button onclick="window.toggleTheme()"
-                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111318] dark:text-white"
-                    aria-label="Toggle Dark Mode">
-                    <span class="material-symbols-outlined">dark_mode</span>
-                </button>
-            </div>
-            <div class="flex items-center gap-2 md:hidden">
-                <button onclick="window.toggleTheme()"
-                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111318] dark:text-white"
-                    aria-label="Toggle Dark Mode">
-                    <span class="material-symbols-outlined">dark_mode</span>
-                </button>
-                <button id="mobile-menu-btn" class="p-2 text-[#111318] dark:text-white">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
-            </div>
-        </header>
-
-        <!-- Mobile Navigation Menu (Hidden by default) -->
-        <div id="mobile-menu"
-            class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
-            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
-            <div
-                class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#111318] shadow-xl p-6 flex flex-col gap-6">
-                <div class="flex justify-end">
-                    <button onclick="toggleMobileMenu()" class="p-2 text-[#111318] dark:text-white">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </div>
-                <nav class="flex flex-col gap-4">
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="index.html">Home</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="about.html">About</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="experience.html">Experience</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="projects.html">Projects</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="skills.html">Skills</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="certifications.html">Certifications</a>
-                    
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="resume.html">Resume</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="contact.html">Contact</a>
-                </nav>
-            </div>
-        </div>
         <div class="layout-container flex h-full grow flex-col">
             <div class="flex flex-1 justify-center py-5 px-4 md:px-10 lg:px-40">
                 <div class="layout-content-container flex flex-col max-w-[1024px] flex-1">

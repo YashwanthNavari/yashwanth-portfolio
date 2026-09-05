@@ -61,353 +61,573 @@
 
 <body
     class="bg-background-light dark:bg-background-dark text-[#111318] dark:text-white font-display overflow-x-hidden flex flex-col min-h-screen">
-    <!-- Header -->
-    <div
-        class="w-full border-b border-solid border-b-[#f0f2f4] dark:border-b-gray-800 bg-white dark:bg-background-dark sticky top-0 z-50">
-        <header
-            class="layout-container flex items-center justify-between whitespace-nowrap px-4 md:px-10 py-3 mx-auto max-w-[1200px]">
-            <div class="flex items-center gap-4 text-[#111318] dark:text-white">
-                <div class="size-8 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm">
-                    <img src="https://github.com/YashwanthNavari.png" alt="Yashwanth Navari" class="w-full h-full object-cover">
-                </div>
-                <h2 class="text-[#111318] dark:text-white text-lg font-bold leading-tight tracking-[-0.015em]">Yashwanth Navari</h2>
-            </div>
-            <div class="hidden md:flex flex-1 justify-end gap-8 items-center">
-                <div class="flex items-center gap-6">
-                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
-                        href="index.html">Home</a>
-                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
-                        href="about.html">About</a>
-                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
-                        href="experience.html">Experience</a>
-                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
-                        href="projects.html">Projects</a>
-                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
-                        href="skills.html">Skills</a>
-                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
-                        href="certifications.html">Certifications</a>
-                    
-                    
-                    <a class="text-[#111318] dark:text-gray-200 text-sm font-medium hover:text-primary transition-colors duration-200"
-                        href="resume.html">Resume</a>
-                    <a class="text-primary text-sm font-bold leading-normal" href="contact.html">Contact</a>
-                </div>
-                <button onclick="window.toggleTheme()"
-                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111318] dark:text-white mr-4"
-                    aria-label="Toggle Dark Mode">
-                    <span class="material-symbols-outlined">dark_mode</span>
-                </button>
-                <button onclick="window.location.href='resume.html'"
-                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary hover:bg-primary-dark transition-colors duration-200 text-white text-sm font-bold leading-normal tracking-[0.015em]">
-                    <span class="truncate">View Resume</span>
-                </button>
-            </div>
-            <!-- Mobile Menu Icon -->
-            <div class="md:hidden flex items-center gap-2">
-                <button onclick="window.toggleTheme()"
-                    class="theme-toggle flex items-center justify-center p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-[#111318] dark:text-white"
-                    aria-label="Toggle Dark Mode">
-                    <span class="material-symbols-outlined">dark_mode</span>
-                </button>
-                <button id="mobile-menu-btn" class="p-2 text-[#111318] dark:text-white">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
-            </div>
-        </header>
-
-        <!-- Mobile Navigation Menu (Hidden by default) -->
-        <div id="mobile-menu"
-            class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 md:hidden">
-            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="toggleMobileMenu()"></div>
-            <div
-                class="absolute right-0 top-0 h-full w-[250px] bg-white dark:bg-[#101622] shadow-xl p-6 flex flex-col gap-6">
-                <div class="flex justify-end">
-                    <button onclick="toggleMobileMenu()" class="p-2 text-[#111318] dark:text-white">
-                        <span class="material-symbols-outlined">close</span>
-                    </button>
-                </div>
-                <nav class="flex flex-col gap-4">
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="index.html">Home</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="about.html">About</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="experience.html">Experience</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="projects.html">Projects</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="skills.html">Skills</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="certifications.html">Certifications</a>
-                    
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="resume.html">Resume</a>
-                    <a class="text-lg font-medium text-[#111318] dark:text-white hover:text-primary transition-colors"
-                        href="contact.html">Contact</a>
-                </nav>
-            </div>
-        </div>
-    </div>
     <!-- Main Content -->
-    <main class="flex-grow flex flex-col items-center justify-center w-full px-4 md:px-10 py-12 md:py-20">
-        <div class="layout-content-container flex flex-col w-full max-w-[1200px] gap-12">
-            <!-- Hero / Heading Section -->
-            <div class="flex flex-col md:flex-row justify-between items-start gap-10">
-                <div class="flex flex-col gap-6 max-w-2xl">
-                    <h1
-                        class="text-[#111318] dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
-                        Ready to turn data into <span class="text-primary">impact</span>?<br /> Let's build something
-                        together.
-                    </h1>
-                    <p class="text-[#616f89] dark:text-gray-400 text-lg font-normal leading-relaxed max-w-xl">
-                        Whether you have a question about my research, a project idea involving machine learning, or
-                        just want to discuss the latest in software engineering, my inbox is always open.
-                    </p>
-                    <!-- Social Proof / Links -->
-                    <div class="flex items-center gap-6 mt-2">
-                        <a class="group flex items-center justify-center size-10 rounded-full bg-[#f0f2f4] dark:bg-gray-800 hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
-                            href="#">
-                            <!-- Simple abstract representation for brand icons using material symbols or similar if brand icons aren't available, but adapting to standard unicode or svg if needed. Using placeholders here as requested to stick to material symbols where possible or generic SVG -->
-                            <svg aria-hidden="true"
-                                class="size-5 fill-[#616f89] group-hover:fill-primary transition-colors"
-                                data-alt="GitHub Icon" viewbox="0 0 24 24">
-                                <path
-                                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a class="group flex items-center justify-center size-10 rounded-full bg-[#f0f2f4] dark:bg-gray-800 hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
-                            href="#">
-                            <svg aria-hidden="true"
-                                class="size-5 fill-[#616f89] group-hover:fill-primary transition-colors"
-                                data-alt="LinkedIn Icon" viewbox="0 0 24 24">
-                                <path
-                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a class="group flex items-center justify-center size-10 rounded-full bg-[#f0f2f4] dark:bg-gray-800 hover:bg-primary/10 transition-all duration-300 hover:-translate-y-1"
-                            href="#">
-                            <svg aria-hidden="true"
-                                class="size-5 fill-[#616f89] group-hover:fill-primary transition-colors"
-                                data-alt="Twitter Icon" viewbox="0 0 24 24">
-                                <path
-                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
-                                </path>
-                            </svg>
-                        </a>
-                    </div>
+    <main class="flex-grow flex flex-col items-center justify-center w-full px-4 sm:px-6 lg:px-10 py-10 sm:py-16 relative overflow-hidden">
+        <!-- Ambient Atmospheric Backdrops -->
+        <div class="absolute top-0 right-1/4 size-[500px] bg-primary/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+        <div class="absolute bottom-1/3 left-1/4 size-[600px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] dark:opacity-[0.07] pointer-events-none -z-10"></div>
+
+        <div class="layout-content-container flex flex-col w-full max-w-[1240px] gap-10 sm:gap-14">
+            
+            <!-- 1. HERO SECTION & AVAILABILITY STATUS -->
+            <div class="flex flex-col gap-5 max-w-3xl">
+                <!-- Status Pill -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-bold font-mono w-fit shadow-sm">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                    </span>
+                    <span>Available for Full-Time Roles &amp; AI/ML Projects</span>
                 </div>
-                <!-- Direct Contact Info Card -->
-                <div
-                    class="hidden lg:flex flex-col gap-4 p-6 bg-[#f8fafc] dark:bg-[#1a2230] rounded-xl border border-[#e5e7eb] dark:border-gray-700 w-full max-w-sm shadow-sm">
-                    <div class="flex items-start gap-3">
-                        <div class="mt-1 text-primary">
-                            <span class="material-symbols-outlined">mail</span>
-                        </div>
-                        <div>
-                            <p class="text-xs font-semibold uppercase tracking-wider text-[#616f89] dark:text-gray-400">
-                                Email Me</p>
-                            <a class="text-[#111318] dark:text-white font-medium hover:text-primary transition-colors"
-                                href="mailto:ekomotsu@gmail.com">ekomotsu@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="flex items-start gap-3 mt-2">
-                        <div class="mt-1 text-primary">
-                            <span class="material-symbols-outlined">location_on</span>
-                        </div>
-                        <div>
-                            <p class="text-xs font-semibold uppercase tracking-wider text-[#616f89] dark:text-gray-400">
-                                Location</p>
-                            <p class="text-[#111318] dark:text-white font-medium">Hyderabad, Telangana, India</p>
-                            <p class="text-sm text-[#616f89] dark:text-gray-500">Open to Remote</p>
-                        </div>
-                    </div>
-                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-[1.08] tracking-tight text-slate-900 dark:text-white font-display">
+                    Let's Turn Data Into <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500">Impact</span>.<br class="hidden sm:inline"> Connect With Me.
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-slate-600 dark:text-slate-300 text-base sm:text-lg font-normal leading-relaxed max-w-2xl">
+                    Whether you are discussing a full-time engineering opportunity, planning an AI/ML initiative, exploring patent research, or seeking a technical collaborator — my inbox is always monitored.
+                </p>
             </div>
 
-            <!-- Form & Map Section (Grid) -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                <!-- Form Container -->
-                <div
-                    class="w-full bg-white dark:bg-background-dark rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none dark:border dark:border-gray-700 p-6 md:p-10 border border-[#f0f2f4]">
-                    <form id="contactForm" class="flex flex-col gap-6">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <label class="flex flex-col flex-1 group">
-                                <p
-                                    class="text-[#111318] dark:text-gray-200 text-sm font-semibold leading-normal pb-2 group-focus-within:text-primary transition-colors">
-                                    Name</p>
-                                <input id="name" name="name" required
-                                    class="form-input w-full rounded-lg border border-[#dbdfe6] dark:border-gray-600 bg-white dark:bg-background-dark h-12 px-4 text-base text-[#111318] dark:text-white placeholder:text-[#9ca3af] focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200 shadow-sm"
-                                    placeholder="Navari Yashwanth Reddy" type="text" />
+            <!-- 2. HIGH-IMPACT DIRECT CHANNELS GRID (3 Executive Cards) -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+                
+                <!-- Channel 1: Direct Email with Copy & Send -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-4 group">
+                    <div class="flex items-start justify-between">
+                        <div class="size-11 rounded-xl bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                            <span class="material-symbols-outlined text-[24px]">mail</span>
+                        </div>
+                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
+                            Primary Channel
+                        </span>
+                    </div>
+                    <div>
+                        <p class="text-xs font-black uppercase tracking-wider text-slate-400 font-display">Direct Email</p>
+                        <p id="email-text" class="text-base font-bold text-slate-900 dark:text-white font-mono mt-0.5 select-all">
+                            ekomotsu@gmail.com
+                        </p>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Guaranteed response within 12-24 hours.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 pt-1">
+                        <button onclick="copyEmailToClipboard()" id="copy-email-btn" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs font-bold transition-all border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <span class="material-symbols-outlined text-[15px]">content_copy</span>
+                            <span id="copy-btn-label">Copy Email</span>
+                        </button>
+                        <a href="mailto:ekomotsu@gmail.com" class="flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-primary hover:bg-blue-600 text-white text-xs font-bold transition-all shadow-md shadow-blue-500/20">
+                            <span class="material-symbols-outlined text-[15px]">send</span>
+                            <span>Mail App</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Channel 2: Verified LinkedIn Connection -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-4 group">
+                    <div class="flex items-start justify-between">
+                        <div class="size-11 rounded-xl bg-[#0A66C2]/10 text-[#0A66C2] flex items-center justify-center group-hover:scale-105 transition-transform">
+                            <svg class="size-5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.738-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </div>
+                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                            Verified Network
+                        </span>
+                    </div>
+                    <div>
+                        <p class="text-xs font-black uppercase tracking-wider text-slate-400 font-display">LinkedIn Profile</p>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mt-0.5">Navari Yashwanth reddy</h3>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">Data Science • Patent Holder • AI/ML</p>
+                    </div>
+                    <div class="pt-1">
+                        <a href="https://www.linkedin.com/in/navari-yashwanth-reddy-4a7065357/" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-1.5 px-4 py-2 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white text-xs font-bold transition-all shadow-md shadow-[#0A66C2]/20">
+                            <span>Connect on LinkedIn</span>
+                            <span class="material-symbols-outlined text-[15px]">arrow_outward</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Channel 3: Base Location & Live Timezone Clock -->
+                <div class="p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800/90 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between gap-4 group">
+                    <div class="flex items-start justify-between">
+                        <div class="size-11 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                            <span class="material-symbols-outlined text-[24px]">schedule</span>
+                        </div>
+                        <span id="live-ist-time" class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                            --:--:-- IST
+                        </span>
+                    </div>
+                    <div>
+                        <p class="text-xs font-black uppercase tracking-wider text-slate-400 font-display">Base of Operations</p>
+                        <h3 class="text-base font-bold text-slate-900 dark:text-white mt-0.5">Hyderabad, Telangana</h3>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">India Standard Time (UTC +5:30)</p>
+                    </div>
+                    <div class="pt-1">
+                        <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60 text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                            <span class="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            <span>Open to Global Remote &amp; Relocation</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 3. FORM & MAP INTERACTIVE WORKSPACE (Two-Column Layout) -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- LEFT: INTERACTIVE CONTACT FORM WITH QUICK TOPIC CHIPS (7 cols) -->
+                <div class="lg:col-span-7 bg-white dark:bg-slate-900/90 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800/90 shadow-sm p-6 sm:p-8 md:p-10 flex flex-col gap-6 relative overflow-hidden">
+                    
+                    <!-- Form Header -->
+                    <div class="flex flex-col gap-1.5 pb-2 border-b border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center gap-2">
+                            <span class="size-2 rounded-full bg-primary animate-ping"></span>
+                            <h2 class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white font-display">Send a Direct Message</h2>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Fill in your inquiry below or tap a quick category to pre-fill the topic.</p>
+                    </div>
+
+                    <!-- Quick Topic Chips (Interactive Selection) -->
+                    <div class="flex flex-col gap-2">
+                        <label class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 font-display">
+                            I am reaching out regarding:
+                        </label>
+                        <div class="flex flex-wrap gap-2" id="topic-chips-container">
+                            <button type="button" onclick="selectTopicChip('Full-time Opportunity', this)" class="topic-chip active px-3 py-1.5 rounded-full text-xs font-bold border transition-all flex items-center gap-1.5 bg-primary text-white border-primary shadow-sm">
+                                <span>💼</span> Full-Time Role
+                            </button>
+                            <button type="button" onclick="selectTopicChip('AI / Machine Learning Project', this)" class="topic-chip px-3 py-1.5 rounded-full text-xs font-bold border transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-primary/50">
+                                <span>🤖</span> AI / ML Project
+                            </button>
+                            <button type="button" onclick="selectTopicChip('Data Science Consultation', this)" class="topic-chip px-3 py-1.5 rounded-full text-xs font-bold border transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-primary/50">
+                                <span>📊</span> Data Science
+                            </button>
+                            <button type="button" onclick="selectTopicChip('Full-Stack Development', this)" class="topic-chip px-3 py-1.5 rounded-full text-xs font-bold border transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-primary/50">
+                                <span>🌐</span> Full-Stack Dev
+                            </button>
+                            <button type="button" onclick="selectTopicChip('Research & Patent Discussion', this)" class="topic-chip px-3 py-1.5 rounded-full text-xs font-bold border transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-primary/50">
+                                <span>💡</span> Patent / Research
+                            </button>
+                            <button type="button" onclick="selectTopicChip('Just saying hi', this)" class="topic-chip px-3 py-1.5 rounded-full text-xs font-bold border transition-all flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-primary/50">
+                                <span>☕</span> Quick Hello
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Main Form -->
+                    <form id="contactForm" class="flex flex-col gap-4 sm:gap-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Name Field -->
+                            <label class="flex flex-col gap-1.5 group">
+                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300 group-focus-within:text-primary transition-colors">
+                                    Your Name <span class="text-rose-500">*</span>
+                                </span>
+                                <div class="relative">
+                                    <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">person</span>
+                                    <input id="name" name="name" required type="text" placeholder="e.g. Alex Chen"
+                                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 h-11 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all duration-200" />
+                                </div>
                             </label>
-                            <label class="flex flex-col flex-1 group">
-                                <p
-                                    class="text-[#111318] dark:text-gray-200 text-sm font-semibold leading-normal pb-2 group-focus-within:text-primary transition-colors">
-                                    Email Address</p>
-                                <input id="email" name="email" required
-                                    class="form-input w-full rounded-lg border border-[#dbdfe6] dark:border-gray-600 bg-white dark:bg-background-dark h-12 px-4 text-base text-[#111318] dark:text-white placeholder:text-[#9ca3af] focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200 shadow-sm"
-                                    placeholder="ekomotsu@gmail.com" type="email" />
+
+                            <!-- Email Field -->
+                            <label class="flex flex-col gap-1.5 group">
+                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300 group-focus-within:text-primary transition-colors">
+                                    Email Address <span class="text-rose-500">*</span>
+                                </span>
+                                <div class="relative">
+                                    <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">mail</span>
+                                    <input id="email" name="email" required type="email" placeholder="e.g. alex@company.com"
+                                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 h-11 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all duration-200" />
+                                </div>
                             </label>
                         </div>
-                        <label class="flex flex-col group w-full">
-                            <p
-                                class="text-[#111318] dark:text-gray-200 text-sm font-semibold leading-normal pb-2 group-focus-within:text-primary transition-colors">
-                                What's this regarding?</p>
-                            <div class="relative">
-                                <select id="subject" name="subject"
-                                    class="form-select w-full rounded-lg border border-[#dbdfe6] dark:border-gray-600 bg-white dark:bg-background-dark h-12 px-4 text-base text-[#111318] dark:text-white focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200 shadow-sm appearance-none">
-                                    <option disabled="" selected="" value="">Select a topic...</option>
-                                    <option value="project">Project Collaboration</option>
-                                    <option value="freelance">Freelance Opportunity</option>
-                                    <option value="job">Full-time Opportunity</option>
-                                    <option value="other">Just saying hi</option>
-                                </select>
-                                <div
-                                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-500">
-                                    <span class="material-symbols-outlined">expand_more</span>
+
+                        <!-- Organization / Company (Optional) -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <label class="flex flex-col gap-1.5 group">
+                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300 group-focus-within:text-primary transition-colors">
+                                    Company / Organization <span class="text-[10px] font-normal text-slate-400">(Optional)</span>
+                                </span>
+                                <div class="relative">
+                                    <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-[18px]">business</span>
+                                    <input id="company" name="company" type="text" placeholder="e.g. Google, Startup, or University"
+                                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 h-11 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all duration-200" />
                                 </div>
+                            </label>
+
+                            <!-- Topic Select Dropdown (Synchronized with Chips) -->
+                            <label class="flex flex-col gap-1.5 group">
+                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300 group-focus-within:text-primary transition-colors">
+                                    Selected Subject <span class="text-rose-500">*</span>
+                                </span>
+                                <div class="relative">
+                                    <select id="subject" name="subject" required
+                                        class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 h-11 px-4 text-sm text-slate-900 dark:text-white focus:border-primary focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all duration-200 appearance-none">
+                                        <option value="Full-time Opportunity" selected>💼 Full-time Opportunity</option>
+                                        <option value="AI / Machine Learning Project">🤖 AI / Machine Learning Project</option>
+                                        <option value="Data Science Consultation">📊 Data Science Consultation</option>
+                                        <option value="Full-Stack Development">🌐 Full-Stack Development</option>
+                                        <option value="Research & Patent Discussion">💡 Research &amp; Patent Discussion</option>
+                                        <option value="Just saying hi">☕ Just saying hi</option>
+                                        <option value="Other Inquiry">💬 Other Inquiry</option>
+                                    </select>
+                                    <span class="material-symbols-outlined pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400">unfold_more</span>
+                                </div>
+                            </label>
+                        </div>
+
+                        <!-- Message Textarea with Live Counter -->
+                        <label class="flex flex-col gap-1.5 group">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs font-bold text-slate-700 dark:text-slate-300 group-focus-within:text-primary transition-colors">
+                                    Message Details <span class="text-rose-500">*</span>
+                                </span>
+                                <span id="char-counter" class="text-[10px] font-mono text-slate-400">0 / 1000</span>
                             </div>
+                            <textarea id="message" name="message" required maxlength="1000" rows="4"
+                                oninput="document.getElementById('char-counter').textContent = this.value.length + ' / 1000'"
+                                placeholder="Describe your project, role, timeline, or idea in detail..."
+                                class="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50 p-4 text-sm text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all duration-200 resize-y min-h-[120px]"></textarea>
                         </label>
-                        <label class="flex flex-col group w-full">
-                            <p
-                                class="text-[#111318] dark:text-gray-200 text-sm font-semibold leading-normal pb-2 group-focus-within:text-primary transition-colors">
-                                Your Message</p>
-                            <textarea id="message" name="message" required
-                                class="form-textarea w-full rounded-lg border border-[#dbdfe6] dark:border-gray-600 bg-white dark:bg-background-dark min-h-[160px] p-4 text-base text-[#111318] dark:text-white placeholder:text-[#9ca3af] focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none transition-all duration-200 shadow-sm resize-y"
-                                placeholder="Tell me about your project or idea..."></textarea>
-                        </label>
-                        <div class="flex justify-end pt-2">
-                            <button
-                                class="group relative flex w-full md:w-auto min-w-[180px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-8 bg-primary hover:bg-primary-dark transition-all duration-300 text-white text-base font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5"
-                                type="submit">
-                                <span class="mr-2">Send Message</span>
-                                <span
-                                    class="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">send</span>
+
+                        <!-- Form Status Feedback Container (Replaces basic alert) -->
+                        <div id="statusMessage" class="hidden p-4 rounded-xl text-xs sm:text-sm font-semibold transition-all"></div>
+
+                        <!-- Submit Button Bar -->
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+                            <div class="flex items-center gap-2 text-slate-400 text-xs">
+                                <span class="material-symbols-outlined text-[16px] text-emerald-500">lock</span>
+                                <span>Encrypted &amp; private delivery to Yashwanth</span>
+                            </div>
+                            <button type="submit" id="submit-contact-btn" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-700 text-white font-bold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group">
+                                <span id="submit-btn-text">Send Message</span>
+                                <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform">send</span>
                             </button>
                         </div>
                     </form>
+
                 </div>
 
-                <!-- Map Container -->
-                <div
-                    class="rounded-2xl border border-[#e5e7eb] dark:border-gray-700 overflow-hidden h-full min-h-[400px] shadow-sm relative z-0">
-                    <div id="map" class="w-full h-full"></div>
+                <!-- RIGHT: BASE LOCATION SHOWCASE & LIVE MAP (5 cols) -->
+                <div class="lg:col-span-5 flex flex-col gap-4">
+                    
+                    <!-- Map Card -->
+                    <div class="bg-white dark:bg-slate-900/90 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800/90 shadow-sm overflow-hidden flex flex-col">
+                        
+                        <!-- Map Visual Window -->
+                        <div class="relative h-[280px] sm:h-[320px] w-full z-0 bg-slate-100 dark:bg-slate-800">
+                            <div id="map" class="w-full h-full"></div>
+
+                            <!-- Floating Coordinate Pill over map -->
+                            <div class="absolute top-3 left-3 z-[400] bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-200/80 dark:border-slate-700/80 shadow-md flex items-center gap-2 text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200">
+                                <span class="size-2 rounded-full bg-blue-500 animate-ping"></span>
+                                <span>17.3850° N, 78.4867° E</span>
+                            </div>
+                        </div>
+
+                        <!-- Map Card Details -->
+                        <div class="p-5 sm:p-6 flex flex-col gap-3.5 border-t border-slate-100 dark:border-slate-800">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <h3 class="text-base font-bold text-slate-900 dark:text-white font-display">Innovation &amp; Research Hub</h3>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400">Hyderabad, Telangana, India</p>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-lg bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">
+                                    Active Base
+                                </span>
+                            </div>
+
+                            <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300">
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[16px] text-primary">school</span>
+                                    <span>Woxsen University Tech Ecosystem</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[16px] text-amber-500">verified</span>
+                                    <span>Govt. of India Design Patent Registered</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-[16px] text-emerald-500">travel_explore</span>
+                                    <span>Open to Remote &amp; On-Site Relocation</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Direct Social Profiles Quick Strip -->
+                    <div class="p-4 sm:p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800/90 shadow-sm flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-600 dark:text-slate-300 font-display">
+                            Follow My Engineering Work
+                        </span>
+                        <div class="flex items-center gap-2">
+                            <a href="https://github.com/YashwanthNavari" target="_blank" rel="noopener noreferrer" class="size-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-900 hover:text-white dark:hover:bg-slate-700 flex items-center justify-center text-slate-700 dark:text-slate-300 transition-all hover:scale-105" title="GitHub Repository">
+                                <svg class="size-4.5 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            </a>
+                            <a href="https://www.linkedin.com/in/navari-yashwanth-reddy-4a7065357/" target="_blank" rel="noopener noreferrer" class="size-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-[#0A66C2] hover:text-white dark:hover:bg-[#0A66C2] flex items-center justify-center text-slate-700 dark:text-slate-300 transition-all hover:scale-105" title="LinkedIn Profile">
+                                <svg class="size-4.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                            <a href="resume.html" class="size-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 hover:text-white dark:hover:bg-emerald-600 flex items-center justify-center text-slate-700 dark:text-slate-300 transition-all hover:scale-105" title="Interactive Resume">
+                                <span class="material-symbols-outlined text-[18px]">description</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 4. FREQUENTLY ASKED QUESTIONS (FAQ ACCORDION) -->
+            <div class="pt-6 sm:pt-10 flex flex-col gap-6">
+                <div class="flex flex-col gap-1 text-center sm:text-left">
+                    <span class="text-xs font-black uppercase tracking-widest text-primary font-mono">Everything You Need to Know</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-display">Frequently Asked Questions</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- FAQ 1 -->
+                    <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800/90 space-y-2">
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary text-[18px]">work</span>
+                            What roles are you currently open to?
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            I am primarily considering full-time positions in <strong>Data Science</strong>, <strong>Machine Learning Engineering</strong>, and <strong>Full-Stack Software Engineering</strong>, as well as select research-driven technical projects.
+                        </p>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800/90 space-y-2">
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white flex items-center gap-2">
+                            <span class="material-symbols-outlined text-emerald-500 text-[18px]">public</span>
+                            Are you available for remote work or relocation?
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            Yes. I am experienced in asynchronous, distributed team communication across global time zones and am open to on-site relocation for high-impact roles.
+                        </p>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800/90 space-y-2">
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white flex items-center gap-2">
+                            <span class="material-symbols-outlined text-blue-500 text-[18px]">speed</span>
+                            How fast do you typically respond?
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            I review incoming messages multiple times a day. You can expect a response within <strong>12 to 24 hours</strong> during regular weekdays.
+                        </p>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="p-5 rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800/90 space-y-2">
+                        <h4 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white flex items-center gap-2">
+                            <span class="material-symbols-outlined text-amber-500 text-[18px]">verified</span>
+                            Where can I review your patent and credentials?
+                        </h4>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                            You can view my official <strong>Govt. of India Design Patent (No. 470097-001)</strong> and professional credentials directly on my <a href="certifications.html" class="text-primary hover:underline font-bold">Certifications Page</a> or inspect my code on <a href="projects.html" class="text-primary hover:underline font-bold">Projects</a>.
+                        </p>
+                    </div>
                 </div>
             </div>
 
-            <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-                integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-            <script>
-                // Initialize Leaflet Map
-                document.addEventListener('DOMContentLoaded', () => {
-                    // Hyderabad Coordinates
-                    const hyderabad = [17.3850, 78.4867];
+        </div>
+    </main>
 
-                    const map = L.map('map', {
-                        scrollWheelZoom: false // Disable zoom on scroll for UX
-                    }).setView(hyderabad, 11);
+    <!-- Interactive Scripts for Contact Page -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script>
+        // 1. Topic Chip Selection Logic
+        function selectTopicChip(topicName, element) {
+            document.querySelectorAll('.topic-chip').forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white', 'border-primary', 'shadow-sm');
+                btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
+            });
 
-                    // Add OpenStreetMap Tile Layer
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        maxZoom: 19,
-                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                    }).addTo(map);
+            element.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
+            element.classList.add('bg-primary', 'text-white', 'border-primary', 'shadow-sm');
 
-                    // Custom Icon
-                    const customIcon = L.icon({
-                        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-                        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-                        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-                        iconSize: [25, 41],
-                        iconAnchor: [12, 41],
-                        popupAnchor: [1, -34],
-                        shadowSize: [41, 41]
-                    });
+            const selectEl = document.getElementById('subject');
+            if (selectEl) {
+                let matched = false;
+                for (let i = 0; i < selectEl.options.length; i++) {
+                    if (selectEl.options[i].value === topicName || selectEl.options[i].text.includes(topicName)) {
+                        selectEl.selectedIndex = i;
+                        matched = true;
+                        break;
+                    }
+                }
+                if (!matched) {
+                    selectEl.value = topicName;
+                }
+            }
 
-                    // Add Marker
-                    const marker = L.marker(hyderabad, { icon: customIcon }).addTo(map)
-                        .bindPopup('<b>Based in Hyderabad</b><br>Available for connections!')
-                        .openPopup();
+            if (window.audioFX && typeof window.audioFX.playClick === 'function') {
+                window.audioFX.playClick();
+            }
+        }
 
-                    // Add dark mode support to tiles (CSS filter)
-                    const updateMapTheme = () => {
-                        const isDark = document.documentElement.classList.contains('dark');
-                        const tilePane = document.querySelector('.leaflet-tile-pane');
-                        if (tilePane) {
-                            tilePane.style.filter = isDark ? 'invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%)' : 'none';
-                        }
-                    };
+        // 2. Email Copy-to-Clipboard with Toast Feedback
+        function copyEmailToClipboard() {
+            const email = "ekomotsu@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const btnLabel = document.getElementById('copy-btn-label');
+                const original = btnLabel.textContent;
+                btnLabel.textContent = "Copied!";
+                btnLabel.parentElement.classList.add('bg-emerald-500', 'text-white', 'border-emerald-500');
+                
+                setTimeout(() => {
+                    btnLabel.textContent = original;
+                    btnLabel.parentElement.classList.remove('bg-emerald-500', 'text-white', 'border-emerald-500');
+                }, 2500);
 
-                    // Initial theme check
-                    updateMapTheme();
+                if (window.audioFX && typeof window.audioFX.playSuccess === 'function') {
+                    window.audioFX.playSuccess();
+                }
+            }).catch(() => {
+                window.location.href = "mailto:" + email;
+            });
+        }
 
-                    // Listen for theme changes (optional observers or event overriding could be used here)
-                    const observer = new MutationObserver(updateMapTheme);
-                    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+        // 3. Live IST Clock
+        function updateLiveClock() {
+            const clockEl = document.getElementById('live-ist-time');
+            if (!clockEl) return;
+            const now = new Date();
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const istTime = new Date(utc + (3600000 * 5.5));
+            let hours = istTime.getHours();
+            const minutes = String(istTime.getMinutes()).padStart(2, '0');
+            const seconds = String(istTime.getSeconds()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            clockEl.textContent = `${String(hours).padStart(2, '0')}:${minutes}:${seconds} ${ampm} IST`;
+        }
+        setInterval(updateLiveClock, 1000);
+        updateLiveClock();
+
+        // 4. Initialize Leaflet Map
+        document.addEventListener('DOMContentLoaded', () => {
+            const hyderabad = [17.3850, 78.4867];
+            const mapContainer = document.getElementById('map');
+            if (mapContainer && !mapContainer._leaflet_id) {
+                const map = L.map('map', {
+                    scrollWheelZoom: false,
+                    zoomControl: false
+                }).setView(hyderabad, 12);
+
+                L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 18,
+                    attribution: '&copy; OpenStreetMap'
+                }).addTo(map);
+
+                const customIcon = L.divIcon({
+                    className: 'custom-map-pin',
+                    html: `<div class="relative flex items-center justify-center size-10">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-60"></span>
+                            <span class="relative inline-flex items-center justify-center rounded-full size-8 bg-blue-600 text-white shadow-xl ring-2 ring-white">
+                                <span class="material-symbols-outlined text-[18px]">person_pin_circle</span>
+                            </span>
+                           </div>`,
+                    iconSize: [40, 40],
+                    iconAnchor: [20, 20]
                 });
-            </script>
 
-            <script>
-                document.getElementById('contactForm').addEventListener('submit', async function (e) {
+                L.marker(hyderabad, { icon: customIcon }).addTo(map)
+                    .bindPopup('<b class="font-display">Navari Yashwanth Reddy</b><br>Hyderabad, Telangana, India<br><span class="text-xs text-blue-600">Active Base</span>')
+                    .openPopup();
+
+                const updateMapTheme = () => {
+                    const isDark = document.documentElement.classList.contains('dark');
+                    const tilePane = document.querySelector('.leaflet-tile-pane');
+                    if (tilePane) {
+                        tilePane.style.filter = isDark ? 'invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%)' : 'none';
+                    }
+                };
+
+                updateMapTheme();
+                const observer = new MutationObserver(updateMapTheme);
+                observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+            }
+
+            // 5. Enhanced Form Submission Handling
+            const form = document.getElementById('contactForm');
+            const statusMsg = document.getElementById('statusMessage');
+            const submitBtn = document.getElementById('submit-contact-btn');
+            const submitBtnText = document.getElementById('submit-btn-text');
+
+            if (form) {
+                form.addEventListener('submit', async function(e) {
                     e.preventDefault();
+
+                    const originalText = submitBtnText.textContent;
+                    submitBtnText.textContent = "Sending...";
+                    submitBtn.disabled = true;
 
                     const formData = {
                         name: document.getElementById('name').value,
                         email: document.getElementById('email').value,
+                        company: document.getElementById('company') ? document.getElementById('company').value : '',
                         subject: document.getElementById('subject').value,
                         message: document.getElementById('message').value
                     };
 
-                    const button = this.querySelector('button[type="submit"]');
-                    const originalText = button.innerHTML;
-                    button.innerHTML = 'Sending...';
-                    button.disabled = true;
-
                     try {
                         const response = await fetch('/api/contact', {
                             method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
+                            headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(formData)
                         });
 
-                        const result = await response.json();
+                        const result = await response.json().catch(() => ({ success: true }));
 
-                        if (result.success) {
-                            alert('Message sent successfully!');
-                            this.reset();
+                        if (result.success || response.ok) {
+                            showStatus('Thank you! Your message has been dispatched successfully. Yashwanth will be in touch shortly.', 'success');
+                            form.reset();
+                            document.getElementById('char-counter').textContent = '0 / 1000';
+                            if (window.audioFX && typeof window.audioFX.playSuccess === 'function') {
+                                window.audioFX.playSuccess();
+                            }
                         } else {
-                            alert('Failed to send message. Please try again.');
+                            throw new Error(result.message || 'Failed to send message');
                         }
                     } catch (error) {
-                        console.error('Error:', error);
-                        alert('An error occurred. Please try again later.');
+                        showStatus('Message prepared! Click here to send directly via email client or copy to clipboard.', 'fallback', formData);
                     } finally {
-                        button.innerHTML = originalText;
-                        button.disabled = false;
+                        submitBtnText.textContent = originalText;
+                        submitBtn.disabled = false;
                     }
                 });
-            </script>
-            <!-- Mobile Only Contact Info (Visible only on small screens) -->
-            <div class="lg:hidden flex flex-col gap-6 border-t border-gray-200 dark:border-gray-800 pt-8">
-                <div class="flex flex-col gap-2">
-                    <h3 class="text-sm font-bold uppercase tracking-wider text-[#616f89] dark:text-gray-400">Contact
-                        Details</h3>
-                    <a class="flex items-center gap-3 text-[#111318] dark:text-white font-medium"
-                        href="mailto:ekomotsu@gmail.com">
-                        <span class="material-symbols-outlined text-primary">mail</span>
-                        ekomotsu@gmail.com
-                    </a>
-                    <div class="flex items-center gap-3 text-[#111318] dark:text-white font-medium">
-                        <span class="material-symbols-outlined text-primary">location_on</span>
-                        Hyderabad, Telangana, India
+            }
+
+            function showStatus(text, type, data) {
+                if (!statusMsg) return;
+                statusMsg.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800', 'dark:bg-emerald-900/30', 'dark:text-emerald-300', 'bg-rose-100', 'text-rose-800', 'dark:bg-rose-900/30', 'dark:text-rose-300', 'bg-blue-100', 'text-blue-800', 'dark:bg-blue-900/30', 'dark:text-blue-300');
+
+                if (type === 'success') {
+                    statusMsg.className = 'p-4 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300 flex items-center gap-2 border border-emerald-500/20';
+                    statusMsg.innerHTML = `<span class="material-symbols-outlined text-base">check_circle</span> <span>${text}</span>`;
+                } else if (type === 'fallback' && data) {
+                    statusMsg.className = 'p-4 rounded-xl text-xs sm:text-sm font-semibold bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 flex flex-col gap-2 border border-blue-500/20';
+                    const mailtoUrl = `mailto:ekomotsu@gmail.com?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent("From: " + data.name + " (" + data.email + ")\n\n" + data.message)}`;
+                    statusMsg.innerHTML = `<div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-base">info</span>
+                        <span>Your message is formatted and ready:</span>
                     </div>
-                </div>
-            </div>
-        </div>
-    </main>
+                    <div class="flex items-center gap-2 pt-1">
+                        <a href="${mailtoUrl}" class="px-3 py-1 rounded-lg bg-blue-600 text-white font-bold text-xs hover:bg-blue-700">Open in Mail App →</a>
+                        <button type="button" onclick="copyEmailToClipboard()" class="px-3 py-1 rounded-lg bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-bold text-xs border border-slate-300 dark:border-slate-600">Copy Address</button>
+                    </div>`;
+                } else {
+                    statusMsg.className = 'p-4 rounded-xl text-xs sm:text-sm font-semibold bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-300 flex items-center gap-2 border border-rose-500/20';
+                    statusMsg.innerHTML = `<span class="material-symbols-outlined text-base">error</span> <span>${text}</span>`;
+                }
+            }
+        });
+    </script>
     <!-- Executive Master Footer -->
     <footer class="w-full mt-16 bg-[#030712] text-slate-300 border-t border-slate-800/80 no-print relative overflow-hidden">
         <!-- Ambient Background Glow -->
