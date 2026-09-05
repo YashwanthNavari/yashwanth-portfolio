@@ -129,8 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
     `;
 
-    // 4. Clean up existing elements
-    const existingHeader = document.querySelector('header');
+    // 4. Clean up existing old nav elements
+    const existingHeader = document.querySelector('header.sticky, header.site-header');
     if (existingHeader) existingHeader.remove();
 
     const existingMobileMenu = document.getElementById('mobile-menu');

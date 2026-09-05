@@ -43,5 +43,59 @@
         "image": "images/certs/0GBZ4JJCYYUL.jpeg",
         "link": "https://coursera.org/verify/0GBZ4JJCYYUL",
         "createdAt": "2024-11-27"
+    },
+    {
+        "id": 6,
+        "title": "The Arduino Platform and C Programming",
+        "category": "University of California, Irvine",
+        "description": "An online course authorized by University of California, Irvine and offered through Coursera.",
+        "image": "images/certs/P7K57RD585O4.jpeg",
+        "link": "https://coursera.org/verify/P7K57RD585O4",
+        "createdAt": "2025-03-21"
+    },
+    {
+        "id": 7,
+        "title": "Introduction to Cyber Attacks",
+        "category": "NYU Tandon School of Engineering",
+        "description": "An online course authorized by New York University and offered through Coursera.",
+        "image": "images/certs/U88BU9H40NG9.jpeg",
+        "link": "https://coursera.org/verify/U88BU9H40NG9",
+        "createdAt": "2025-03-17"
+    },
+    {
+        "id": 8,
+        "title": "Nanotechnology and Nanosensors, Part1",
+        "category": "Technion - Israel Institute of Technology",
+        "description": "An online course authorized by Technion - Israel Institute of Technology and offered through Coursera.",
+        "image": "images/certs/0Y0HQ44UUGU1.jpeg",
+        "link": "https://coursera.org/verify/0Y0HQ44UUGU1",
+        "createdAt": "2024-11-18"
+    },
+    {
+        "id": 9,
+        "title": "Write Professional Emails in English",
+        "category": "Georgia Institute of Technology",
+        "description": "An online course authorized by Georgia Institute of Technology and offered through Coursera.",
+        "image": "images/certs/H1MKZ3J2RI6L.jpeg",
+        "link": "https://coursera.org/verify/H1MKZ3J2RI6L",
+        "createdAt": "2024-11-13"
+    },
+    {
+        "id": 10,
+        "title": "Frontend Developer (React)",
+        "category": "HackerRank",
+        "description": "The bearer of this certificate has passed the HackerRank role certification test.",
+        "image": "images/certs/64f0ad32f333.png",
+        "link": "https://www.hackerrank.com/certificates/64f0ad32f333",
+        "createdAt": "2026-02-25"
+    },
+    {
+        "id": 11,
+        "title": "Go (Basic)",
+        "category": "HackerRank",
+        "description": "The bearer of this certificate has passed the HackerRank skill certification test.",
+        "image": "images/certs/2d20c7ecbc8a.png",
+        "link": "https://www.hackerrank.com/certificates/2d20c7ecbc8a",
+        "createdAt": "2026-03-01"
     }
 ]

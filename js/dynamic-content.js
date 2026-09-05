@@ -160,7 +160,7 @@ const certificationsData = [
         "title": "Interfacing with the Arduino",
         "category": "University of California, Irvine",
         "description": "An online course authorized by University of California, Irvine and offered through Coursera.",
-        "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=640&auto=format&fit=crop",
+        "image": "images/certs/1S8JSJJZ6AU7.jpeg",
         "link": "https://coursera.org/verify/1S8JSJJZ6AU7",
         "createdAt": "2025-03-29"
     },
@@ -196,7 +196,7 @@ const certificationsData = [
         "title": "Nanotechnology and Nanosensors, Part1",
         "category": "Technion - Israel Institute of Technology",
         "description": "An online course authorized by Technion - Israel Institute of Technology and offered through Coursera.",
-        "image": "https://images.unsplash.com/photo-1542482329-158a1bdc9038?q=80&w=640&auto=format&fit=crop",
+        "image": "images/certs/0Y0HQ44UUGU1.jpeg",
         "link": "https://coursera.org/verify/0Y0HQ44UUGU1",
         "createdAt": "2024-11-18"
     },
@@ -205,7 +205,7 @@ const certificationsData = [
         "title": "Write Professional Emails in English",
         "category": "Georgia Institute of Technology",
         "description": "An online course authorized by Georgia Institute of Technology and offered through Coursera.",
-        "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=640&auto=format&fit=crop",
+        "image": "images/certs/H1MKZ3J2RI6L.jpeg",
         "link": "https://coursera.org/verify/H1MKZ3J2RI6L",
         "createdAt": "2024-11-13"
     },
@@ -214,7 +214,7 @@ const certificationsData = [
         "title": "Frontend Developer (React)",
         "category": "HackerRank",
         "description": "The bearer of this certificate has passed the HackerRank role certification test.",
-        "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=640&auto=format&fit=crop",
+        "image": "images/certs/64f0ad32f333.png",
         "link": "https://www.hackerrank.com/certificates/64f0ad32f333",
         "createdAt": "2026-02-25"
     },
@@ -223,7 +223,7 @@ const certificationsData = [
         "title": "Go (Basic)",
         "category": "HackerRank",
         "description": "The bearer of this certificate has passed the HackerRank skill certification test.",
-        "image": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=640&auto=format&fit=crop",
+        "image": "images/certs/2d20c7ecbc8a.png",
         "link": "https://www.hackerrank.com/certificates/2d20c7ecbc8a",
         "createdAt": "2026-03-01"
     }
