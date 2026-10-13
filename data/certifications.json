@@ -9,6 +9,15 @@
         "createdAt": "2026-10-02"
     },
     {
+        "id": 100,
+        "title": "First Commit \u2014 Bharat Builds Tour 2026",
+        "category": "WeMakeDevs & AWS",
+        "description": "Event 01 of the Bharat Builds Tour, organized by WeMakeDevs in collaboration with AWS. Certificate of Participation in hands-on collaborative problem-solving.",
+        "image": "images/certs/first_commit_hackathon_certificate.png",
+        "link": "images/certs/First Commit Hackathon Certificates.pdf",
+        "createdAt": "2026-09-20"
+    },
+    {
         "id": 1,
         "title": "Java Programming: Solving Problems with Software",
         "category": "Duke University",
