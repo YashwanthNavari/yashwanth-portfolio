@@ -162,7 +162,10 @@
             if (isNavLink) sounds.navigate();
             else sounds.click();
 
-            spawnRipple(e);
+            // Do not inject visual ripples into navbar items
+            if (!target.closest('#main-nav-header, #main-nav-container, .lets-connect-btn, .sound-toggle')) {
+                spawnRipple(e);
+            }
         });
     }
 

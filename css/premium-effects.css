@@ -244,13 +244,15 @@
     position: relative;
     overflow: hidden;
 }
+.ripple,
 .ripple-btn .ripple {
-    position: absolute;
-    border-radius: 50%;
-    transform: scale(0);
-    animation: ripple-anim 0.6s linear;
-    background-color: rgba(255, 255, 255, 0.3);
-    pointer-events: none;
+    position: absolute !important;
+    border-radius: 50% !important;
+    transform: scale(0) !important;
+    animation: ripple-anim 0.6s linear forwards !important;
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    pointer-events: none !important;
+    z-index: 50 !important;
 }
 @keyframes ripple-anim {
     to { transform: scale(4); opacity: 0; }
@@ -488,16 +490,79 @@
     box-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.35), 0 0 20px rgba(180, 210, 255, 0.2) !important;
 }
 
-/* ?? REFERENCE 1: LET'S CONNECT CURVED BUTTON ?? */
-.lets-connect-btn {
+/* ?? REFERENCE 1: LET'S CONNECT CURVED BUTTON (LOCKED DIMENSIONS) ?? */
+.lets-connect-btn,
+#main-nav-header .lets-connect-btn {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    height: 38px !important;
+    max-height: 38px !important;
+    min-height: 38px !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+    border-radius: 9999px !important;
+    overflow: hidden !important;
     background: linear-gradient(135deg, #021448 0%, #031650 100%) !important;
     box-shadow: 0 4px 14px rgba(2, 20, 72, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
     border: 1px solid rgba(175, 186, 229, 0.45) !important;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    text-decoration: none !important;
 }
-.lets-connect-btn:hover {
+.lets-connect-btn:hover,
+#main-nav-header .lets-connect-btn:hover {
     box-shadow: 0 8px 24px rgba(2, 20, 72, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
     border-color: rgba(175, 186, 229, 0.8) !important;
+}
+.lets-connect-btn > span:first-child,
+#main-nav-header .lets-connect-btn > span:first-child {
+    display: inline-flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding-left: 18px !important;
+    padding-right: 10px !important;
+    color: #ffffff !important;
+    font-weight: 500 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.02em !important;
+    white-space: nowrap !important;
+    line-height: 1 !important;
+    z-index: 10 !important;
+    flex-shrink: 0 !important;
+}
+.lets-connect-btn > span:nth-child(2),
+#main-nav-header .lets-connect-btn > span:nth-child(2) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+    height: 38px !important;
+    max-height: 38px !important;
+    position: relative !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    z-index: 10 !important;
+}
+.lets-connect-btn > span:nth-child(2) svg.absolute,
+#main-nav-header .lets-connect-btn > span:nth-child(2) svg.absolute {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none !important;
+}
+/* Absolute protection against foreign elements or injected ripples */
+.lets-connect-btn .ripple,
+.lets-connect-btn span.ripple,
+#main-nav-header .ripple {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 /* ── 31. HERO TEXT WORD-BY-WORD REVEAL ── */
 .word-reveal span {

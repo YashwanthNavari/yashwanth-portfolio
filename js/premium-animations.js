@@ -142,7 +142,11 @@
      * ───────────────────────────────────────────── */
     function initRippleButtons() {
         document.addEventListener('click', (e) => {
-            const btn = e.target.closest('.ripple-btn, button, a[class*="btn"]');
+            // Guard: Never inject ripple into navigation elements or CTA
+            if (e.target.closest('#main-nav-header, #main-nav-container, .lets-connect-btn, .sound-toggle, #mobile-menu')) return;
+
+            // Only apply ripple to elements explicitly designated as .ripple-btn
+            const btn = e.target.closest('.ripple-btn');
             if (!btn) return;
             
             const ripple = document.createElement('span');
@@ -150,6 +154,9 @@
             const rect = btn.getBoundingClientRect();
             const size = Math.max(rect.width, rect.height);
             ripple.style.cssText = `
+                position: absolute;
+                border-radius: 50%;
+                pointer-events: none;
                 width: ${size}px; height: ${size}px;
                 left: ${e.clientX - rect.left - size / 2}px;
                 top: ${e.clientY - rect.top - size / 2}px;
@@ -159,7 +166,9 @@
             const pos = getComputedStyle(btn).position;
             if (pos === 'relative' || pos === 'absolute' || pos === 'fixed') {
                 btn.appendChild(ripple);
-                ripple.addEventListener('animationend', () => ripple.remove());
+                const cleanup = () => { if (ripple.parentNode) ripple.remove(); };
+                ripple.addEventListener('animationend', cleanup);
+                setTimeout(cleanup, 650); // Fallback to guarantee cleanup
             }
         });
     }

@@ -67,13 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 <!-- Right Action Section (Reference Image 1: Let's Connect Curved CTA) -->
                 <div class="flex items-center gap-2 sm:gap-3 shrink-0">
                     <!-- Let's Connect Button with Curved Divider & Upward-Right Arrow -->
-                    <a href="contact.html" class="lets-connect-btn group relative inline-flex items-center rounded-full overflow-hidden border border-[#AFBAE5]/50 hover:border-[#AFBAE5]/90 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] select-none text-decoration-none shadow-sm shrink-0" style="background: linear-gradient(135deg, #021448 0%, #031650 100%);">
+                    <a href="contact.html" class="lets-connect-btn group relative inline-flex items-center rounded-full overflow-hidden border border-[#AFBAE5]/50 hover:border-[#AFBAE5]/90 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] select-none text-decoration-none shadow-sm shrink-0" style="background: linear-gradient(135deg, #021448 0%, #031650 100%); height: 38px; max-height: 38px; min-height: 38px; box-sizing: border-box;">
                         <!-- Main Label Area -->
-                        <span class="relative z-10 pl-4 sm:pl-5 pr-2.5 sm:pr-3 py-1.5 sm:py-2 text-white font-medium text-xs sm:text-[13px] tracking-wide whitespace-nowrap">
+                        <span class="relative z-10 pl-4 sm:pl-5 pr-2.5 sm:pr-3 text-white font-medium text-xs sm:text-[13px] tracking-wide whitespace-nowrap shrink-0 flex items-center h-full">
                             Let's Connect
                         </span>
                         <!-- Distinct Right Arrow Section with Thin Curved Divider -->
-                        <span class="relative z-10 flex items-center justify-center w-8 sm:w-9 self-stretch overflow-hidden">
+                        <span class="relative z-10 flex items-center justify-center shrink-0 self-stretch overflow-hidden" style="width: 36px; min-width: 36px; max-width: 36px; height: 100%;">
                             <!-- SVG Curved Divider & Right Compartment Background -->
                             <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 36 36" preserveAspectRatio="none">
                                 <!-- Darker Navy Right Compartment Fill -->
