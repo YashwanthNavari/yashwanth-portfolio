@@ -1,6 +1,6 @@
 /**
  * Universal Executive Navigation Bar & Responsive Mobile Drawer
- * Designed for flawless layout across Phones, Tablets, and Laptops.
+ * Implements Reference Image 1 (Let's Connect Curved CTA) and Reference Image 2 (Pink-to-Lavender Glass Pill).
  */
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Determine the current active page
@@ -11,14 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const getNavClass = (targetPage) => {
         const isActive = pageName === targetPage || (pageName === "" && targetPage === "index.html");
         if (isActive) {
-            return `px-3.5 py-1.5 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-950 font-bold text-xs shadow-sm shadow-slate-900/20 transition-all flex items-center gap-1.5 shrink-0`;
+            return "text-xs sm:text-[13px] font-bold text-[#111827] hover:text-black transition-all py-1 px-1 relative shrink-0 tracking-tight";
         }
-        return "px-3 py-1.5 rounded-full text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-white/90 dark:hover:bg-slate-800/80 transition-all shrink-0";
+        return "text-xs sm:text-[13px] font-medium text-[#4B5563] hover:text-[#111827] transition-all py-1 px-1 relative shrink-0 tracking-tight";
     };
 
     const getActiveDot = (targetPage) => {
         const isActive = pageName === targetPage || (pageName === "" && targetPage === "index.html");
-        return isActive ? `<span class="size-1.5 rounded-full bg-blue-500 animate-pulse"></span>` : '';
+        return isActive ? `<span class="size-1 rounded-full bg-[#111827] absolute -bottom-0.5 left-1/2 -translate-x-1/2"></span>` : '';
     };
 
     // Mobile link styling helper
@@ -30,57 +30,72 @@ document.addEventListener("DOMContentLoaded", () => {
         return "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/70 hover:text-blue-600 dark:hover:text-white font-medium";
     };
 
-    // 3. Define the HTML for the executive navigation bar and mobile drawer
+    // 3. Define the HTML for the navigation bar (Ref 2) and Let's Connect CTA (Ref 1)
     const navHTML = `
-        <!-- Floating Executive Header Container -->
-        <div class="fixed top-2.5 sm:top-4 md:top-5 left-0 right-0 z-[100] flex justify-center px-2.5 sm:px-4 w-full pointer-events-none transition-all duration-300" id="main-nav-container">
-            <header id="main-nav-header" class="pointer-events-auto flex items-center justify-between bg-white/90 dark:bg-[#070b14]/90 backdrop-blur-2xl rounded-full px-2.5 sm:px-4 py-1.5 sm:py-2 w-full max-w-[76rem] shadow-[0_10px_35px_-10px_rgba(0,0,0,0.08),0_1px_3px_rgba(0,0,0,0.05)] dark:shadow-[0_16px_50px_-10px_rgba(0,0,0,0.8),0_1px_2px_rgba(255,255,255,0.05)] border border-slate-200/80 dark:border-slate-800/80 transition-all duration-300">
+        <!-- Floating Navigation Bar Container (Reference Image 2) -->
+        <div class="fixed top-2.5 sm:top-4 md:top-5 left-0 right-0 z-[100] flex justify-center px-3 sm:px-6 w-full pointer-events-none transition-all duration-300" id="main-nav-container">
+            <header id="main-nav-header" class="pointer-events-auto flex items-center justify-between rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 w-full max-w-[76rem] transition-all duration-300 select-none shadow-[0_10px_32px_-4px_rgba(235,180,215,0.25),0_4px_16px_rgba(0,0,0,0.04)]" style="background: linear-gradient(90deg, rgba(255, 218, 238, 0.90) 0%, rgba(253, 224, 245, 0.88) 45%, rgba(230, 230, 255, 0.92) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.75);">
                 
-                <!-- Logo & Brand Section -->
-                <a href="index.html" class="flex items-center gap-2 sm:gap-3 group shrink-0 pl-1">
+                <!-- Brand / Logo Section (Ref 2 NAV. Branding with User Avatar) -->
+                <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group shrink-0 pl-0.5 select-none" aria-label="Navari Yashwanth Home">
                     <div class="relative shrink-0">
-                        <img src="images/avatar_circle.png" onerror="this.src='https://github.com/YashwanthNavari.png'" alt="Navari Yashwanth Reddy" class="size-8 sm:size-9 rounded-full object-cover ring-2 ring-blue-500/20 dark:ring-blue-400/30 group-hover:scale-105 transition-transform duration-200 shadow-sm">
-                        <span class="absolute -bottom-0.5 -right-0.5 size-2 sm:size-2.5 bg-emerald-500 ring-2 ring-white dark:ring-[#070b14] rounded-full animate-pulse" title="Available for Roles"></span>
+                        <img src="images/avatar_circle.png" onerror="this.src='https://github.com/YashwanthNavari.png'" alt="Navari Yashwanth Reddy" class="size-8 sm:size-9 rounded-full object-cover ring-2 ring-white/90 shadow-sm group-hover:scale-105 transition-transform duration-200">
+                        <span class="absolute -bottom-0.5 -right-0.5 size-2 sm:size-2.5 bg-emerald-500 ring-2 ring-white rounded-full animate-pulse" title="Available for Roles"></span>
                     </div>
-                    <div class="flex flex-col justify-center shrink-0">
-                        <span class="font-black text-xs sm:text-[13px] tracking-tight text-slate-900 dark:text-white font-display group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors whitespace-nowrap">
-                            Navari Yashwanth
+                    <div class="flex items-baseline gap-1.5 shrink-0">
+                        <span class="font-black text-sm sm:text-base tracking-tight text-[#1E2028] font-display group-hover:text-blue-700 transition-colors">
+                            NAV.
                         </span>
-                        <span class="text-[9px] sm:text-[9.5px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider font-mono leading-none hidden sm:block">
-                            Data Science • AI/ML
+                        <span class="text-[9.5px] font-semibold text-slate-500 font-mono tracking-wider hidden md:inline">
+                            Yashwanth
                         </span>
                     </div>
                 </a>
 
-                <!-- Desktop Navigation Links (Pill Capsule - Hidden on Mobile/Tablet) -->
-                <nav class="hidden lg:flex items-center gap-0.5 bg-slate-100/70 dark:bg-slate-900/70 p-1 rounded-full border border-slate-200/60 dark:border-slate-800/60 shadow-inner">
-                    <a href="index.html" class="${getNavClass("index.html")}">${getActiveDot("index.html")}Home</a>
-                    <a href="about.html" class="${getNavClass("about.html")}">${getActiveDot("about.html")}About</a>
-                    <a href="projects.html" class="${getNavClass("projects.html")}">${getActiveDot("projects.html")}Projects</a>
-                    <a href="skills.html" class="${getNavClass("skills.html")}">${getActiveDot("skills.html")}Skills</a>
-                    <a href="experience.html" class="${getNavClass("experience.html")}">${getActiveDot("experience.html")}Experience</a>
-                    <a href="certifications.html" class="${getNavClass("certifications.html")}">${getActiveDot("certifications.html")}Certifications</a>
-                    <a href="resume.html" class="${getNavClass("resume.html")}">${getActiveDot("resume.html")}Resume</a>
-                    <a href="blog.html" class="${getNavClass("blog.html")}">${getActiveDot("blog.html")}Blog</a>
+                <!-- Centered Desktop Navigation Links (Generous Spacing, Dark Charcoal Typography) -->
+                <nav class="hidden lg:flex items-center gap-5 xl:gap-8 mx-auto">
+                    <a href="index.html" class="${getNavClass("index.html")}">Home${getActiveDot("index.html")}</a>
+                    <a href="about.html" class="${getNavClass("about.html")}">About${getActiveDot("about.html")}</a>
+                    <a href="projects.html" class="${getNavClass("projects.html")}">Projects${getActiveDot("projects.html")}</a>
+                    <a href="skills.html" class="${getNavClass("skills.html")}">Skills${getActiveDot("skills.html")}</a>
+                    <a href="experience.html" class="${getNavClass("experience.html")}">Experience${getActiveDot("experience.html")}</a>
+                    <a href="certifications.html" class="${getNavClass("certifications.html")}">Certifications${getActiveDot("certifications.html")}</a>
+                    <a href="resume.html" class="${getNavClass("resume.html")}">Resume${getActiveDot("resume.html")}</a>
+                    <a href="blog.html" class="${getNavClass("blog.html")}">Blog${getActiveDot("blog.html")}</a>
                 </nav>
 
-                <!-- Action Controls Section -->
-                <div class="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-                    <!-- Get in Touch (Desktop / Tablet) -->
-                    <a href="contact.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white font-bold text-xs shadow-md shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all whitespace-nowrap shrink-0 ${pageName === 'contact.html' ? 'ring-2 ring-blue-400 ring-offset-2 dark:ring-offset-[#070b14]' : ''}">
-                        <span>Get in Touch</span>
-                        <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+                <!-- Right Action Section (Reference Image 1: Let's Connect Curved CTA) -->
+                <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                    <!-- Let's Connect Button with Curved Divider & Upward-Right Arrow -->
+                    <a href="contact.html" class="lets-connect-btn group relative inline-flex items-center rounded-full overflow-hidden border border-[#AFBAE5]/50 hover:border-[#AFBAE5]/90 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] select-none text-decoration-none shadow-sm shrink-0" style="background: linear-gradient(135deg, #021448 0%, #031650 100%);">
+                        <!-- Main Label Area -->
+                        <span class="relative z-10 pl-4 sm:pl-5 pr-2.5 sm:pr-3 py-1.5 sm:py-2 text-white font-medium text-xs sm:text-[13px] tracking-wide whitespace-nowrap">
+                            Let's Connect
+                        </span>
+                        <!-- Distinct Right Arrow Section with Thin Curved Divider -->
+                        <span class="relative z-10 flex items-center justify-center w-8 sm:w-9 self-stretch overflow-hidden">
+                            <!-- SVG Curved Divider & Right Compartment Background -->
+                            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 36 36" preserveAspectRatio="none">
+                                <!-- Darker Navy Right Compartment Fill -->
+                                <path d="M 11 0 C 4 11, 4 25, 11 36 L 36 36 L 36 0 Z" fill="#090D22" />
+                                <!-- Thin Curved Divider Stroke (Bowing Left) -->
+                                <path d="M 11 0 C 4 11, 4 25, 11 36" fill="none" stroke="#AFBAE5" stroke-width="1.3" opacity="0.9" />
+                            </svg>
+                            <!-- Diagonal Upward-Right Arrow -->
+                            <svg class="relative z-20 size-3 sm:size-3.5 text-[#D9E4FF] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </span>
                     </a>
                     
-                    <div class="h-4 w-px bg-slate-200 dark:bg-slate-800 hidden sm:block"></div>
-
                     <!-- Sound Toggle Button -->
-                    <button onclick="window.toggleAudioUI()" class="sound-toggle size-8 sm:size-8.5 rounded-full flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800/80 transition-colors text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white" aria-label="Toggle Sound FX" title="Enable Sound FX">
+                    <button onclick="window.toggleAudioUI()" class="sound-toggle size-8 sm:size-8.5 rounded-full flex items-center justify-center hover:bg-white/60 transition-colors text-[#1E2028]/75 hover:text-[#1E2028]" aria-label="Toggle Sound FX" title="Enable Sound FX">
                         <span class="material-symbols-outlined text-[18px]">volume_off</span>
                     </button>
 
                     <!-- Mobile/Tablet Menu Hamburger Button -->
-                    <button id="mobile-menu-btn" type="button" class="lg:hidden size-8.5 sm:size-9 rounded-full flex items-center justify-center text-slate-800 dark:text-slate-200 bg-slate-100/90 dark:bg-slate-800/90 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200/60 dark:border-slate-700/60 transition-all active:scale-95 shadow-sm" aria-label="Toggle navigation menu" title="Open Navigation Menu">
+                    <button id="mobile-menu-btn" type="button" class="lg:hidden size-8.5 sm:size-9 rounded-full flex items-center justify-center text-[#1E2028] bg-white/60 hover:bg-white border border-white/80 transition-all active:scale-95 shadow-sm" aria-label="Toggle navigation menu" title="Open Navigation Menu">
                         <span class="material-symbols-outlined text-[20px]" id="mobile-menu-btn-icon">menu</span>
                     </button>
                 </div>
@@ -193,10 +208,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <!-- Drawer Bottom Utilities & Actions -->
                 <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col gap-3">
-                    <!-- Direct Action Button -->
-                    <a href="contact.html" class="mobile-nav-link w-full py-3 rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-500 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 transition-all active:scale-[0.99]">
-                        <span class="material-symbols-outlined text-[18px]">send</span>
-                        <span>Send a Direct Message</span>
+                    <!-- Direct Action Button (Reference Image 1: Let's Connect Curved CTA) -->
+                    <a href="contact.html" class="lets-connect-btn mobile-nav-link group relative w-full inline-flex items-center justify-between rounded-full overflow-hidden border border-[#AFBAE5]/50 py-2.5 px-5 text-white font-medium text-sm shadow-lg transition-all active:scale-[0.99]" style="background: linear-gradient(135deg, #021448 0%, #031650 100%);">
+                        <span class="relative z-10 font-medium tracking-wide">Let's Connect</span>
+                        <span class="relative z-10 flex items-center justify-center w-8 self-stretch">
+                            <svg class="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 36 36" preserveAspectRatio="none">
+                                <path d="M 11 0 C 4 11, 4 25, 11 36 L 36 36 L 36 0 Z" fill="#090D22" />
+                                <path d="M 11 0 C 4 11, 4 25, 11 36" fill="none" stroke="#AFBAE5" stroke-width="1.3" opacity="0.9" />
+                            </svg>
+                            <svg class="relative z-20 size-4 text-[#D9E4FF] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </span>
                     </a>
 
                     <!-- Social / Connect Strip -->
@@ -213,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
 
                     <p class="text-center text-[11px] text-slate-400 dark:text-slate-500 font-mono">
-                        © 2026 Navari Yashwanth Reddy
+                        &copy; 2026 Navari Yashwanth Reddy
                     </p>
                 </div>
             </div>
@@ -243,11 +267,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
         if (headerEl) {
             if (currentScroll > 40) {
-                headerEl.classList.add('shadow-lg', 'bg-white/95', 'dark:bg-[#070b14]/95', 'py-1');
-                headerEl.classList.remove('py-1.5', 'sm:py-2');
+                headerEl.classList.add('scrolled', 'py-1.5');
+                headerEl.classList.remove('py-2', 'sm:py-2.5');
             } else {
-                headerEl.classList.remove('shadow-lg', 'bg-white/95', 'dark:bg-[#070b14]/95', 'py-1');
-                headerEl.classList.add('py-1.5', 'sm:py-2');
+                headerEl.classList.remove('scrolled', 'py-1.5');
+                headerEl.classList.add('py-2', 'sm:py-2.5');
             }
         }
     }, { passive: true });
