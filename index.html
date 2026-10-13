@@ -21,7 +21,7 @@
     <link rel="canonical" href="https://navariyashwanthreddy.vercel.app/">
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Oxanium:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Manrope:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
@@ -52,9 +52,11 @@
                         "card-light": "rgba(255, 255, 255, 0.7)" 
                     },
                     fontFamily: {
-                        "display": ["'Outfit'", "sans-serif"],
-                        "body": ["'Inter'", "sans-serif"],
-                        "sans": ["'Inter'", "sans-serif"]
+                        "serif-display": ["'DM Serif Display'", "Georgia", "serif"],
+                        "jakarta": ["'Plus Jakarta Sans'", "sans-serif"],
+                        "display": ["'Plus Jakarta Sans'", "'Outfit'", "sans-serif"],
+                        "body": ["'Plus Jakarta Sans'", "'Inter'", "sans-serif"],
+                        "sans": ["'Plus Jakarta Sans'", "'Inter'", "sans-serif"]
                     },
                     borderRadius: { "DEFAULT": "0.5rem", "md": "0.75rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px" },
                 },
@@ -185,6 +187,38 @@
     .animate-spin-slow {
         animation: spin 12s linear infinite;
     }
+
+    /* Hero Editorial Typography & Hierarchy */
+    .hero-name-font {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-weight: 400;
+        letter-spacing: -0.025em;
+        line-height: 0.98;
+    }
+    .hero-name-size {
+        font-size: clamp(2.75rem, 5.2vw + 1rem, 6.25rem);
+    }
+    .hero-body-font {
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .hero-title-accent-gradient {
+        background: linear-gradient(135deg, #2563eb 0%, #0284c7 45%, #059669 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .dark .hero-title-accent-gradient {
+        background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 50%, #34d399 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .hero-name-font, .hero-btn {
+            transition: none !important;
+            animation: none !important;
+        }
+    }
 </style>
 
 <body
@@ -241,68 +275,95 @@
 
             <div class="mx-auto w-full max-w-[1200px] relative z-10">
                 <div class="@container">
-                    <div class="flex flex-col-reverse gap-16 lg:flex-row lg:items-center lg:gap-10">
-                        <div class="reveal flex flex-col gap-6 text-left w-full lg:w-1/2">
-                            <!-- Premium Pill Badge -->
-                            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/60 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 w-fit mb-2 backdrop-blur-lg shadow-sm hover:shadow-md transition-shadow">
-                                <span class="relative flex h-2.5 w-2.5">
-                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                                </span>
-                                <span class="text-[11px] font-black text-slate-700 dark:text-slate-300 uppercase tracking-[0.2em]">Available for opportunities</span>
+                    <div class="flex flex-col-reverse gap-16 lg:flex-row lg:items-center lg:gap-12">
+                        <div class="reveal flex flex-col gap-5 text-left w-full lg:w-7/12">
+                            <!-- Badges: Availability & Patent -->
+                            <div class="flex flex-wrap items-center gap-2.5">
+                                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 dark:bg-slate-900/80 border border-slate-200/90 dark:border-slate-800 backdrop-blur-md shadow-xs hover:shadow-sm transition-all">
+                                    <span class="relative flex h-2 w-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                    </span>
+                                    <span class="text-[10.5px] font-bold text-slate-700 dark:text-slate-300 uppercase tracking-[0.16em] hero-body-font">Available for opportunities</span>
+                                </div>
+
+                                <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/10 dark:bg-amber-400/10 border border-amber-500/30 dark:border-amber-400/30 text-amber-700 dark:text-amber-300 backdrop-blur-md shadow-xs hover:shadow-sm transition-all">
+                                    <span class="material-symbols-outlined text-[14px] text-amber-600 dark:text-amber-400">workspace_premium</span>
+                                    <span class="text-[10px] font-bold uppercase tracking-[0.14em] hero-body-font">Design Patent Holder</span>
+                                </div>
                             </div>
 
-                            <!-- Typography -->
-                            <div class="flex flex-col gap-2 mb-2">
-                                <h2 class="text-xl sm:text-2xl font-medium text-slate-500 dark:text-slate-400 tracking-tight">
+                            <!-- Editorial Name Presentation -->
+                            <div class="flex flex-col mt-0.5">
+                                <span class="text-base sm:text-lg font-semibold text-slate-500 dark:text-slate-400 tracking-normal mb-1.5 hero-body-font">
                                     Hello, I'm
-                                </h2>
-                                <h1 class="text-6xl sm:text-7xl lg:text-[5.5rem] font-black text-slate-900 dark:text-white leading-[1.05] tracking-tighter">
-                                    Navari <br/>
-                                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-500 to-emerald-500 drop-shadow-sm pb-2">Yashwanth</span>
+                                </span>
+                                <h1 class="hero-name-font hero-name-size flex flex-col select-none">
+                                    <span class="block text-[#111827] dark:text-slate-100">
+                                        Navari
+                                    </span>
+                                    <span class="block hero-title-accent-gradient mt-0.5 pb-1">
+                                        Yashwanth
+                                    </span>
                                 </h1>
                             </div>
 
-                            <div class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed font-semibold mb-2 max-w-xl flex items-center gap-3">
-                                <span class="w-10 h-[2px] bg-gradient-to-r from-primary to-transparent rounded-full shrink-0"></span>
-                                <span id="typed-subtitle" data-phrases="Design Patent Holder, AI &amp; ML Engineer, Full-Stack Developer, Innovator"></span>
+                            <!-- Professional Title & Hierarchy -->
+                            <div class="flex flex-col gap-1.5 pt-1">
+                                <div class="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight hero-body-font flex items-center gap-3">
+                                    <span class="w-8 h-[2px] bg-gradient-to-r from-blue-600 to-teal-500 rounded-full shrink-0"></span>
+                                    <span>AI &amp; Machine Learning Engineer</span>
+                                </div>
+                                <div class="text-sm sm:text-[15px] font-semibold text-slate-500 dark:text-slate-400 tracking-wide pl-11 hero-body-font">
+                                    Data Science · Full-Stack Development · Applied AI
+                                </div>
                             </div>
+
+                            <!-- Supporting Description -->
+                            <p class="text-[14.5px] sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed font-normal max-w-xl hero-body-font mt-0.5">
+                                Building intelligent applications that connect machine learning, software engineering, and real-world problem solving.
+                            </p>
                             
-                            <div class="flex flex-col sm:flex-row gap-4 w-full mt-6">
-                                <button onclick="window.location.href='projects.html'" class="group relative px-8 py-4 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold text-[15px] shadow-[0_0_40px_rgba(37,99,235,0.2)] hover:shadow-[0_0_60px_rgba(37,99,235,0.4)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden">
-                                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 dark:via-black/10 to-transparent -translate-x-[150%] group-hover:animate-[shimmerSweep_1.5s_infinite]"></div>
-                                    Explore Portfolio <span class="material-symbols-outlined transition-transform group-hover:rotate-12">explore</span>
+                            <!-- Refined Call-to-Action Buttons -->
+                            <div class="flex flex-col sm:flex-row gap-3.5 w-full mt-3">
+                                <button onclick="window.location.href='projects.html'"
+                                    class="hero-body-font group relative px-7 py-3.5 rounded-xl bg-[#10182C] dark:bg-white text-white dark:text-[#10182C] font-semibold text-[14.5px] border border-[#10182C] dark:border-white shadow-[0_6px_20px_-3px_rgba(16,24,44,0.3)] hover:shadow-[0_10px_24px_-3px_rgba(37,99,235,0.35)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2.5 overflow-hidden cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                                    <div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/15 dark:via-black/10 to-transparent -translate-x-[150%] group-hover:animate-[shimmerSweep_1.5s_infinite]"></div>
+                                    <span>Explore Portfolio</span>
+                                    <span class="material-symbols-outlined text-[19px] transition-transform group-hover:rotate-12">explore</span>
                                 </button>
-                                <button onclick="window.location.href='contact.html'" class="px-8 py-4 rounded-xl bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm border-2 border-slate-200 dark:border-slate-700 hover:border-primary dark:hover:border-primary text-slate-700 dark:text-white font-bold text-[15px] shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3 group">
-                                    Hire Me <span class="material-symbols-outlined group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform text-primary">rocket_launch</span>
+                                <button onclick="window.location.href='contact.html'"
+                                    class="hero-body-font px-7 py-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800/80 text-slate-800 dark:text-slate-100 font-semibold text-[14.5px] shadow-xs hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2 group cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                                    <span>Let's Connect</span>
+                                    <span class="material-symbols-outlined text-[18px] group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform text-blue-600 dark:text-blue-400">arrow_outward</span>
                                 </button>
                             </div>
 
                             <!-- Social Links -->
-                            <div class="flex items-center gap-4 mt-8">
+                            <div class="flex items-center gap-3.5 mt-3">
                                 <a href="https://www.linkedin.com/in/navari-yashwanth-reddy-4a7065357/" target="_blank"
-                                    class="flex h-12 w-12 items-center justify-center rounded-full bg-[#0077b5] text-white hover:scale-110 hover:-translate-y-1 transition-all shadow-md hover:shadow-lg hover:shadow-[#0077b5]/30 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2"
+                                    class="flex h-11 w-11 items-center justify-center rounded-full bg-[#0077b5] text-white hover:scale-110 hover:-translate-y-0.5 transition-all shadow-sm hover:shadow-md hover:shadow-[#0077b5]/30 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2"
                                     aria-label="LinkedIn Profile">
                                     <span class="sr-only">LinkedIn</span>
-                                    <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
+                                    <svg class="h-4.5 w-4.5 fill-current" viewBox="0 0 24 24">
                                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                                     </svg>
                                 </a>
                                 <a href="https://github.com/YashwanthNavari" target="_blank"
-                                    class="flex h-12 w-12 items-center justify-center rounded-full bg-slate-800 text-white hover:scale-110 hover:-translate-y-1 transition-all shadow-md hover:shadow-lg hover:shadow-slate-800/30 dark:bg-slate-100 dark:text-slate-900 dark:hover:shadow-slate-200/30 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2"
+                                    class="flex h-11 w-11 items-center justify-center rounded-full bg-slate-900 text-white hover:scale-110 hover:-translate-y-0.5 transition-all shadow-sm hover:shadow-md hover:shadow-slate-900/30 dark:bg-slate-100 dark:text-slate-900 dark:hover:shadow-slate-200/30 focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none focus-visible:ring-offset-2"
                                     aria-label="GitHub Profile">
                                     <span class="sr-only">GitHub</span>
-                                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                                    <svg class="h-5 w-5 fill-current" viewBox="0 0 24 24">
                                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                     </svg>
                                 </a>
-                                <div class="hidden sm:block w-12 h-px bg-slate-300 dark:bg-slate-700 mx-2"></div>
-                                <span class="hidden sm:block text-sm font-bold text-slate-500 dark:text-slate-400">Connect with me</span>
+                                <div class="hidden sm:block w-10 h-px bg-slate-300 dark:bg-slate-700 mx-2"></div>
+                                <span class="hidden sm:block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider hero-body-font">Connect with me</span>
                             </div>
                         </div>
 
                         <!-- Right Side: Clean Premium Avatar -->
-                        <div class="reveal relative flex flex-1 w-full justify-center items-center p-4 mt-8 lg:mt-0">
+                        <div class="reveal relative flex flex-1 w-full lg:w-5/12 justify-center items-center p-4 mt-8 lg:mt-0">
                             <div class="relative w-full max-w-[450px] aspect-square flex justify-center items-center group perspective-1000">
                                 
                                 <!-- Floating Tech Badges (Elegant & Controlled) -->
@@ -332,8 +393,8 @@
                                 </div>
 
                                 <!-- The Headshot Circle -->
-                                <div class="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full p-2 bg-gradient-to-tr from-primary via-cyan-400 to-emerald-400 shadow-[0_0_60px_rgba(37,99,235,0.3)] z-10 transition-transform duration-700 hover:rotate-3 group-hover:shadow-[0_0_80px_rgba(37,99,235,0.5)]">
-                                    <div class="absolute inset-0 bg-gradient-to-tr from-primary via-cyan-400 to-emerald-400 rounded-full animate-spin-slow opacity-50 blur-xl"></div>
+                                <div class="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] rounded-full p-2 bg-gradient-to-tr from-primary via-cyan-400 to-emerald-400 shadow-[0_10px_40px_rgba(37,99,235,0.2)] z-10 transition-transform duration-700 hover:rotate-2 group-hover:shadow-[0_15px_50px_rgba(37,99,235,0.3)]">
+                                    <div class="absolute inset-0 bg-gradient-to-tr from-primary via-cyan-400 to-emerald-400 rounded-full animate-spin-slow opacity-30 blur-lg"></div>
                                     <div class="relative w-full h-full rounded-full overflow-hidden bg-slate-200 dark:bg-slate-800 border-4 border-background-light dark:border-background-dark z-10 flex items-center justify-center">
                                         <img alt="Professional headshot of Navari Yashwanth Reddy"
                                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 origin-center"
