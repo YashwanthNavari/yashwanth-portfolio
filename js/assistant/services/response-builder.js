@@ -14,9 +14,9 @@ window.NavariAI_ResponseBuilder = (() => {
     switch (intent) {
       case 'GREETING': {
         return {
-          title: 'Hello! I\'m Navari AI',
+          title: 'Hello! I\'m Yashwanth AI',
           paragraphs: [
-            'I am the interactive portfolio intelligence assistant for **Navari Yashwanth Reddy**.',
+            'I am the interactive personal AI assistant for **Navari Yashwanth Reddy**.',
             'You can ask me about his technical background, machine learning projects, internships, Government of India patent, or how to contact him.'
           ],
           followUps: [

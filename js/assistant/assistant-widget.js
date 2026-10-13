@@ -1,19 +1,26 @@
 /**
- * Navari AI — Portfolio Intelligence Assistant Widget
+ * Yashwanth AI — Portfolio Intelligence Assistant Widget
  * Complete Frontend-Only Architecture
+ * Branding: YASHWANTH AI / YOUR PERSONAL AI ASSISTANT
+ * Typography: Oxanium Display + Manrope Body
  */
 window.NavariAI = (() => {
   let isInitialized = false;
   let isOpen = false;
   let isMinimized = false;
   let isGenerating = false;
+  let currentView = 'welcome'; // 'welcome' | 'conversation'
 
   // DOM element references
   let fabEl = null;
   let windowEl = null;
+  let headerLeftEl = null;
   let bodyEl = null;
   let inputEl = null;
   let sendBtnEl = null;
+
+  // In-memory conversation messages container
+  let messageHistoryDOM = [];
 
   // Required dependency files relative to root
   const SCRIPT_DEPS = [
@@ -43,8 +50,7 @@ window.NavariAI = (() => {
 
   // Helper to load a script with Promise
   const loadScript = (src) => {
-    return new Promise((resolve, reject) => {
-      // Check if already in DOM
+    return new Promise((resolve) => {
       if (document.querySelector(`script[src*="${src}"]`)) {
         return resolve();
       }
@@ -53,8 +59,8 @@ window.NavariAI = (() => {
       s.async = false;
       s.onload = () => resolve();
       s.onerror = () => {
-        console.warn(`[Navari AI] Failed loading script: ${src}, attempting fallback path`);
-        resolve(); // Continue gracefully
+        console.warn(`[Yashwanth AI] Failed loading script: ${src}`);
+        resolve();
       };
       document.head.appendChild(s);
     });
@@ -67,19 +73,73 @@ window.NavariAI = (() => {
     }
   };
 
+  // Update header based on view state
+  const updateHeaderView = () => {
+    if (!headerLeftEl) return;
+    headerLeftEl.innerHTML = '';
+
+    if (currentView === 'conversation') {
+      const backBtn = document.createElement('button');
+      backBtn.type = 'button';
+      backBtn.className = 'ai-back-btn';
+      backBtn.innerHTML = `
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+        </svg>
+        <span>Discover</span>
+      `;
+      backBtn.setAttribute('title', 'Return to Discover Screen');
+      backBtn.addEventListener('click', () => switchView('welcome'));
+      headerLeftEl.appendChild(backBtn);
+    }
+
+    const brandWrap = document.createElement('div');
+    brandWrap.className = 'ai-header-brand flex items-center gap-2.5';
+    brandWrap.innerHTML = `
+      <div class="ai-avatar-mini" aria-hidden="true">
+        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+      </div>
+      <div class="ai-title-wrap">
+        <span class="ai-title">YASHWANTH AI</span>
+        <span class="ai-subtitle">YOUR PERSONAL AI ASSISTANT</span>
+      </div>
+    `;
+    headerLeftEl.appendChild(brandWrap);
+  };
+
+  // Switch between Welcome and Conversation views
+  const switchView = (targetView) => {
+    currentView = targetView;
+    updateHeaderView();
+
+    bodyEl.innerHTML = '';
+    if (currentView === 'welcome') {
+      renderWelcomeScreen();
+    } else {
+      // Re-render conversation history
+      messageHistoryDOM.forEach((node) => bodyEl.appendChild(node));
+      scrollToBottom();
+    }
+  };
+
   // Build the complete Widget HTML structure
   const buildWidgetDOM = () => {
-    // Remove old FAB or chat if they exist from previous implementation
     const oldFab = document.getElementById('ai-fab');
     if (oldFab) oldFab.remove();
     const oldChat = document.getElementById('ai-chat');
     if (oldChat) oldChat.remove();
+    const existingFab = document.getElementById('navari-ai-fab');
+    if (existingFab) existingFab.remove();
+    const existingWin = document.getElementById('navari-ai-window');
+    if (existingWin) existingWin.remove();
 
     // 1. Floating Action Button
     fabEl = document.createElement('button');
     fabEl.id = 'navari-ai-fab';
-    fabEl.setAttribute('aria-label', 'Open Navari AI Portfolio Assistant');
-    fabEl.setAttribute('title', 'Navari AI — Portfolio Assistant');
+    fabEl.setAttribute('aria-label', 'Open Yashwanth AI Portfolio Assistant');
+    fabEl.setAttribute('title', 'Yashwanth AI — Personal AI Assistant');
     fabEl.innerHTML = `
       <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
@@ -91,22 +151,12 @@ window.NavariAI = (() => {
     windowEl = document.createElement('div');
     windowEl.id = 'navari-ai-window';
     windowEl.setAttribute('role', 'dialog');
-    windowEl.setAttribute('aria-label', 'Navari AI Assistant Dialog');
+    windowEl.setAttribute('aria-label', 'Yashwanth AI Assistant Dialog');
 
     windowEl.innerHTML = `
       <!-- Header -->
       <header class="ai-chat-header">
-        <div class="ai-header-brand">
-          <div class="ai-avatar-mini" aria-hidden="true">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <div class="ai-title-wrap">
-            <span class="ai-title">Navari AI</span>
-            <span class="ai-subtitle">Your Personal Portfolio Assistant</span>
-          </div>
-        </div>
+        <div class="ai-header-left" id="ai-header-left"></div>
         <div class="ai-header-actions">
           <button id="ai-clear-btn" class="ai-header-btn" title="Clear Conversation" aria-label="Clear Conversation">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,9 +186,9 @@ window.NavariAI = (() => {
             type="text" 
             id="ai-user-input" 
             class="ai-input" 
-            placeholder="Ask about projects, skills, patent, or background..." 
+            placeholder="Ask me about my projects, skills, or background..." 
             autocomplete="off"
-            aria-label="Ask Navari AI"
+            aria-label="Ask Yashwanth AI"
           />
           <button type="submit" id="ai-send-btn" class="ai-send-btn" aria-label="Send Message" title="Send">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,7 +196,7 @@ window.NavariAI = (() => {
             </svg>
           </button>
         </form>
-        <div class="ai-footer-note">Powered by Navari AI · Verified Portfolio Intelligence</div>
+        <div class="ai-footer-note">Powered by Yashwanth AI · Verified Portfolio Intelligence</div>
       </footer>
     `;
 
@@ -154,12 +204,15 @@ window.NavariAI = (() => {
     document.body.appendChild(windowEl);
 
     // Save refs
+    headerLeftEl = document.getElementById('ai-header-left');
     bodyEl = document.getElementById('ai-messages-body');
     inputEl = document.getElementById('ai-user-input');
     sendBtnEl = document.getElementById('ai-send-btn');
+
+    updateHeaderView();
   };
 
-  // Render the distinctive Welcome Screen (Luminous AI Orb + 4 Quick Action Cards)
+  // Render the distinctive Welcome Screen (AI Visual + 6 Feature Discover Cards)
   const renderWelcomeScreen = () => {
     bodyEl.innerHTML = '';
     const welcome = document.createElement('div');
@@ -167,64 +220,114 @@ window.NavariAI = (() => {
     welcome.id = 'ai-welcome-state';
 
     welcome.innerHTML = `
-      <!-- Luminous Blue-Violet AI Orb -->
-      <div class="ai-orb-wrapper" aria-hidden="true">
-        <div class="ai-orb-glow"></div>
-        <div class="ai-luminous-orb"></div>
+      <!-- Futuristic AI Character Visual -->
+      <div class="ai-hero-visual" aria-hidden="true">
+        <div class="ai-visual-outer-ring"></div>
+        <div class="ai-visual-glow"></div>
+        <div class="ai-visual-core">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+          </svg>
+        </div>
       </div>
 
-      <!-- Personalized Greeting -->
-      <h2 class="ai-welcome-title">Meet Yashwanth.<br>Explore the work behind the code.</h2>
-      <p class="ai-welcome-subtitle">
-        Discover his technical background, projects, experience, research, and achievements.
+      <!-- Display Typography Headings -->
+      <h2 class="ai-welcome-heading">MEET YASHWANTH</h2>
+      <div class="ai-welcome-subheading">YOUR AI GUIDE TO MY WORK</div>
+      <p class="ai-welcome-desc">
+        Explore my technical background, projects, engineering experience, and achievements.
       </p>
 
-      <!-- 4 Interactive Quick Action Cards -->
-      <div class="ai-quick-actions-grid">
-        <button type="button" class="ai-quick-card" data-query="Tell me about Navari Yashwanth Reddy">
-          <div class="ai-quick-icon">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-            </svg>
+      <!-- 6 Interactive Feature Cards (Mobile-App Reference Grid) -->
+      <div class="ai-features-grid">
+        <!-- 01 ABOUT ME -->
+        <button type="button" class="ai-feature-card" data-query="Tell me about Navari Yashwanth Reddy">
+          <div class="ai-feature-card-header">
+            <span class="ai-feature-index">01</span>
+            <span class="ai-feature-icon">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </span>
           </div>
-          <span class="ai-quick-title">About Yashwanth</span>
-          <span class="ai-quick-desc">Background & identity</span>
+          <span class="ai-feature-title">ABOUT ME</span>
+          <span class="ai-feature-desc">Background & journey</span>
         </button>
 
-        <button type="button" class="ai-quick-card" data-query="Explore all projects">
-          <div class="ai-quick-icon">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-            </svg>
+        <!-- 02 PROJECTS -->
+        <button type="button" class="ai-feature-card" data-query="Explore all projects">
+          <div class="ai-feature-card-header">
+            <span class="ai-feature-index">02</span>
+            <span class="ai-feature-icon">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+              </svg>
+            </span>
           </div>
-          <span class="ai-quick-title">Explore Projects</span>
-          <span class="ai-quick-desc">AI, CV & full-stack</span>
+          <span class="ai-feature-title">PROJECTS</span>
+          <span class="ai-feature-desc">AI, CV & systems</span>
         </button>
 
-        <button type="button" class="ai-quick-card" data-query="What are his technical skills and internship experience?">
-          <div class="ai-quick-icon">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-            </svg>
+        <!-- 03 EXPERTISE -->
+        <button type="button" class="ai-feature-card" data-query="What are your technical skills and expertise?">
+          <div class="ai-feature-card-header">
+            <span class="ai-feature-index">03</span>
+            <span class="ai-feature-icon">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+              </svg>
+            </span>
           </div>
-          <span class="ai-quick-title">Skills & Experience</span>
-          <span class="ai-quick-desc">Tech stack & Innovexis</span>
+          <span class="ai-feature-title">EXPERTISE</span>
+          <span class="ai-feature-desc">Skills & Innovexis</span>
         </button>
 
-        <button type="button" class="ai-quick-card" data-query="Tell me about his IoT patent and achievements">
-          <div class="ai-quick-icon">
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-            </svg>
+        <!-- 04 RESEARCH & IP -->
+        <button type="button" class="ai-feature-card" data-query="Tell me about your research and IoT design patent">
+          <div class="ai-feature-card-header">
+            <span class="ai-feature-index">04</span>
+            <span class="ai-feature-icon">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+              </svg>
+            </span>
           </div>
-          <span class="ai-quick-title">Research & Patent</span>
-          <span class="ai-quick-desc">Govt. Design Patent</span>
+          <span class="ai-feature-title">RESEARCH & IP</span>
+          <span class="ai-feature-desc">Patent 470097-001</span>
+        </button>
+
+        <!-- 05 CERTIFICATIONS -->
+        <button type="button" class="ai-feature-card" data-query="Tell me about your certifications and hackathons">
+          <div class="ai-feature-card-header">
+            <span class="ai-feature-index">05</span>
+            <span class="ai-feature-icon">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </span>
+          </div>
+          <span class="ai-feature-title">CERTIFICATES</span>
+          <span class="ai-feature-desc">AWS & Cloudinary</span>
+        </button>
+
+        <!-- 06 CONTACT -->
+        <button type="button" class="ai-feature-card" data-query="How can I contact Yashwanth?">
+          <div class="ai-feature-card-header">
+            <span class="ai-feature-index">06</span>
+            <span class="ai-feature-icon">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </span>
+          </div>
+          <span class="ai-feature-title">CONTACT</span>
+          <span class="ai-feature-desc">Get in touch directly</span>
         </button>
       </div>
     `;
 
-    // Attach click listeners to cards
-    welcome.querySelectorAll('.ai-quick-card').forEach((card) => {
+    // Attach click listeners to feature cards
+    welcome.querySelectorAll('.ai-feature-card').forEach((card) => {
       card.addEventListener('click', () => {
         const query = card.getAttribute('data-query');
         if (query) handleUserQuery(query);
@@ -265,25 +368,29 @@ window.NavariAI = (() => {
     if (window.NavariAI_Context) {
       window.NavariAI_Context.clear();
     }
-    renderWelcomeScreen();
+    messageHistoryDOM = [];
+    switchView('welcome');
   };
 
   // Append user message safely (textContent only!)
   const appendUserMessage = (text) => {
-    // Remove welcome state if present
-    const welcome = document.getElementById('ai-welcome-state');
-    if (welcome) welcome.remove();
+    if (currentView !== 'conversation') {
+      currentView = 'conversation';
+      updateHeaderView();
+      bodyEl.innerHTML = '';
+      messageHistoryDOM.forEach((node) => bodyEl.appendChild(node));
+    }
 
     const msgRow = document.createElement('div');
     msgRow.className = 'ai-message ai-user';
 
     const bubble = document.createElement('div');
     bubble.className = 'ai-bubble';
-    // STRICT XSS DEFENSE: textContent ONLY for raw user queries
     bubble.textContent = text;
 
     msgRow.appendChild(bubble);
     bodyEl.appendChild(msgRow);
+    messageHistoryDOM.push(msgRow);
     scrollToBottom();
   };
 
@@ -338,7 +445,6 @@ window.NavariAI = (() => {
     const bubble = document.createElement('div');
     bubble.className = 'ai-bubble';
 
-    // Use SafeRender to build DOM structure
     if (window.NavariAI_SafeRender) {
       const contentDOM = window.NavariAI_SafeRender.renderResponseDOM(responseData, {
         onChipClick: (chipText) => handleUserQuery(chipText),
@@ -352,6 +458,7 @@ window.NavariAI = (() => {
     msgRow.appendChild(avatar);
     msgRow.appendChild(bubble);
     bodyEl.appendChild(msgRow);
+    messageHistoryDOM.push(msgRow);
     scrollToBottom();
   };
 
@@ -379,7 +486,7 @@ window.NavariAI = (() => {
           responseData = window.NavariAI_ResponseBuilder.build(intentResult);
         } else {
           responseData = {
-            title: 'Navari AI Initialization Notice',
+            title: 'Yashwanth AI Initialization Notice',
             paragraphs: ['The local knowledge base is synchronizing. Please try your question again in a moment.']
           };
         }
@@ -387,7 +494,7 @@ window.NavariAI = (() => {
         removeTypingIndicator();
         appendAssistantResponse(responseData);
       } catch (err) {
-        console.error('[Navari AI] Error processing query:', err);
+        console.error('[Yashwanth AI] Error processing query:', err);
         removeTypingIndicator();
         appendAssistantResponse({
           title: 'Response Processing Notice',
@@ -399,27 +506,22 @@ window.NavariAI = (() => {
         if (sendBtnEl) sendBtnEl.disabled = false;
         if (inputEl) inputEl.focus();
       }
-    }, 450); // Natural micro-delay for realistic pacing
+    }, 450);
   };
 
   // Bind all interactive events
   const attachEvents = () => {
-    // Open on FAB click
     fabEl.addEventListener('click', () => toggleChat());
 
-    // Close button
     const closeBtn = document.getElementById('ai-close-btn');
     if (closeBtn) closeBtn.addEventListener('click', () => toggleChat(false));
 
-    // Minimize button
     const minBtn = document.getElementById('ai-minimize-btn');
     if (minBtn) minBtn.addEventListener('click', () => toggleMinimize());
 
-    // Clear chat button
     const clearBtn = document.getElementById('ai-clear-btn');
     if (clearBtn) clearBtn.addEventListener('click', () => clearChat());
 
-    // Form submission
     const form = document.getElementById('ai-input-form');
     if (form) {
       form.addEventListener('submit', (e) => {
@@ -428,7 +530,6 @@ window.NavariAI = (() => {
       });
     }
 
-    // Keyboard ESC to close
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isOpen) {
         toggleChat(false);
@@ -441,16 +542,14 @@ window.NavariAI = (() => {
     if (isInitialized) return;
     isInitialized = true;
 
-    // Load styles and required scripts
     ensureStylesLoaded();
     await ensureDependencies();
 
-    // Build DOM & setup state
     buildWidgetDOM();
-    renderWelcomeScreen();
+    switchView('welcome');
     attachEvents();
 
-    console.log('[Navari AI] Portfolio Intelligence Assistant initialized successfully.');
+    console.log('[Yashwanth AI] Portfolio Assistant initialized successfully.');
   };
 
   return {
@@ -458,6 +557,7 @@ window.NavariAI = (() => {
     open: () => toggleChat(true),
     close: () => toggleChat(false),
     query: (q) => handleUserQuery(q),
-    clear: () => clearChat()
+    clear: () => clearChat(),
+    showDiscover: () => switchView('welcome')
   };
 })();
