@@ -470,187 +470,20 @@ const spotlightController = (() => {
 
 const aiWidgetController = (() => {
     const init = () => {
-        const widgetHTML = `
-            <!-- Floating Action Button -->
-            <button id="ai-fab" class="fixed bottom-6 right-6 z-[90] w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-full shadow-lg shadow-indigo-500/30 flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 animate-bounce-slow group backdrop-blur-md border border-white/20">
-                <span class="material-symbols-outlined text-[28px] group-hover:rotate-12 transition-transform">smart_toy</span>
-                <span class="absolute top-0 right-0 w-3.5 h-3.5 bg-[#27c93f] border-2 border-white dark:border-slate-900 rounded-full shadow-[0_0_8px_rgba(39,201,63,0.8)]"></span>
-            </button>
-
-            <!-- Chat Window -->
-            <div id="ai-chat" class="fixed bottom-24 right-6 z-[90] w-80 md:w-96 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-2xl shadow-2xl shadow-indigo-500/10 border border-slate-200/50 dark:border-white/10 overflow-hidden text-sm transform origin-bottom-right scale-0 opacity-0 transition-all duration-300 flex flex-col">
-                <!-- Header -->
-                <div class="bg-gradient-to-r from-primary to-secondary p-4 flex items-center justify-between text-white relative">
-                    <div class="absolute inset-0 bg-white/10 mix-blend-overlay"></div>
-                    <div class="flex items-center gap-3 relative z-10">
-                        <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm">
-                            <span class="material-symbols-outlined text-[18px]">smart_toy</span>
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="font-bold tracking-wide">Navari AI</span>
-                            <span class="text-[10px] opacity-90 flex items-center gap-1.5 uppercase tracking-wider"><span class="w-1.5 h-1.5 bg-[#27c93f] rounded-full shadow-[0_0_5px_#27c93f]"></span> Online</span>
-                        </div>
-                    </div>
-                    <button id="close-chat" class="relative z-10 hover:bg-white/20 rounded-full p-1.5 transition-colors"><span class="material-symbols-outlined text-[18px]">close</span></button>
-                </div>
-
-                <!-- Messages Area -->
-                <div id="ai-messages" class="h-80 overflow-y-auto p-4 flex flex-col gap-3 bg-slate-50/50 dark:bg-slate-800/30">
-                    <div class="flex gap-2 items-start">
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shrink-0 text-white shadow-md">
-                            <span class="material-symbols-outlined text-[16px]">smart_toy</span>
-                        </div>
-                        <div class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 py-2 px-3.5 rounded-2xl rounded-tl-sm shadow-sm text-slate-700 dark:text-slate-200 leading-relaxed max-w-[85%]">
-                            Hi there! I'm the AI assistant for this portfolio. How can I help you discover more about Yashwanth?
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Input Area (Chips) -->
-                <div class="p-4 bg-white/80 dark:bg-slate-900/80 border-t border-slate-100 dark:border-slate-800">
-                    <div class="flex flex-wrap gap-2 justify-end" id="ai-chips">
-                        <button class="ai-chip text-xs bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white px-3.5 py-1.5 rounded-full transition-all duration-200 border border-transparent hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 text-slate-600 dark:text-slate-300 font-medium tracking-wide">What is your tech stack?</button>
-                        <button class="ai-chip text-xs bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white px-3.5 py-1.5 rounded-full transition-all duration-200 border border-transparent hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 text-slate-600 dark:text-slate-300 font-medium tracking-wide">Tell me about your experience</button>
-                        <button class="ai-chip text-xs bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white px-3.5 py-1.5 rounded-full transition-all duration-200 border border-transparent hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 text-slate-600 dark:text-slate-300 font-medium tracking-wide">Are you open to work?</button>
-                        <button class="ai-chip text-xs bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white px-3.5 py-1.5 rounded-full transition-all duration-200 border border-transparent hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 text-slate-600 dark:text-slate-300 font-medium tracking-wide">Show me a random project</button>
-                    </div>
-                </div>
-                <!-- Dynamic Chat Input -->
-                <div class="p-3 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 flex gap-2 shrink-0">
-                    <input type="text" id="ai-input" placeholder="Ask me anything..." class="w-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary text-slate-800 dark:text-slate-200 shadow-sm transition-shadow">
-                    <button id="ai-send" class="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white rounded-xl px-4 flex items-center justify-center transition-all shadow-md group">
-                        <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">send</span>
-                    </button>
-                </div>
-            </div>
-        `;
-        document.body.insertAdjacentHTML('beforeend', widgetHTML);
-
-        // Logic
-        const fab = document.getElementById('ai-fab');
-        const chat = document.getElementById('ai-chat');
-        const close = document.getElementById('close-chat');
-        const messages = document.getElementById('ai-messages');
-        let isOpen = false;
-
-        const toggleChat = (show) => {
-            isOpen = show !== undefined ? show : !isOpen;
-            if (isOpen) {
-                chat.classList.remove('scale-0', 'opacity-0');
-                fab.classList.add('scale-0', 'opacity-0'); // Hide FAB when open
-            } else {
-                chat.classList.add('scale-0', 'opacity-0');
-                fab.classList.remove('scale-0', 'opacity-0');
-            }
-        };
-
-        fab.addEventListener('click', () => toggleChat(true));
-        close.addEventListener('click', () => toggleChat(false));
-
-        // Responses
-        const responses = {
-            "What is your tech stack?": "I primarily work with Python, PyTorch, and React. I have extensive experience in building scalable ML pipelines and modern web applications.",
-            "Tell me about your experience": "I've interned at Tech Corp as an ML Engineer and led the Senior Capstone Project. My focus is on turning data into actionable insights.",
-            "Are you open to work?": "Yes! I am currently looking for full-time opportunities in Data Science and Software Engineering. Feel free to contact me!",
-            "Show me a random project": "Check out my 'Library Management System' or the 'Sentiment Analysis' project in the Projects section. They showcase my full-stack capabilities."
-        };
-
-        document.querySelectorAll('.ai-chip').forEach(chip => {
-            chip.addEventListener('click', () => {
-                const text = chip.textContent;
-                addMessage(text, 'user');
-
-                // Simulate typing delay
-                showTyping();
-                setTimeout(() => {
-                    removeTyping();
-                    addMessage(responses[text] || "I'm not sure about that, but feel free to check out my Resume!", 'bot');
-                }, 1500);
-            });
-        });
-
-        const aiInput = document.getElementById('ai-input');
-        const aiSend = document.getElementById('ai-send');
-
-        const processUserQuery = (query) => {
-            if(!query.trim()) return;
-            addMessage(query, 'user');
-            aiInput.value = '';
-            
-            showTyping();
-            
-            // Simple rule-based chatbot logic
-            let reply = "That's an interesting question! I continually update my knowledge base to answer such nuanced queries.";
-            const q = query.toLowerCase();
-            
-            if(q.includes("skills") || q.includes("tech") || q.includes("stack")) {
-                reply = "Yashwanth excels in Python, Machine Learning (TensorFlow, Scikit-learn), Data Analysis (Pandas, SQL), and full-stack web development (React, Node, Tailwind).";
-            } else if(q.includes("project") || q.includes("built") || q.includes("portfolio")) {
-                reply = "Check out his 'Heart Disease Predictor' or 'Smart Parking System' in the Projects section. They demonstrate his ability to solve real-world problems.";
-            } else if(q.includes("contact") || q.includes("email") || q.includes("hire")) {
-                reply = "You can reach out to Yashwanth via the Contact section or email him at your@email.com! He's always open to new opportunities.";
-            } else if(q.includes("experience") || q.includes("work") || q.includes("intern")) {
-                reply = "He has strong foundational experience acting as an ML Engineering intern and leading massive capstone projects at university.";
-            } else if(q.includes("hello") || q.includes("hi") || q.includes("hey")) {
-                reply = "Hello there! Feel free to ask me anything about Yashwanth's skills, projects, or how to contact him!";
-            }
-            
-            setTimeout(() => {
-                removeTyping();
-                addMessage(reply, 'bot');
-            }, 1200);
-        };
-
-        aiSend.addEventListener('click', () => {
-            processUserQuery(aiInput.value);
-        });
-
-        aiInput.addEventListener('keypress', (e) => {
-            if(e.key === 'Enter') {
-                processUserQuery(aiInput.value);
-            }
-        });
-
-        const addMessage = (text, sender) => {
-            const div = document.createElement('div');
-            div.className = `flex gap-2 items-start ${sender === 'user' ? 'justify-end' : ''} animate-fade-in`;
-
-            if (sender === 'bot') {
-                div.innerHTML = `
-                    <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shrink-0 text-white shadow-md">
-                        <span class="material-symbols-outlined text-[16px]">smart_toy</span>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 py-2 px-3.5 rounded-2xl rounded-tl-sm shadow-sm text-slate-700 dark:text-slate-200 leading-relaxed max-w-[85%]">
-                        ${text}
-                    </div>
-                `;
-            } else {
-                div.innerHTML = `
-                   <div class="bg-gradient-to-br from-primary to-secondary text-white py-2 px-3.5 rounded-2xl rounded-tr-sm shadow-md shadow-indigo-500/20 max-w-[85%] font-medium">
-                        ${text}
-                    </div>
-                `;
-            }
-            messages.appendChild(div);
-            messages.scrollTop = messages.scrollHeight;
-        };
-
-        const showTyping = () => {
-            const typing = document.createElement('div');
-            typing.id = 'ai-typing';
-            typing.className = 'flex gap-2 items-start animate-fade-in';
-            typing.innerHTML = `
-                <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <span class="material-symbols-outlined text-primary text-xs">more_horiz</span>
-                </div>
-            `;
-            messages.appendChild(typing);
-            messages.scrollTop = messages.scrollHeight;
-        };
-
-        const removeTyping = () => {
-            document.getElementById('ai-typing')?.remove();
-        };
+        // Delegate to the modular, full-featured Navari AI Assistant
+        if (window.NavariAI && typeof window.NavariAI.init === 'function') {
+            window.NavariAI.init();
+        } else {
+            // Load assistant-widget.js dynamically if not already present
+            const script = document.createElement('script');
+            script.src = 'js/assistant/assistant-widget.js';
+            script.onload = () => {
+                if (window.NavariAI && typeof window.NavariAI.init === 'function') {
+                    window.NavariAI.init();
+                }
+            };
+            document.head.appendChild(script);
+        }
     };
 
     return { init };
