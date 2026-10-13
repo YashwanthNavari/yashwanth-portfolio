@@ -406,23 +406,53 @@
                     </div>
                     </div>
                     
-                    <!-- PORTFOLIO STATS BAR -->>
-                    <section class="reveal w-full max-w-5xl mx-auto mt-20 grid grid-cols-2 md:grid-cols-4 gap-4 px-4" aria-label="Portfolio Statistics">
-                        <div class="glow-card hover-lift shimmer-border p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-center cursor-default">
-                            <p class="text-3xl font-black text-primary mb-1" data-counter="12" data-suffix="+">12+</p>
-                            <p class="text-[10px] font-black uppercase tracking-widest text-slate-500">Projects Built</p>
-                        </div>
-                        <div class="glow-card hover-lift shimmer-border p-6 rounded-2xl bg-white dark:bg-slate-900 border border-amber-500/30 shadow-lg shadow-amber-500/5 text-center cursor-default">
-                            <p class="text-3xl font-black text-amber-500 mb-1" data-counter="1">1</p>
-                            <p class="text-[10px] font-black uppercase tracking-widest text-amber-600">Design Patent</p>
-                        </div>
-                        <div class="glow-card hover-lift shimmer-border p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-center cursor-default">
-                            <p class="text-3xl font-black text-secondary mb-1" data-counter="11" data-suffix="+">11+</p>
-                            <p class="text-[10px] font-black uppercase tracking-widest text-slate-500">Certifications</p>
-                        </div>
-                        <div class="glow-card hover-lift shimmer-border p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm text-center cursor-default">
-                            <p class="text-3xl font-black text-slate-900 dark:text-white mb-1" data-counter="98" data-suffix="%">98%</p>
-                            <p class="text-[10px] font-black uppercase tracking-widest text-slate-500">Model Accuracy</p>
+                    <!-- PORTFOLIO KEY METRICS DOCK -->
+                    <section class="reveal w-full max-w-5xl mx-auto mt-16 sm:mt-20 px-4" aria-label="Portfolio Key Statistics">
+                        <div class="relative rounded-2xl bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/90 shadow-[0_10px_35px_-10px_rgba(15,23,42,0.06)] dark:shadow-[0_10px_35px_-10px_rgba(0,0,0,0.35)] overflow-hidden">
+                            <!-- Subtle Top Gradient Hairline -->
+                            <div class="h-[2px] w-full bg-gradient-to-r from-blue-600 via-sky-500 to-teal-500"></div>
+
+                            <div class="grid grid-cols-2 lg:grid-cols-4">
+                                <!-- 1. Projects Built -->
+                                <div class="group p-5 sm:p-6 lg:p-7 flex flex-col items-center text-center border-r border-b lg:border-b-0 border-slate-200/70 dark:border-slate-800/80 hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors duration-200">
+                                    <div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-[20px]">terminal</span>
+                                    </div>
+                                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight hero-body-font" data-counter="12" data-suffix="+">12+</p>
+                                    <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-slate-600 dark:text-slate-300 hero-body-font mt-1.5">Projects Built</p>
+                                    <span class="text-[11.5px] font-medium text-slate-400 dark:text-slate-500 mt-0.5 hero-body-font">AI &amp; Full-Stack Systems</span>
+                                </div>
+
+                                <!-- 2. Design Patent -->
+                                <div class="group p-5 sm:p-6 lg:p-7 flex flex-col items-center text-center border-b lg:border-b-0 lg:border-r border-slate-200/70 dark:border-slate-800/80 hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors duration-200">
+                                    <div class="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+                                    </div>
+                                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight hero-body-font" data-counter="1">1</p>
+                                    <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-slate-600 dark:text-slate-300 hero-body-font mt-1.5">Design Patent</p>
+                                    <span class="text-[11.5px] font-medium text-slate-400 dark:text-slate-500 mt-0.5 hero-body-font">Govt. of India Certified</span>
+                                </div>
+
+                                <!-- 3. Certifications -->
+                                <div class="group p-5 sm:p-6 lg:p-7 flex flex-col items-center text-center border-r border-slate-200/70 dark:border-slate-800/80 hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors duration-200">
+                                    <div class="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/50 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-[20px]">verified</span>
+                                    </div>
+                                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight hero-body-font" data-counter="11" data-suffix="+">11+</p>
+                                    <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-slate-600 dark:text-slate-300 hero-body-font mt-1.5">Certifications</p>
+                                    <span class="text-[11.5px] font-medium text-slate-400 dark:text-slate-500 mt-0.5 hero-body-font">Industry Verified</span>
+                                </div>
+
+                                <!-- 4. Model Accuracy -->
+                                <div class="group p-5 sm:p-6 lg:p-7 flex flex-col items-center text-center hover:bg-slate-50/70 dark:hover:bg-slate-800/40 transition-colors duration-200">
+                                    <div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                                        <span class="material-symbols-outlined text-[20px]">analytics</span>
+                                    </div>
+                                    <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight hero-body-font" data-counter="98" data-suffix="%">98%</p>
+                                    <p class="text-[11px] sm:text-xs font-bold uppercase tracking-[0.14em] text-slate-600 dark:text-slate-300 hero-body-font mt-1.5">Model Accuracy</p>
+                                    <span class="text-[11.5px] font-medium text-slate-400 dark:text-slate-500 mt-0.5 hero-body-font">Peak ML Benchmark</span>
+                                </div>
+                            </div>
                         </div>
                     </section>
 
