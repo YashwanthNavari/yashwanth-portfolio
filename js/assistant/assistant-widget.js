@@ -97,9 +97,7 @@ window.NavariAI = (() => {
     brandWrap.className = 'ai-header-brand flex items-center gap-2.5';
     brandWrap.innerHTML = `
       <div class="ai-avatar-mini" aria-hidden="true">
-        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-        </svg>
+        <img src="images/assistant-logo.png" alt="Yashwanth AI" class="w-full h-full object-cover rounded-[9px]" />
       </div>
       <div class="ai-title-wrap">
         <span class="ai-title">YASHWANTH AI</span>
@@ -141,9 +139,7 @@ window.NavariAI = (() => {
     fabEl.setAttribute('aria-label', 'Open Yashwanth AI Portfolio Assistant');
     fabEl.setAttribute('title', 'Yashwanth AI — Personal AI Assistant');
     fabEl.innerHTML = `
-      <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-      </svg>
+      <img src="images/assistant-logo.png" alt="Yashwanth AI" class="navari-fab-logo" />
       <span class="navari-fab-status" aria-hidden="true"></span>
     `;
 
@@ -225,9 +221,7 @@ window.NavariAI = (() => {
         <div class="ai-visual-outer-ring"></div>
         <div class="ai-visual-glow"></div>
         <div class="ai-visual-core">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-          </svg>
+          <img src="images/assistant-logo.png" alt="Yashwanth AI" class="w-full h-full object-cover rounded-full" />
         </div>
       </div>
 
@@ -401,9 +395,7 @@ window.NavariAI = (() => {
     indicator.className = 'ai-message ai-assistant';
     indicator.innerHTML = `
       <div class="ai-avatar-msg" aria-hidden="true">
-        <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-        </svg>
+        <img src="images/assistant-logo.png" alt="Yashwanth AI" class="w-full h-full object-cover rounded-md" />
       </div>
       <div class="ai-typing-indicator">
         <div class="ai-typing-dot"></div>
@@ -437,9 +429,7 @@ window.NavariAI = (() => {
     avatar.className = 'ai-avatar-msg';
     avatar.setAttribute('aria-hidden', 'true');
     avatar.innerHTML = `
-      <svg class="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-      </svg>
+      <img src="images/assistant-logo.png" alt="Yashwanth AI" class="w-full h-full object-cover rounded-md" />
     `;
 
     const bubble = document.createElement('div');

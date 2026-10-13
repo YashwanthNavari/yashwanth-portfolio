@@ -47,13 +47,13 @@
   position: fixed;
   bottom: 24px;
   right: 24px;
-  width: 60px;
-  height: 60px;
+  width: 62px;
+  height: 62px;
   border-radius: 9999px;
-  background: linear-gradient(135deg, var(--ai-navy-deep) 0%, var(--ai-blue-primary) 100%);
+  background: #FFFFFF;
   color: #FFFFFF;
-  border: 1.5px solid rgba(184, 213, 255, 0.35);
-  box-shadow: 0 12px 28px -6px rgba(52, 120, 246, 0.42), 0 4px 12px rgba(16, 45, 74, 0.25);
+  border: 2px solid rgba(184, 213, 255, 0.75);
+  box-shadow: 0 12px 28px -6px rgba(52, 120, 246, 0.45), 0 4px 12px rgba(16, 45, 74, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,12 +62,14 @@
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.2s ease;
   outline: none;
   user-select: none;
+  padding: 0;
+  overflow: visible;
 }
 
 #navari-ai-fab:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 16px 36px -6px rgba(52, 120, 246, 0.55), 0 6px 16px rgba(16, 45, 74, 0.3);
-  border-color: rgba(184, 213, 255, 0.7);
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 16px 36px -6px rgba(52, 120, 246, 0.6), 0 6px 16px rgba(16, 45, 74, 0.25);
+  border-color: var(--ai-blue-primary);
 }
 
 #navari-ai-fab:active {
@@ -79,16 +81,26 @@
   outline-offset: 3px;
 }
 
+.navari-fab-logo {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
 .navari-fab-status {
   position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 12px;
-  height: 12px;
+  top: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
   border-radius: 9999px;
   background: #10B981;
-  border: 2px solid #FFFFFF;
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.7);
+  border: 2.5px solid #FFFFFF;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.85);
+  z-index: 2;
 }
 
 /* --------------------------------------------------------------------------
@@ -186,14 +198,21 @@
   width: 38px;
   height: 38px;
   border-radius: 10px;
-  background: linear-gradient(135deg, var(--ai-blue-primary) 0%, var(--ai-blue-electric) 100%);
+  background: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
   box-shadow: 0 4px 12px rgba(52, 120, 246, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1.5px solid rgba(184, 213, 255, 0.5);
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.ai-avatar-mini img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .ai-title-wrap {
@@ -323,22 +342,25 @@
 
 .ai-visual-core {
   position: relative;
-  width: 56px;
-  height: 56px;
+  width: 66px;
+  height: 66px;
   border-radius: 9999px;
-  background: radial-gradient(circle at 35% 30%, #B8D5FF 0%, #3478F6 40%, #102D4A 85%, #0A1E32 100%);
-  box-shadow: 0 0 24px rgba(52, 120, 246, 0.5), inset 0 2px 4px rgba(255, 255, 255, 0.7), inset 0 -4px 8px rgba(0, 0, 0, 0.4);
+  background: #FFFFFF;
+  box-shadow: 0 0 28px rgba(52, 120, 246, 0.55), inset 0 2px 4px rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
   animation: visualBreathe 4s ease-in-out infinite alternate;
+  overflow: hidden;
+  border: 2px solid rgba(184, 213, 255, 0.7);
 }
 
-.ai-visual-core svg {
-  width: 26px;
-  height: 26px;
-  color: #FFFFFF;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+.ai-visual-core img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 9999px;
+  display: block;
 }
 
 @keyframes visualBreathe {
@@ -534,17 +556,26 @@
 }
 
 .ai-avatar-msg {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 8px;
-  background: linear-gradient(135deg, var(--ai-navy-deep) 0%, var(--ai-blue-primary) 100%);
+  background: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
   flex-shrink: 0;
   margin-top: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(184, 213, 255, 0.5);
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(16, 45, 74, 0.08);
+}
+
+.ai-avatar-msg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
 }
 
 .ai-message.ai-assistant .ai-bubble {
