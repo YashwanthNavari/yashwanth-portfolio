@@ -11,14 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const getNavClass = (targetPage) => {
         const isActive = pageName === targetPage || (pageName === "" && targetPage === "index.html");
         if (isActive) {
-            return "text-xs sm:text-[13px] font-bold text-[#111827] hover:text-black transition-all py-1 px-1 relative shrink-0 tracking-tight";
+            return "text-xs sm:text-[13px] font-bold text-[#0A192F] hover:text-[#0A192F] transition-all py-1 px-1 relative shrink-0 tracking-tight active";
         }
-        return "text-xs sm:text-[13px] font-medium text-[#4B5563] hover:text-[#111827] transition-all py-1 px-1 relative shrink-0 tracking-tight";
+        return "text-xs sm:text-[13px] font-medium text-[#4A5D78] hover:text-[#0A192F] transition-all py-1 px-1 relative shrink-0 tracking-tight";
     };
 
     const getActiveDot = (targetPage) => {
         const isActive = pageName === targetPage || (pageName === "" && targetPage === "index.html");
-        return isActive ? `<span class="size-1 rounded-full bg-[#111827] absolute -bottom-0.5 left-1/2 -translate-x-1/2"></span>` : '';
+        return isActive ? `<span class="size-1 rounded-full bg-[#0A192F] absolute -bottom-0.5 left-1/2 -translate-x-1/2"></span>` : '';
     };
 
     // Mobile link styling helper
@@ -34,20 +34,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const navHTML = `
         <!-- Floating Navigation Bar Container (Reference Image 2) -->
         <div class="fixed top-2.5 sm:top-4 md:top-5 left-0 right-0 z-[100] flex justify-center px-3 sm:px-6 w-full pointer-events-none transition-all duration-300" id="main-nav-container">
-            <header id="main-nav-header" class="pointer-events-auto flex items-center justify-between rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 w-full max-w-[76rem] transition-all duration-300 select-none shadow-[0_10px_32px_-4px_rgba(235,180,215,0.25),0_4px_16px_rgba(0,0,0,0.04)]" style="background: linear-gradient(90deg, rgba(255, 218, 238, 0.90) 0%, rgba(253, 224, 245, 0.88) 45%, rgba(230, 230, 255, 0.92) 100%); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.75);">
+            <header id="main-nav-header" class="pointer-events-auto flex items-center justify-between rounded-full px-3.5 sm:px-6 py-2 sm:py-2.5 w-full max-w-[76rem] transition-all duration-300 select-none shadow-[0_10px_30px_-4px_rgba(180,205,245,0.25),0_4px_12px_rgba(0,0,0,0.03)]" style="background: linear-gradient(100deg, #F0F6FF 0%, #E8F0FF 50%, #E1EAFE 100%); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.85);">
                 
-                <!-- Brand / Logo Section (Ref 2 NAV. Branding with User Avatar) -->
+                <!-- Brand / Logo Section: Navari Yashwanth / DATA SCIENCE &bull; AI/ML -->
                 <a href="index.html" class="flex items-center gap-2.5 sm:gap-3 group shrink-0 pl-0.5 select-none" aria-label="Navari Yashwanth Home">
                     <div class="relative shrink-0">
                         <img src="images/avatar_circle.png" onerror="this.src='https://github.com/YashwanthNavari.png'" alt="Navari Yashwanth Reddy" class="size-8 sm:size-9 rounded-full object-cover ring-2 ring-white/90 shadow-sm group-hover:scale-105 transition-transform duration-200">
                         <span class="absolute -bottom-0.5 -right-0.5 size-2 sm:size-2.5 bg-emerald-500 ring-2 ring-white rounded-full animate-pulse" title="Available for Roles"></span>
                     </div>
-                    <div class="flex items-baseline gap-1.5 shrink-0">
-                        <span class="font-black text-sm sm:text-base tracking-tight text-[#1E2028] font-display group-hover:text-blue-700 transition-colors">
-                            NAV.
+                    <div class="flex flex-col justify-center shrink-0">
+                        <span class="font-bold text-xs sm:text-[13.5px] tracking-tight text-[#0A192F] font-sans group-hover:text-blue-700 transition-colors leading-tight">
+                            Navari Yashwanth
                         </span>
-                        <span class="text-[9.5px] font-semibold text-slate-500 font-mono tracking-wider hidden md:inline">
-                            Yashwanth
+                        <span class="text-[8.5px] sm:text-[9px] font-semibold text-[#5A6E85] uppercase tracking-wider font-sans leading-none pt-0.5">
+                            DATA SCIENCE &bull; AI/ML
                         </span>
                     </div>
                 </a>
@@ -90,12 +90,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     </a>
                     
                     <!-- Sound Toggle Button -->
-                    <button onclick="window.toggleAudioUI()" class="sound-toggle size-8 sm:size-8.5 rounded-full flex items-center justify-center hover:bg-white/60 transition-colors text-[#1E2028]/75 hover:text-[#1E2028]" aria-label="Toggle Sound FX" title="Enable Sound FX">
+                    <button onclick="window.toggleAudioUI()" class="sound-toggle size-8 sm:size-8.5 rounded-full flex items-center justify-center hover:bg-white/60 transition-colors text-[#0A192F]/75 hover:text-[#0A192F]" aria-label="Toggle Sound FX" title="Enable Sound FX">
                         <span class="material-symbols-outlined text-[18px]">volume_off</span>
                     </button>
 
                     <!-- Mobile/Tablet Menu Hamburger Button -->
-                    <button id="mobile-menu-btn" type="button" class="lg:hidden size-8.5 sm:size-9 rounded-full flex items-center justify-center text-[#1E2028] bg-white/60 hover:bg-white border border-white/80 transition-all active:scale-95 shadow-sm" aria-label="Toggle navigation menu" title="Open Navigation Menu">
+                    <button id="mobile-menu-btn" type="button" class="lg:hidden size-8.5 sm:size-9 rounded-full flex items-center justify-center text-[#0A192F] bg-white/70 hover:bg-white border border-white/80 transition-all active:scale-95 shadow-sm" aria-label="Toggle navigation menu" title="Open Navigation Menu">
                         <span class="material-symbols-outlined text-[20px]" id="mobile-menu-btn-icon">menu</span>
                     </button>
                 </div>
@@ -119,8 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <span class="absolute -bottom-0.5 -right-0.5 size-2.5 bg-emerald-500 ring-2 ring-white dark:ring-[#070b14] rounded-full animate-pulse"></span>
                             </div>
                             <div class="flex flex-col">
-                                <span class="font-bold text-slate-900 dark:text-white text-sm font-display leading-tight">Navari Yashwanth</span>
-                                <span class="text-[10px] font-semibold text-emerald-600 dark:text-emerald-400 font-mono">Open for Opportunities</span>
+                                <span class="font-bold text-slate-900 dark:text-white text-sm font-sans leading-tight">Navari Yashwanth</span>
+                                <span class="text-[9px] font-semibold text-[#5A6E85] uppercase tracking-wider font-sans">DATA SCIENCE &bull; AI/ML</span>
                             </div>
                         </div>
 
