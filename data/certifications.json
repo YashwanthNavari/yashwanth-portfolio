@@ -1,119 +1,129 @@
 [
-    {
-        "id": 0,
-        "title": "Data Science with Gen AI Internship Certificate",
-        "category": "Innovexis Pvt. Ltd.",
-        "description": "Awarded for 03 months of intensive data science & Gen AI internship. Backed by IntelliHire Staffing Solution (CIN: U78300MH2024PTC426350).",
-        "image": "images/certs/innovexis_internship_certificate.png",
-        "link": "images/certs/innovexis_internship_certificate.pdf",
-        "createdAt": "2026-10-02"
-    },
-    {
-        "id": 100,
-        "title": "First Commit \u2014 Bharat Builds Tour 2026",
-        "category": "WeMakeDevs & AWS",
-        "description": "Event 01 of the Bharat Builds Tour, organized by WeMakeDevs in collaboration with AWS. Certificate of Participation in hands-on collaborative problem-solving.",
-        "image": "images/certs/first_commit_hackathon_certificate.png",
-        "link": "images/certs/First Commit Hackathon Certificates.pdf",
-        "createdAt": "2026-09-20"
-    },
-    {
-        "id": 1,
-        "title": "Java Programming: Solving Problems with Software",
-        "category": "Duke University",
-        "description": "An online course authorized by Duke University and offered through Coursera. Completed with honors.",
-        "image": "images/certs/4D1TI8E5IT7M.jpeg",
-        "link": "https://coursera.org/verify/4D1TI8E5IT7M",
-        "createdAt": "2025-04-16"
-    },
-    {
-        "id": 2,
-        "title": "Data Structures Using Python - An Introduction",
-        "category": "Packt",
-        "description": "An online course authorized by Packt and offered through Coursera.",
-        "image": "images/certs/ZJHP4YUYR19C.jpeg",
-        "link": "https://coursera.org/verify/ZJHP4YUYR19C",
-        "createdAt": "2025-03-17"
-    },
-    {
-        "id": 3,
-        "title": "Quantum Computing For Everyone - An Introduction",
-        "category": "Fractal Analytics",
-        "description": "An online course authorized by Fractal Analytics and offered through Coursera.",
-        "image": "images/certs/G3U3V5GZURCB.jpeg",
-        "link": "https://coursera.org/verify/G3U3V5GZURCB",
-        "createdAt": "2025-04-24"
-    },
-    {
-        "id": 4,
-        "title": "Interfacing with the Arduino",
-        "category": "University of California, Irvine",
-        "description": "An online course authorized by University of California, Irvine and offered through Coursera.",
-        "image": "images/certs/1S8JSJJZ6AU7.jpeg",
-        "link": "https://coursera.org/verify/1S8JSJJZ6AU7",
-        "createdAt": "2025-03-29"
-    },
-    {
-        "id": 5,
-        "title": "Object-Oriented Design",
-        "category": "University of Alberta",
-        "description": "An online course authorized by University of Alberta and offered through Coursera.",
-        "image": "images/certs/0GBZ4JJCYYUL.jpeg",
-        "link": "https://coursera.org/verify/0GBZ4JJCYYUL",
-        "createdAt": "2024-11-27"
-    },
-    {
-        "id": 6,
-        "title": "The Arduino Platform and C Programming",
-        "category": "University of California, Irvine",
-        "description": "An online course authorized by University of California, Irvine and offered through Coursera.",
-        "image": "images/certs/P7K57RD585O4.jpeg",
-        "link": "https://coursera.org/verify/P7K57RD585O4",
-        "createdAt": "2025-03-21"
-    },
-    {
-        "id": 7,
-        "title": "Introduction to Cyber Attacks",
-        "category": "NYU Tandon School of Engineering",
-        "description": "An online course authorized by New York University and offered through Coursera.",
-        "image": "images/certs/U88BU9H40NG9.jpeg",
-        "link": "https://coursera.org/verify/U88BU9H40NG9",
-        "createdAt": "2025-03-17"
-    },
-    {
-        "id": 8,
-        "title": "Nanotechnology and Nanosensors, Part1",
-        "category": "Technion - Israel Institute of Technology",
-        "description": "An online course authorized by Technion - Israel Institute of Technology and offered through Coursera.",
-        "image": "images/certs/0Y0HQ44UUGU1.jpeg",
-        "link": "https://coursera.org/verify/0Y0HQ44UUGU1",
-        "createdAt": "2024-11-18"
-    },
-    {
-        "id": 9,
-        "title": "Write Professional Emails in English",
-        "category": "Georgia Institute of Technology",
-        "description": "An online course authorized by Georgia Institute of Technology and offered through Coursera.",
-        "image": "images/certs/H1MKZ3J2RI6L.jpeg",
-        "link": "https://coursera.org/verify/H1MKZ3J2RI6L",
-        "createdAt": "2024-11-13"
-    },
-    {
-        "id": 10,
-        "title": "Frontend Developer (React)",
-        "category": "HackerRank",
-        "description": "The bearer of this certificate has passed the HackerRank role certification test.",
-        "image": "images/certs/64f0ad32f333.png",
-        "link": "https://www.hackerrank.com/certificates/64f0ad32f333",
-        "createdAt": "2026-02-25"
-    },
-    {
-        "id": 11,
-        "title": "Go (Basic)",
-        "category": "HackerRank",
-        "description": "The bearer of this certificate has passed the HackerRank skill certification test.",
-        "image": "images/certs/2d20c7ecbc8a.png",
-        "link": "https://www.hackerrank.com/certificates/2d20c7ecbc8a",
-        "createdAt": "2026-03-01"
-    }
+  {
+    "id": 0,
+    "title": "Data Science with Gen AI Internship Certificate",
+    "category": "Innovexis Pvt. Ltd.",
+    "description": "Awarded for 03 months of intensive data science & Gen AI internship. Backed by IntelliHire Staffing Solution (CIN: U78300MH2024PTC426350).",
+    "image": "images/certs/innovexis_internship_certificate.png",
+    "link": "images/certs/innovexis_internship_certificate.pdf",
+    "createdAt": "2026-10-02"
+  },
+  {
+    "id": 100,
+    "title": "First Commit — Bharat Builds Tour 2026",
+    "category": "WeMakeDevs & AWS",
+    "description": "Event 01 of the Bharat Builds Tour, organized by WeMakeDevs in collaboration with AWS. Certificate of Participation in hands-on collaborative problem-solving.",
+    "image": "images/certs/first_commit_hackathon_certificate.png",
+    "link": "images/certs/First Commit Hackathon Certificates.pdf",
+    "createdAt": "2026-09-20"
+  },
+  {
+    "id": 101,
+    "title": "Pixels to Products — Cloudinary AI Hackathon 2026",
+    "category": "HackIndia & Cloudinary",
+    "description": "Participated as a member of Team Build Bros in the Pixels to Products — Cloudinary AI Hackathon 2026, gaining experience in collaborative innovation and AI-driven product development.",
+    "image": "images/certs/hackindia_certificate.png",
+    "link": "images/certs/hackindia_certificate.png",
+    "linkedIn": "https://www.linkedin.com/feed/update/urn:li:activity:7513180122385108993/",
+    "createdAt": "2026-09-15"
+  },
+  {
+    "id": 1,
+    "title": "Java Programming: Solving Problems with Software",
+    "category": "Duke University",
+    "description": "An online course authorized by Duke University and offered through Coursera. Completed with honors.",
+    "image": "images/certs/4D1TI8E5IT7M.jpeg",
+    "link": "https://coursera.org/verify/4D1TI8E5IT7M",
+    "createdAt": "2025-04-16"
+  },
+  {
+    "id": 2,
+    "title": "Data Structures Using Python - An Introduction",
+    "category": "Packt",
+    "description": "An online course authorized by Packt and offered through Coursera.",
+    "image": "images/certs/ZJHP4YUYR19C.jpeg",
+    "link": "https://coursera.org/verify/ZJHP4YUYR19C",
+    "createdAt": "2025-03-17"
+  },
+  {
+    "id": 3,
+    "title": "Quantum Computing For Everyone - An Introduction",
+    "category": "Fractal Analytics",
+    "description": "An online course authorized by Fractal Analytics and offered through Coursera.",
+    "image": "images/certs/G3U3V5GZURCB.jpeg",
+    "link": "https://coursera.org/verify/G3U3V5GZURCB",
+    "createdAt": "2025-04-24"
+  },
+  {
+    "id": 4,
+    "title": "Interfacing with the Arduino",
+    "category": "University of California, Irvine",
+    "description": "An online course authorized by University of California, Irvine and offered through Coursera.",
+    "image": "images/certs/1S8JSJJZ6AU7.jpeg",
+    "link": "https://coursera.org/verify/1S8JSJJZ6AU7",
+    "createdAt": "2025-03-29"
+  },
+  {
+    "id": 5,
+    "title": "Object-Oriented Design",
+    "category": "University of Alberta",
+    "description": "An online course authorized by University of Alberta and offered through Coursera.",
+    "image": "images/certs/0GBZ4JJCYYUL.jpeg",
+    "link": "https://coursera.org/verify/0GBZ4JJCYYUL",
+    "createdAt": "2024-11-27"
+  },
+  {
+    "id": 6,
+    "title": "The Arduino Platform and C Programming",
+    "category": "University of California, Irvine",
+    "description": "An online course authorized by University of California, Irvine and offered through Coursera.",
+    "image": "images/certs/P7K57RD585O4.jpeg",
+    "link": "https://coursera.org/verify/P7K57RD585O4",
+    "createdAt": "2025-03-21"
+  },
+  {
+    "id": 7,
+    "title": "Introduction to Cyber Attacks",
+    "category": "NYU Tandon School of Engineering",
+    "description": "An online course authorized by New York University and offered through Coursera.",
+    "image": "images/certs/U88BU9H40NG9.jpeg",
+    "link": "https://coursera.org/verify/U88BU9H40NG9",
+    "createdAt": "2025-03-17"
+  },
+  {
+    "id": 8,
+    "title": "Nanotechnology and Nanosensors, Part1",
+    "category": "Technion - Israel Institute of Technology",
+    "description": "An online course authorized by Technion - Israel Institute of Technology and offered through Coursera.",
+    "image": "images/certs/0Y0HQ44UUGU1.jpeg",
+    "link": "https://coursera.org/verify/0Y0HQ44UUGU1",
+    "createdAt": "2024-11-18"
+  },
+  {
+    "id": 9,
+    "title": "Write Professional Emails in English",
+    "category": "Georgia Institute of Technology",
+    "description": "An online course authorized by Georgia Institute of Technology and offered through Coursera.",
+    "image": "images/certs/H1MKZ3J2RI6L.jpeg",
+    "link": "https://coursera.org/verify/H1MKZ3J2RI6L",
+    "createdAt": "2024-11-13"
+  },
+  {
+    "id": 10,
+    "title": "Frontend Developer (React)",
+    "category": "HackerRank",
+    "description": "The bearer of this certificate has passed the HackerRank role certification test.",
+    "image": "images/certs/64f0ad32f333.png",
+    "link": "https://www.hackerrank.com/certificates/64f0ad32f333",
+    "createdAt": "2026-02-25"
+  },
+  {
+    "id": 11,
+    "title": "Go (Basic)",
+    "category": "HackerRank",
+    "description": "The bearer of this certificate has passed the HackerRank skill certification test.",
+    "image": "images/certs/2d20c7ecbc8a.png",
+    "link": "https://www.hackerrank.com/certificates/2d20c7ecbc8a",
+    "createdAt": "2026-03-01"
+  }
 ]

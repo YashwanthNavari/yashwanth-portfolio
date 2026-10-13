@@ -154,7 +154,7 @@
                                 <span class="material-symbols-outlined text-2xl">terminal</span>
                             </div>
                             <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-bold uppercase tracking-widest">Hackathons</p>
-                            <p class="text-slate-900 dark:text-white text-4xl sm:text-5xl font-black leading-none tracking-tight">1<span class="text-indigo-500 text-2xl ml-1">Event</span></p>
+                            <p class="text-slate-900 dark:text-white text-4xl sm:text-5xl font-black leading-none tracking-tight">2<span class="text-indigo-500 text-2xl ml-1">Events</span></p>
                         </div>
                         <!-- Stat 4 -->
                         <div class="flex flex-col gap-3 rounded-[2rem] p-6 sm:p-8 bg-white/60 dark:bg-slate-900/60 backdrop-blur-lg border border-slate-200 dark:border-slate-800 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 hover:border-blue-500/30 transition-all duration-300 group">
@@ -259,9 +259,12 @@
                             </div>
                         </div>
                         <span class="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-200 dark:border-slate-700/80 self-start sm:self-auto">
-                            1 Verified Event
+                            2 Verified Events
                         </span>
                     </div>
+
+                    <!-- Hackathons Grid Container -->
+                    <div class="flex flex-col gap-8">
 
                     <!-- Hackathon Feature Card: First Commit — Bharat Builds Tour 2026 -->
                     <div class="flex flex-col lg:flex-row gap-0 overflow-hidden bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/90 rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-300 group relative">
@@ -361,6 +364,117 @@
                             </div>
                         </div>
 
+                    </div>
+
+                        <!-- Hackathon Feature Card 2: Pixels to Products — Cloudinary AI Hackathon 2026 -->
+                        <div class="flex flex-col lg:flex-row gap-0 overflow-hidden bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/90 dark:border-slate-800/90 rounded-[2.5rem] shadow-xl hover:shadow-2xl transition-all duration-300 group relative">
+
+                            <!-- Left Side: Certificate Preview Window -->
+                            <div class="w-full lg:w-5/12 bg-slate-950 p-6 sm:p-8 flex flex-col justify-between items-center relative overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-800/80">
+                                <!-- Ambient Glow -->
+                                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.18)_0%,transparent_70%)] pointer-events-none"></div>
+
+                                <!-- Badges -->
+                                <div class="w-full flex items-center justify-between gap-2 z-10 mb-4">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/15 border border-sky-500/30 text-sky-300 text-[10px] font-black uppercase tracking-wider">
+                                        <span class="material-symbols-outlined text-xs">verified</span> Verified Hackathon
+                                    </span>
+                                    <span class="text-[10px] font-mono font-bold text-slate-400">
+                                        Team Build Bros
+                                    </span>
+                                </div>
+
+                                <!-- Preview Frame with Click to Zoom -->
+                                <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900 cursor-pointer group/img" onclick="openDocPreview('images/certs/hackindia_certificate.png', 'Pixels to Products — Cloudinary AI Hackathon 2026 Certificate')">
+                                    <img src="images/certs/hackindia_certificate.png" alt="Pixels to Products Cloudinary AI Hackathon 2026 Certificate" class="w-full h-auto object-contain transition-transform duration-500 group-hover/img:scale-105" />
+                                    <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white text-xs font-bold backdrop-blur-[2px]">
+                                        <span class="material-symbols-outlined text-lg">zoom_in</span> Click to Enlarge Preview
+                                    </div>
+                                </div>
+
+                                <!-- Fast Action Links below thumbnail -->
+                                <div class="w-full flex items-center justify-center gap-3 mt-6 z-10">
+                                    <a href="images/certs/hackindia_certificate.png" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs shadow-lg shadow-sky-600/30 transition-all hover:scale-[1.02]">
+                                        <span class="material-symbols-outlined text-base">visibility</span>
+                                        <span>View Certificate</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Right Side: Narrative & Metadata -->
+                            <div class="w-full lg:w-7/12 p-6 sm:p-8 md:p-10 flex flex-col justify-between relative z-10">
+                                <!-- Background Accent Glow -->
+                                <div class="absolute top-0 right-0 w-64 h-64 bg-sky-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+                                <div class="space-y-6">
+                                    <div>
+                                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-600 dark:text-sky-400 text-xs font-black uppercase tracking-wider mb-3">
+                                            HackIndia • September 2026
+                                        </div>
+                                        <h3 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white leading-tight">
+                                            Pixels to Products — Cloudinary AI Hackathon 2026
+                                        </h3>
+                                    </div>
+
+                                    <!-- Key Metadata Pill Grid -->
+                                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 p-4 sm:p-5 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200/80 dark:border-slate-700/60 text-xs">
+                                        <div class="flex flex-col gap-0.5">
+                                            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono">Organizer</span>
+                                            <span class="font-extrabold text-slate-900 dark:text-white">HackIndia</span>
+                                        </div>
+                                        <div class="flex flex-col gap-0.5">
+                                            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono">Team</span>
+                                            <span class="font-extrabold text-slate-900 dark:text-white">Build Bros</span>
+                                        </div>
+                                        <div class="flex flex-col gap-0.5">
+                                            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono">Event Format</span>
+                                            <span class="font-extrabold text-slate-900 dark:text-white">Online</span>
+                                        </div>
+                                        <div class="flex flex-col gap-0.5">
+                                            <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 font-mono">Date</span>
+                                            <span class="font-extrabold text-slate-900 dark:text-white">September 15, 2026</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Recognition Pill -->
+                                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-sky-500/10 border border-sky-500/20 text-xs font-bold text-sky-600 dark:text-sky-400">
+                                        <span class="material-symbols-outlined text-sm">workspace_premium</span>
+                                        <span>Recognition: Certificate of Participation</span>
+                                    </div>
+
+                                    <!-- Narrative Summary -->
+                                    <p class="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed font-normal">
+                                        Participated in <strong>Pixels to Products — Cloudinary AI Hackathon 2026</strong> as a member of <strong>Team Build Bros</strong>. The event provided an opportunity to engage in collaborative innovation, explore AI-driven product development, and gain experience in technology-based problem-solving.
+                                    </p>
+
+                                    <!-- Engineering Focus Pillars (NO EMOJIS) -->
+                                    <div class="flex flex-wrap gap-2 pt-1">
+                                        <span class="px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold">AI Product Development</span>
+                                        <span class="px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold">Collaborative Innovation</span>
+                                        <span class="px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold">Problem Solving</span>
+                                        <span class="px-3 py-1 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold">Team Build Bros</span>
+                                    </div>
+                                </div>
+
+                                <!-- Action Buttons: View Certificate | LinkedIn Post | Download -->
+                                <div class="flex flex-wrap items-center gap-3 pt-6 mt-6 border-t border-slate-100 dark:border-slate-800">
+                                    <a href="images/certs/hackindia_certificate.png" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs shadow-md shadow-sky-600/20 transition-all hover:scale-[1.02]">
+                                        <span class="material-symbols-outlined text-base">description</span>
+                                        <span>View Certificate</span>
+                                    </a>
+                                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7513180122385108993/" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#0A66C2] hover:bg-[#004182] text-white font-bold text-xs shadow-md shadow-[#0A66C2]/20 transition-all hover:scale-[1.02]">
+                                        <svg class="size-4 fill-current text-white" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.738-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                        <span>LinkedIn Post</span>
+                                        <span class="material-symbols-outlined text-sm">open_in_new</span>
+                                    </a>
+                                    <a href="images/certs/hackindia_certificate.png" download="Pixels_To_Products_Cloudinary_AI_Hackathon_Certificate.png" class="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs border border-slate-200 dark:border-slate-700 transition-all" title="Download Official Certificate Image">
+                                        <span class="material-symbols-outlined text-base">download</span>
+                                        <span class="hidden sm:inline">Download</span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
 
