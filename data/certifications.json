@@ -1,5 +1,14 @@
 [
     {
+        "id": 0,
+        "title": "Data Science with Gen AI Internship Certificate",
+        "category": "Innovexis Pvt. Ltd.",
+        "description": "Awarded for 03 months of intensive data science & Gen AI internship. Backed by IntelliHire Staffing Solution (CIN: U78300MH2024PTC426350).",
+        "image": "images/certs/innovexis_internship_certificate.png",
+        "link": "images/certs/innovexis_internship_certificate.pdf",
+        "createdAt": "2026-10-02"
+    },
+    {
         "id": 1,
         "title": "Java Programming: Solving Problems with Software",
         "category": "Duke University",

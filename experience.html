@@ -224,14 +224,14 @@
                             <button onclick="filterExperience('all', this)" class="exp-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-primary text-white shadow-md shadow-blue-500/20">
                                 All (4)
                             </button>
-                            <button onclick="filterExperience('current', this)" class="exp-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
-                                🟢 Current Role
-                            </button>
                             <button onclick="filterExperience('internship', this)" class="exp-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
-                                Internships
+                                💼 Internships (2)
                             </button>
                             <button onclick="filterExperience('patent', this)" class="exp-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
-                                Patent &amp; IP
+                                📜 Patent &amp; IP
+                            </button>
+                            <button onclick="filterExperience('ai', this)" class="exp-tab-btn px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
+                                🧠 Applied AI
                             </button>
                         </div>
                     </div>
@@ -310,12 +310,14 @@
                     <div class="relative border-l-2 border-slate-300 dark:border-slate-800 ml-5 sm:ml-7 space-y-16 before:absolute before:inset-0 before:-left-[1px] before:w-[2px] before:bg-gradient-to-b before:from-emerald-500 before:via-blue-500 before:to-indigo-500">
 
                         <!-- ══════════════════════════════════════════════════════ -->
-                        <!-- FEATURED CARD: INNOVEXIS GEN AI INTERNSHIP            -->
+                        <!-- FEATURED CARD: INNOVEXIS GEN AI INTERNSHIP (COMPLETED)   -->
                         <!-- ══════════════════════════════════════════════════════ -->
-                        <div class="exp-card relative pl-6 sm:pl-10 group" data-category="current internship">
+                        <div class="exp-card relative pl-6 sm:pl-10 group" data-category="internship completed ai">
                             
-                            <!-- Timeline Pulsing Green Beacon -->
-                            <div class="absolute -left-[11px] top-8 size-5 rounded-full bg-emerald-500 live-beacon ring-4 ring-white dark:ring-[#0b1120] z-20"></div>
+                            <!-- Timeline Completed Emerald Beacon -->
+                            <div class="absolute -left-[11px] top-8 size-5 rounded-full bg-emerald-500 ring-4 ring-white dark:ring-[#0b1120] z-20 flex items-center justify-center text-white shadow-md shadow-emerald-500/50">
+                                <span class="material-symbols-outlined text-[13px] font-black">check</span>
+                            </div>
 
                             <!-- Mega Featured Glassmorphism Card -->
                             <div class="glass-featured-card rounded-3xl p-6 sm:p-10 transition-all duration-500 hover:shadow-2xl overflow-hidden backdrop-blur-2xl">
@@ -337,10 +339,10 @@
                                         </div>
 
                                         <div class="flex flex-col gap-1.5">
-                                            <!-- Currently Working Animated Badge -->
-                                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-black uppercase tracking-wider w-fit">
-                                                <span class="size-2 rounded-full bg-emerald-500 animate-ping"></span>
-                                                <span>CURRENTLY WORKING</span>
+                                            <!-- Completed & Verified Badge -->
+                                            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-black uppercase tracking-wider w-fit">
+                                                <span class="material-symbols-outlined text-sm text-emerald-500">verified</span>
+                                                <span>COMPLETED &amp; VERIFIED INTERNSHIP</span>
                                             </div>
 
                                             <h2 class="text-2xl sm:text-3xl font-black font-display text-slate-900 dark:text-white leading-tight">
@@ -349,7 +351,7 @@
 
                                             <div class="flex flex-wrap items-center gap-y-1 gap-x-3 text-sm text-slate-600 dark:text-slate-300 font-semibold">
                                                 <span class="text-primary font-bold flex items-center gap-1">
-                                                    <span class="material-symbols-outlined text-base">domain</span> Innovexis
+                                                    <span class="material-symbols-outlined text-base">domain</span> Innovexis Pvt. Ltd.
                                                 </span>
                                                 <span class="text-slate-400">•</span>
                                                 <span class="flex items-center gap-1 text-slate-500 dark:text-slate-400 font-medium">
@@ -357,21 +359,24 @@
                                                 </span>
                                                 <span class="text-slate-400">•</span>
                                                 <span class="flex items-center gap-1 text-slate-500 dark:text-slate-400 font-medium">
-                                                    <span class="material-symbols-outlined text-base text-amber-500">calendar_month</span> Jul 2026 – Present
+                                                    <span class="material-symbols-outlined text-base text-amber-500">calendar_month</span> 01-Jul-2026 – 01-Oct-2026
                                                 </span>
                                                 <span class="text-slate-400">•</span>
-                                                <span class="px-2.5 py-0.5 rounded-full bg-blue-500/10 text-primary dark:text-blue-400 font-bold text-xs">
-                                                    ⌛ 3 Months Duration
+                                                <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center gap-1">
+                                                    <span>🏆</span> 3 Months Completed
                                                 </span>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <!-- Quick Summary Pill -->
-                                    <div class="lg:self-center shrink-0">
+                                    <!-- Quick Summary Pill & Registration -->
+                                    <div class="lg:self-center shrink-0 flex flex-col items-start lg:items-end gap-1.5">
                                         <span class="inline-flex items-center gap-2 px-4 py-2 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs font-bold text-slate-700 dark:text-slate-300 shadow-sm">
                                             <span class="material-symbols-outlined text-sm text-cyan-500">psychology</span>
                                             AI &amp; Generative Solutions
+                                        </span>
+                                        <span class="text-[10px] font-mono text-slate-400">
+                                            CIN: U78300MH2024PTC426350
                                         </span>
                                     </div>
                                 </div>
@@ -379,7 +384,7 @@
                                 <!-- Executive Role Narrative -->
                                 <div class="my-6">
                                     <p class="text-slate-700 dark:text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
-                                        Building intelligent AI-powered applications and working on real-world data science projects. Developing machine learning and deep learning pipelines, implementing cutting-edge LLM systems, and collaborating with cross-functional development teams to deploy high-impact AI solutions.
+                                        Successfully completed an intensive 3-month production internship at <strong>Innovexis Pvt. Ltd.</strong> (backed by IntelliHire Staffing Solution Pvt. Ltd.). Spearheaded end-to-end data pipelines, predictive machine learning models, statistical analyses, and Generative AI application workflows. Collaborated with cross-functional engineering teams using Python, Pandas, NumPy, Scikit-learn, and SQL. Awarded both an official <strong>Certificate of Internship</strong> and a distinguished <strong>Letter of Recommendation (LOR)</strong> from Founder / CEO Arushi Mittal commending technical expertise, problem-solving mindset, and dedication.
                                     </p>
                                 </div>
 
@@ -510,6 +515,120 @@
                                         <span class="tech-chip px-3.5 py-1.5 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20 text-xs font-extrabold flex items-center gap-1.5 shadow-sm">
                                             <span>📈</span> Data Analysis
                                         </span>
+                                    </div>
+                                </div>
+
+                                <!-- ══════════════════════════════════════════════════════ -->
+                                <!-- ATTACHED CREDENTIALS: CERTIFICATE & LOR SHOWCASE        -->
+                                <!-- ══════════════════════════════════════════════════════ -->
+                                <div class="pt-8 mt-6 border-t border-slate-200/80 dark:border-slate-700/60 flex flex-col gap-5">
+                                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                                        <div class="flex items-center gap-2">
+                                            <span class="material-symbols-outlined text-emerald-500 text-xl">verified_user</span>
+                                            <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white font-display">
+                                                Official Internship Credentials &amp; Recommendation
+                                            </h3>
+                                        </div>
+                                        <span class="text-xs font-mono text-slate-500 dark:text-slate-400">
+                                            Backed by IntelliHire Staffing Solution Pvt. Ltd.
+                                        </span>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                                        
+                                        <!-- CARD 1: CERTIFICATE OF INTERNSHIP -->
+                                        <div class="rounded-2xl p-5 sm:p-6 border border-emerald-500/30 bg-gradient-to-br from-emerald-50/50 via-white to-slate-50/60 dark:from-slate-900/90 dark:via-[#0c1829] dark:to-slate-900/90 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group/cert">
+                                            <div class="flex flex-col gap-4">
+                                                <div class="flex items-center justify-between">
+                                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-600 dark:text-emerald-400 text-[11px] font-black uppercase tracking-wider">
+                                                        <span class="material-symbols-outlined text-sm">verified</span> Verified Certificate
+                                                    </span>
+                                                    <span class="text-[11px] font-mono text-slate-400">
+                                                        Date: 02.10.2026
+                                                    </span>
+                                                </div>
+
+                                                <!-- Preview Thumbnail Frame -->
+                                                <div class="relative aspect-[16/11] rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-950 shadow-md group-hover/cert:border-emerald-500/50 transition-all cursor-pointer" onclick="openDocPreview('images/certs/innovexis_internship_certificate.png', 'Innovexis Pvt. Ltd. - Certificate of Internship')">
+                                                    <img src="images/certs/innovexis_internship_certificate.png" alt="Navari Yashwanth Reddy - Innovexis Certificate of Internship" class="w-full h-full object-contain p-1 group-hover/cert:scale-[1.03] transition-transform duration-500" />
+                                                    <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover/cert:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white text-xs font-bold backdrop-blur-[2px]">
+                                                        <span class="material-symbols-outlined text-lg">zoom_in</span> Click to Enlarge Preview
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <h4 class="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-tight">
+                                                        Certificate of Internship
+                                                    </h4>
+                                                    <p class="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                                                        Awarded to <strong>Navari Yashwanth Reddy</strong> for successfully finishing the 03-month Data Science with Gen AI Internship at <strong>Innovexis Pvt. Ltd.</strong>
+                                                    </p>
+                                                    <div class="mt-2.5 pt-2.5 border-t border-slate-200/60 dark:border-slate-800 flex flex-wrap items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono gap-2">
+                                                        <span>Signatory: <b>Arushi Mittal</b> (Founder / CEO)</span>
+                                                        <span>CIN: U78300MH2024PTC426350</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Action Buttons -->
+                                            <div class="flex flex-wrap items-center gap-2.5 pt-4 mt-4 border-t border-slate-200/60 dark:border-slate-800">
+                                                <a href="images/certs/innovexis_internship_certificate.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-bold text-xs shadow-md shadow-emerald-500/20 transition-all hover:scale-[1.02]">
+                                                    <span class="material-symbols-outlined text-base">visibility</span> View Certificate PDF
+                                                </a>
+                                                <a href="Navari_Yashwanth_Reddy_navariyashwanthreddy_f214a5_Certificate.pdf" download class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl font-bold text-xs transition-all border border-slate-200 dark:border-slate-700" title="Download Official Certificate PDF">
+                                                    <span class="material-symbols-outlined text-base">download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <!-- CARD 2: LETTER OF RECOMMENDATION (LOR) -->
+                                        <div class="rounded-2xl p-5 sm:p-6 border border-blue-500/30 bg-gradient-to-br from-blue-50/50 via-white to-slate-50/60 dark:from-slate-900/90 dark:via-[#09152b] dark:to-slate-900/90 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group/lor">
+                                            <div class="flex flex-col gap-4">
+                                                <div class="flex items-center justify-between">
+                                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/25 text-blue-600 dark:text-blue-400 text-[11px] font-black uppercase tracking-wider">
+                                                        <span class="material-symbols-outlined text-sm">recommend</span> Executive LOR
+                                                    </span>
+                                                    <span class="text-[11px] font-mono text-slate-400">
+                                                        Date: 2 October 2026
+                                                    </span>
+                                                </div>
+
+                                                <!-- Preview Thumbnail Frame -->
+                                                <div class="relative aspect-[16/11] rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-950 shadow-md group-hover/lor:border-blue-500/50 transition-all cursor-pointer" onclick="openDocPreview('images/certs/innovexis_internship_letter.png', 'Innovexis Leadership - Letter Of Recommendation')">
+                                                    <img src="images/certs/innovexis_internship_letter.png" alt="Navari Yashwanth Reddy - Innovexis Letter Of Recommendation" class="w-full h-full object-contain p-1 group-hover/lor:scale-[1.03] transition-transform duration-500" />
+                                                    <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover/lor:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white text-xs font-bold backdrop-blur-[2px]">
+                                                        <span class="material-symbols-outlined text-lg">zoom_in</span> Click to Enlarge Preview
+                                                    </div>
+                                                </div>
+
+                                                <div>
+                                                    <h4 class="text-base sm:text-lg font-black text-slate-900 dark:text-white leading-tight">
+                                                        Letter Of Recommendation (LOR)
+                                                    </h4>
+                                                    
+                                                    <!-- Leadership Quote Blockquote -->
+                                                    <div class="p-3 my-2 rounded-xl bg-blue-50/80 dark:bg-slate-800/60 border-l-4 border-blue-500 text-xs italic text-slate-700 dark:text-slate-300 leading-relaxed">
+                                                        &ldquo;Demonstrated an excellent understanding of statistical analysis, machine learning algorithms, and data-driven decision-making... proactive, detail-oriented... highly recommend Navari for any role in Data Science.&rdquo;
+                                                    </div>
+
+                                                    <div class="pt-2 flex flex-wrap items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 font-mono gap-2">
+                                                        <span>Endorser: <b>Arushi Mittal</b> (Founder / CEO)</span>
+                                                        <span>Period: 01-Jul-2026 to 01-Oct-2026</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Action Buttons -->
+                                            <div class="flex flex-wrap items-center gap-2.5 pt-4 mt-4 border-t border-slate-200/60 dark:border-slate-800">
+                                                <a href="images/certs/innovexis_internship_letter.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs shadow-md shadow-blue-500/20 transition-all hover:scale-[1.02]">
+                                                    <span class="material-symbols-outlined text-base">description</span> View Official LOR PDF
+                                                </a>
+                                                <a href="Navari_Yashwanth_Reddy_navariyashwanthreddy_f214a5_letter.pdf" download class="inline-flex items-center justify-center gap-1 px-3 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-xl font-bold text-xs transition-all border border-slate-200 dark:border-slate-700" title="Download Official Letter PDF">
+                                                    <span class="material-symbols-outlined text-base">download</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
 
@@ -892,7 +1011,32 @@
         </div>
     </footer>
 
-    <!-- Filter JavaScript -->
+    <!-- Document Preview Lightbox Modal -->
+    <div id="doc-preview-modal" class="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md hidden flex items-center justify-center p-3 sm:p-6 transition-all duration-300" onclick="if(event.target === this) closeDocPreview()">
+        <div class="relative w-full max-w-4xl max-h-[92vh] bg-slate-900 border border-slate-700/80 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-5 py-3.5 border-b border-slate-800 bg-slate-950/70">
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <span class="material-symbols-outlined text-emerald-400 text-xl shrink-0">verified</span>
+                    <h3 id="doc-modal-title" class="text-sm sm:text-base font-bold text-white font-display truncate">Document Preview</h3>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                    <a id="doc-modal-open-link" href="#" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition-all border border-slate-700">
+                        <span class="material-symbols-outlined text-sm">open_in_new</span> Open Full PDF
+                    </a>
+                    <button type="button" onclick="closeDocPreview()" class="size-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-all" title="Close Preview">
+                        <span class="material-symbols-outlined text-lg">close</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Modal Body (Image Preview) -->
+            <div class="relative flex-1 overflow-auto p-3 sm:p-6 flex items-center justify-center bg-slate-950/50">
+                <img id="doc-modal-img" src="" alt="Document Preview" class="max-h-[75vh] w-auto max-w-full object-contain rounded-xl shadow-2xl border border-slate-800" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter & Preview JavaScript -->
     <script>
         // Category Filter Logic
         function filterExperience(category, btnEl) {
@@ -914,6 +1058,34 @@
                 }
             });
         }
+
+        // Document Preview Lightbox Logic
+        function openDocPreview(imgSrc, title) {
+            const modal = document.getElementById('doc-preview-modal');
+            const modalImg = document.getElementById('doc-modal-img');
+            const modalTitle = document.getElementById('doc-modal-title');
+            const openLink = document.getElementById('doc-modal-open-link');
+            if (!modal || !modalImg) return;
+            modalImg.src = imgSrc;
+            if (modalTitle) modalTitle.textContent = title || 'Document Preview';
+            if (openLink) {
+                const pdfSrc = imgSrc.replace('.png', '.pdf');
+                openLink.href = pdfSrc;
+            }
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDocPreview() {
+            const modal = document.getElementById('doc-preview-modal');
+            if (!modal) return;
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeDocPreview();
+        });
     </script>
     <script src="js/interactions.js"></script>
     <script src="js/palette.js"></script>
